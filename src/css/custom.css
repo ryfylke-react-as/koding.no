@@ -1,0 +1,54 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap");
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #ac1b61;
+  --ifm-color-primary-dark: #9b1857;
+  --ifm-color-primary-darker: #921752;
+  --ifm-color-primary-darkest: #781344;
+  --ifm-color-primary-light: #bd1e6b;
+  --ifm-color-primary-lighter: #c61f70;
+  --ifm-color-primary-lightest: #dd267e;
+  --ifm-background-color: #fff7f5;
+  --ifm-font-family-base: "Ubuntu", system-ui, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme="dark"] {
+  --ifm-navbar-background-color: transparent;
+  --ifm-color-primary: #ecb889;
+  --ifm-color-primary-dark: #e7a569;
+  --ifm-color-primary-darker: #e49b59;
+  --ifm-color-primary-darkest: #dc7e29;
+  --ifm-color-primary-light: #f1cba9;
+  --ifm-color-primary-lighter: #f4d5b9;
+  --ifm-color-primary-lightest: #fcf2e9;
+  --ifm-background-color: #232534;
+}
+
+nav {
+  --ifm-navbar-background-color: var(
+    --ifm-background-color
+  ) !important;
+}
+
+footer {
+  --ifm-footer-color: var(--ifm-navbar-link-color) !important;
+  --ifm-footer-link-color: var(
+    --ifm-navbar-link-color
+  ) !important;
+  --ifm-footer-background-color: var(
+    --ifm-background-color
+  ) !important;
+  --ifm-footer-title-color: var(
+    --ifm-navbar-link-color
+  ) !important;
+}
