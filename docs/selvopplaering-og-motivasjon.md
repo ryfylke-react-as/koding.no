@@ -3,7 +3,7 @@ title: Selvopplæring og motivasjon
 sidebar_position: 2
 ---
 
-import Image from "../static/img/Blueprint.png";
+import BluePrint from "../static/img/Blueprint.svg";
 
 # Selvopplæring og motivasjon
 
@@ -48,8 +48,14 @@ Da blir du tvunget til å formulere tankene dine i ord.
 
 ### 3. <span style={{color: "var(--ifm-color-primary)"}}>Ta i bruk</span> lærdommene
 
-<img src={Image} style={{width: "300px", maxWidth: "100%", float: "right" }} />
+<BluePrint style={{width: "300px", height: "300px", maxWidth: "100%", float: "right" }} />
 
 Når du har lært deg noe nytt, så er den beste måten å spikre det inn på å bruke det i praksis. Start gjerne mange forskjellige prosjekter med hovedformål om å bare teste ut nye teknologier eller lærdommer.
 
 Husk at det å lære å kode kan ta tid, men det er mange trinn langs veien hvor du kan føle deg stolt og fornøyd med deg selv.
+
+## Vær tålmodig
+
+Det fins mange ressurser på nett som forteller deg at du kan være jobb-klar innen noen få måneder. Dette kan kanskje stemme for de som jobber veldig produktivt og hardt i løpet av de månedene, men for de _aller_ fleste, så krever det opptil flere kurs og mange personlige prosjekter før man føler seg klar for jobblivet.
+
+Hvis du vil være jobb-klar kjapt, så bør du jobbe veldig aktivt, konsistent, rutinert og fokusert.

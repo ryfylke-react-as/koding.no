@@ -31,7 +31,17 @@ const config = {
     defaultLocale: "nb",
     locales: ["nb"],
   },
-
+  plugins: [
+    [
+      "@docusaurus/plugin-content-docs",
+      {
+        id: "wiki",
+        path: "wiki",
+        routeBasePath: "wiki",
+        sidebarPath: require.resolve("./sidebars.js"),
+      },
+    ],
+  ],
   presets: [
     [
       "classic",
@@ -39,7 +49,7 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
-          routeBasePath: "/ressurser",
+          routeBasePath: "/opplaering",
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
@@ -79,6 +89,12 @@ const config = {
             position: "left",
             label: "Selvopplæring",
           },
+          {
+            to: "/wiki",
+            activeBaseRegex: "/wiki/",
+            position: "left",
+            label: "Wiki",
+          },
           { to: "/blog", label: "Blogg", position: "left" },
         ],
       },
@@ -86,27 +102,27 @@ const config = {
         style: "dark",
         links: [
           {
-            title: "Ressurser",
+            title: "Opplæring",
             items: [
               {
                 label: "Frontend",
-                to: "/ressurser/intro",
+                to: "/opplaering/intro",
               },
               {
                 label: "Backend",
-                to: "/ressurser/intro",
+                to: "/opplaering/intro",
               },
               {
                 label: "App-utvikling",
-                to: "/ressurser/intro",
+                to: "/opplaering/intro",
               },
               {
                 label: "DevOps",
-                to: "/ressurser/intro",
+                to: "/opplaering/intro",
               },
               {
                 label: "Maskinlæring",
-                to: "/ressurser/intro",
+                to: "/opplaering/intro",
               },
             ],
           },
