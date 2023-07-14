@@ -88,3 +88,7 @@ footer {
 .footer__copyright {
   display: none;
 }
+
+.theme-doc-footer {
+  padding-top: 1rem;
+}

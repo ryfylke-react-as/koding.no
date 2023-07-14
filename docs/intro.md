@@ -11,8 +11,8 @@ På dette nettstedet så finner du ressurser for å komme i gang som helt ny. Vi
 
 ✅ [Finn ut om koding er noe for deg](#er-koding-noe-for-deg)  
 ✅ [Bestem hvilket fagområdet som passer deg best](./finn-fagomrade)  
-✅ Grunnlegede konspeter  
-✅ Tips om selvopplæring og motivasjon  
+✅ Grunnlegede konsepter  
+✅ [Tips om selvopplæring og motivasjon](./selvopplaering-og-motivasjon.md)  
 ✅ Å finne ressurser for ditt fagområde  
 ✅ Neste steget videre i jobblivet
 

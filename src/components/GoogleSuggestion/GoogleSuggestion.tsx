@@ -20,6 +20,7 @@ export function GoogleSuggestion(props: Props) {
         gap: "0.5rem",
         alignItems: "center",
         marginBottom: "1rem",
+        fontFamily: "monospace",
       }}
     >
       <svg
