@@ -10,7 +10,7 @@ sidebar_position: 1
 På dette nettstedet så finner du ressurser for å komme i gang som helt ny. Vi hjelper deg med følgende:
 
 ✅ [Finn ut om koding er noe for deg](#er-koding-noe-for-deg)  
-✅ [Bestem hvilket fagområdet som passer deg best](./finn-fagomrade)  
+✅ [Bestem hvilket fagområdet som passer deg best](./fagomrader)  
 ✅ Grunnlegede konsepter  
 ✅ [Tips om selvopplæring og motivasjon](./selvopplaering-og-motivasjon)  
 ✅ Å finne ressurser for ditt fagområde  
