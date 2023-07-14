@@ -14,13 +14,12 @@ export function GoogleSuggestion(props: Props) {
       rel="noopener noreferrer"
       style={{
         padding: "0.5rem 1rem",
-        background: "var(--ifm-color-emphasis-200)",
-        color: "var(--ifm-font-color-base)",
+        background: "var(--ifm-background-surface-color)",
+        color: "var(--ifm-color-emphasis-900)",
         display: "flex",
         gap: "0.5rem",
         alignItems: "center",
         marginBottom: "1rem",
-        fontFamily: "monospace",
       }}
     >
       <svg
@@ -46,7 +45,7 @@ export function GoogleSuggestion(props: Props) {
       <span
         style={{
           color: "var(--ifm-font-color-secondary)",
-          opacity: 1,
+          opacity: 0.6,
         }}
       >
         Google søk

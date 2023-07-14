@@ -38,76 +38,104 @@ export const UtdanningNoBox = <T extends string>(props: {
 
   const yrke = data[props.id];
 
-  const total =
-    yrke.sektor_antall_arbeidsledig +
-    yrke.sektor_antall_iutdanning +
-    yrke.sektor_antall_ikkearbeid +
-    yrke.sektor_antall_offentlig +
-    yrke.sektor_antall_privat +
-    yrke.sektor_antall_selvstendig;
+  const keys = [
+    "sektor_antall_offentlig",
+    "sektor_antall_privat",
+    "sektor_antall_selvstendig",
+    "sektor_antall_ikkearbeid",
+    "sektor_antall_iutdanning",
+    "sektor_antall_arbeidsledig",
+  ];
+
+  const total = keys.reduce((acc, key) => acc + yrke[key], 0);
 
   const percent = (number) => {
-    return `${((number / total) * 100).toFixed(2)}%`;
+    return `${((number / total) * 100).toFixed(1)}%`;
   };
 
   return (
     <div
+      className="card"
       style={{
-        background: "var(--ifm-background-surface-color)",
-        padding: "1rem",
-        width: "max-content",
-        maxWidth: "100%",
-        border: "1px solid var(--ifm-blockquote-border-color)",
         display: "flex",
         flexDirection: "column",
         gap: "1rem",
+        width: "max-content",
+        maxWidth: "100%",
       }}
     >
-      <div>
-        <strong>{yrke.tittel}</strong> (
-        <a href={yrke.url}>Utdanning.no</a>)
+      <div className="card__header shadow-tl">
+        <h3>
+          <a href={yrke.url}>Utdanning.no</a>: {yrke.tittel}
+        </h3>
       </div>
-      <table style={{ width: "100%" }}>
-        <thead>
-          <tr>
-            <th>Kategori</th>
-            <th>Antall personer</th>
-            <th>Prosentandel</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Offentlig sektor</td>
-            <td>{yrke.sektor_antall_offentlig}</td>
-            <td>{percent(yrke.sektor_antall_offentlig)}</td>
-          </tr>
-          <tr>
-            <td>Privat sektor</td>
-            <td>{yrke.sektor_antall_privat}</td>
-            <td>{percent(yrke.sektor_antall_privat)}</td>
-          </tr>
-          <tr>
-            <td>Selvstendig næringsdrivende</td>
-            <td>{yrke.sektor_antall_selvstendig}</td>
-            <td>{percent(yrke.sektor_antall_selvstendig)}</td>
-          </tr>
-          <tr>
-            <td>Ikke i arbeid </td>
-            <td>{yrke.sektor_antall_ikkearbeid}</td>
-            <td>{percent(yrke.sektor_antall_ikkearbeid)}</td>
-          </tr>
-          <tr>
-            <td>I utdanning</td>
-            <td>{yrke.sektor_antall_iutdanning}</td>
-            <td>{percent(yrke.sektor_antall_iutdanning)}</td>
-          </tr>
-          <tr>
-            <td>Arbeidsledig</td>
-            <td>{yrke.sektor_antall_arbeidsledig}</td>
-            <td>{percent(yrke.sektor_antall_arbeidsledig)}</td>
-          </tr>
-        </tbody>
-      </table>
+      <div className="card__body">
+        <table style={{ width: "100%" }}>
+          <thead>
+            <tr>
+              <th>Kategori</th>
+              <th>Antall personer</th>
+              <th>Prosentandel</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Offentlig sektor</td>
+              <td>{yrke.sektor_antall_offentlig}</td>
+              <td>
+                <div className="badge badge--secondary">
+                  {percent(yrke.sektor_antall_offentlig)}
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>Privat sektor</td>
+              <td>{yrke.sektor_antall_privat}</td>
+              <td>
+                <div className="badge badge--secondary">
+                  {percent(yrke.sektor_antall_privat)}
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>Selvstendig næringsdrivende</td>
+              <td>{yrke.sektor_antall_selvstendig}</td>
+              <td>
+                <div className="badge badge--secondary">
+                  {percent(yrke.sektor_antall_selvstendig)}
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>Ikke i arbeid </td>
+              <td>{yrke.sektor_antall_ikkearbeid}</td>
+              <td>
+                <div className="badge badge--secondary">
+                  {percent(yrke.sektor_antall_ikkearbeid)}
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>I utdanning</td>
+              <td>{yrke.sektor_antall_iutdanning}</td>
+              <td>
+                <div className="badge badge--secondary">
+                  {percent(yrke.sektor_antall_iutdanning)}
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>Arbeidsledig</td>
+              <td>{yrke.sektor_antall_arbeidsledig}</td>
+              <td>
+                <div className="badge badge--secondary">
+                  {percent(yrke.sektor_antall_arbeidsledig)}
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };
