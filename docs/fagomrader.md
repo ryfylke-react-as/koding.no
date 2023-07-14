@@ -5,6 +5,7 @@ sidebar_position: 3
 
 import Engineer from "../static/img/engineer.svg";
 import Gaming from "../static/img/gaming.svg";
+import {UtdanningNoBox} from "../src/components/UtdanningNoBox/UtdanningNoBox.tsx";
 
 # Finn ditt fagområde
 
@@ -23,7 +24,14 @@ Man skiller ofte innenfor systemutvikling mellom frontendere og backendere.
 
 Dette er altså 3 ulike yrkeveier du kan velge å gå for.
 
+<UtdanningNoBox id="y_systemutvikler" />
+
 ## Spill programmering
 
 Som spillprogrammerer så jobber man på å utvikle spillopplevelser.
+
 <Gaming style={{ width: "200px", height: "200px", maxWidth: "100%"}} />
+
+Jobben innebærer blant annet å skrive kunstige intelligenser for spill, simuleringer og spillopplevelser.
+
+<UtdanningNoBox id="y_spillprogrammerer" />

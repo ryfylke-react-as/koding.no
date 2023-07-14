@@ -38,4 +38,4 @@ Felles for alle disse fagområdene er egenskaper som
 - God kommunikasjonsevne
 - Interresse for ny teknologi
 
-Det meste av programvare og nettsted er utviklet av en kombinasjon av backend og frontend utviklere.
+Det meste av programvare og nettsted er utviklet av en kombinasjon av backend og frontend utviklere, i tillegg til designere og planleggere.
