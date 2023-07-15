@@ -7,7 +7,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "Koding.no",
-  tagline: "Lær koding, ved hjelp fra oss.",
+  tagline: "Lær koding, ved hjelp fra norske utviklere.",
   favicon: "img/logo.svg",
 
   // Set the production url of your site here

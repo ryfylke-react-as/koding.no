@@ -93,15 +93,15 @@ footer {
 }
 
 .hero {
-  background-image: url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='20' height='20' patternTransform='scale(5) rotate(80)'><rect x='0' y='0' width='100%' height='100%' fill='hsla(331, 73%, 39%, 1)'/><path d='M10-6V6M10 14v12M26 10H14M6 10H-6'  stroke-linecap='square' stroke-width='1.5' stroke='hsla(331, 73%, 51%, 1)' fill='none'/></pattern></defs><rect width='800%' height='800%' transform='translate(-60,0)' fill='url(%23a)'/></svg>");
+  background-image: url("/img/hero-bg.png");
 }
 
 [data-theme="dark"] .hero {
-  background-image: url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='20' height='20' patternTransform='scale(5) rotate(80)'><rect x='0' y='0' width='100%' height='100%' fill='hsla(28, 72%, 73%, 1)'/><path d='M10-6V6M10 14v12M26 10H14M6 10H-6'  stroke-linecap='square' stroke-width='1.5' stroke='hsla(28, 72%, 80%, 1)' fill='none'/></pattern></defs><rect width='800%' height='800%' transform='translate(-60,0)' fill='url(%23a)'/></svg>");
+  background-image: url("/img/hero-bg-dm.png");
 }
 
 .hero .container {
-  background: rgba(255, 255, 255, 0.01);
+  background: rgba(255, 255, 255, 0.05);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(3px);
@@ -109,5 +109,5 @@ footer {
   border: 1px solid rgba(255, 255, 255, 0.25);
   width: max-content;
   max-width: "100%";
-  padding: 2rem;
+  padding: 3rem 4rem;
 }

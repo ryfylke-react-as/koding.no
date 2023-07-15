@@ -33,7 +33,7 @@ export default function Home(): JSX.Element {
   return (
     <Layout
       title={`Hjem`}
-      description="Lær koding ved hjelp av frivilige bidragsytere!"
+      description="Lær koding ved hjelp av norske utviklere!"
     >
       <HomepageHeader />
       <main>
