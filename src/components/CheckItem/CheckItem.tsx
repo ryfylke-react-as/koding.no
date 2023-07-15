@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 export type CheckItem = {
   id: string;
@@ -6,13 +6,18 @@ export type CheckItem = {
 };
 
 export const CheckItem = ({ id, label }: CheckItem) => {
-  const [checked, setChecked] = React.useState(
-    localStorage.getItem(id) === "true"
-  );
+  const [checked, setChecked] = React.useState(false);
   const onChange = () => {
     setChecked(!checked);
     localStorage.setItem(id, (!checked).toString());
   };
+
+  useEffect(() => {
+    const checked = localStorage.getItem(id);
+    if (checked) {
+      setChecked(checked === "true");
+    }
+  }, []);
   return (
     <label
       className="row"
