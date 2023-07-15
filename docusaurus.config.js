@@ -87,7 +87,7 @@ const config = {
             type: "docSidebar",
             sidebarId: "tutorialSidebar",
             position: "left",
-            label: "Selvopplæring",
+            label: "Lær koding",
           },
           {
             to: "/wiki",
