@@ -95,6 +95,8 @@ export const RelevantLinks = (props: Props) => {
       style={{
         background: "var(--ifm-color-info-contrast-background)",
         padding: "1rem",
+        position: "relative",
+        isolation: "isolate",
         ...(props.float
           ? props.float === "left"
             ? {
@@ -114,6 +116,30 @@ export const RelevantLinks = (props: Props) => {
             }),
       }}
     >
+      <svg
+        style={{
+          position: "absolute",
+          bottom: -25,
+          right: -25,
+          width: 82,
+          height: 82,
+          opacity: 0.7,
+          zIndex: -1,
+          stroke: "var(--ifm-background-surface-color)",
+        }}
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        strokeWidth={1.5}
+        stroke="currentColor"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244"
+        />
+      </svg>
+
       {Object.keys(props).map((key) =>
         Array.isArray(props[key]) ? (
           <div>

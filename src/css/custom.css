@@ -19,6 +19,7 @@
     Helvetica, Arial, sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  accent-color: var(--ifm-color-primary);
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
