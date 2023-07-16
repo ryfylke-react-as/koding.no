@@ -13,13 +13,6 @@ type Props = {
   float?: "left" | "right";
 };
 
-const keysToTitle = {
-  videos: "Videoer",
-  articles: "Artikler",
-  courses: "Kurs",
-  documentation: "Dokumentasjon",
-};
-
 const iconSize = 16;
 
 const keysToIcon = {
@@ -142,7 +135,7 @@ export const RelevantLinks = (props: Props) => {
 
       {Object.keys(props).map((key) =>
         Array.isArray(props[key]) ? (
-          <div>
+          <div key={key}>
             <ul
               style={{
                 padding: 0,

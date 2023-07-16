@@ -7,7 +7,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "Koding.no",
-  tagline: "Lær koding, ved hjelp fra norske utviklere.",
+  tagline: "Lær koding ved hjelp fra norske utviklere.",
   favicon: "img/logo.svg",
 
   // Set the production url of your site here
@@ -131,11 +131,11 @@ const config = {
             items: [
               {
                 label: "Discord",
-                href: "https://discordapp.com/invite/docusaurus",
+                href: "https://discord.gg/gxtAr4SzWs",
               },
               {
                 label: "Github",
-                href: "https://twitter.com/docusaurus",
+                href: "https://github.com/ryfylke-react-as/koding.no",
               },
             ],
           },
