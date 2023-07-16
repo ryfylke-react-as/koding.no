@@ -1,23 +1,58 @@
 ---
 pagination_next: veien-videre
 pagination_prev: null
+title: Frontend utvikling
 ---
 
 import { CheckItemList } from "../../src/components/CheckItemList/CheckItemList.tsx";
+import { RelevantLinks } from "../../src/components/RelevantLinks/RelevantLinks.tsx";
 
-# Frontend utvikling
+## Ansvar
 
-Hvis du er interresert i å bli en frontend utvikler, så har du kommet til rett plass.
+Som en frontend utvikler er du ansvarlig for å lage det som brukeren ser og interagerer med.
 
-:::info
-Hvis du trykker på en av checkboxene på denne siden, så lagres dette lokalt på din nettleser - slik at du kan fortsette der du slapp sist.
-:::
+Noen av tingene en frontend utvikler må tenke på er:
+
+- At nettsiden skal være tilgjengelig for alle, uavhengig av funksjonsevne
+- At nettsiden skal fungere på alle skjermstørrelser
+- At nettsiden skal være rask å laste inn, og enkelt søkbar for søkemotorer
+- At bruker-erfaringen skal være god og intuitiv
+- At nettsiden er GDPR-vennlig
+
+I praksis betyr dette at du må kunne HTML, CSS og JavaScript, og ha en forståelse over hvordan en nettside henter og lagrer informasjon på internett. I tillegg er det nyttig å kunne et rammeverk som React, Vue eller Angular.
+
+## Server og klient
+
+En frontend utvikler sin kode kjøres på brukerens datamaskin (_klienten_), og snakker med en _server_ via HTTP-protokollen. Dette er en viktig forskjell fra backend utvikling, som kjører på _serveren_.
+
+Dette betyr at du som frontend utvikler må kunne litt om hvordan en server fungerer, og hvordan du kan snakke med den via HTTP-protokollen.
+
+<RelevantLinks
+  documentation={[
+    {
+      title: "MDN: Client-Server Overview",
+      url: "https://developer.mozilla.org/en-US/docs/Learn/Server-side/First_steps/Client-Server_overview",
+    },
+  ]}
+  videos={[
+    {
+      title: "What is a Server? Servers vs Desktops Explained",
+      url: "https://www.youtube.com/watch?v=UjCDWCeHCzY",
+    },
+  ]}
+/>
 
 ## Kjernekunnskap
 
 Dine hovedmål for opplæringsfasen.
 
-### Kunnskap
+:::tip Lokal lagring
+Hvis du trykker på en av checkboxene på denne siden, så lagres dette lokalt i din nettleser.
+
+Dette er slik at du kan fortsette der du slapp neste gang du besøker siden.
+:::
+
+### Konsepter
 
 <CheckItemList
   items={[

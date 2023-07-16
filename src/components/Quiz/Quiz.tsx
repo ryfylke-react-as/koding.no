@@ -46,7 +46,12 @@ export const Quiz = <TInterface extends Interface>(
       }}
     >
       <Container>
-        <QuizTitle>{props.title}</QuizTitle>
+        <QuizTitle>
+          {props.title}{" "}
+          <span>
+            ({currentQuestion + 1}/{props.children.length})
+          </span>
+        </QuizTitle>
         {finished && props.finishScreen}
         {finished && (
           <nav className="pagination-nav">
@@ -208,6 +213,11 @@ const QuestionContainer = styled.div`
 const QuizTitle = styled.h2`
   font-size: 1rem;
   color: var(--ifm-color-primary);
+  span {
+    font-variant-numeric: normal;
+    color: var(--ifm-color-secondary-contrast-foreground);
+    font-weight: normal;
+  }
 `;
 
 const AnswerContainer = styled.div`
