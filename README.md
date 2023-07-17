@@ -1,41 +1,22 @@
-# Website
+# Koding.no
 
-This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
+Koding.no er et open-source prosjekt med hovedmål om å hjelpe å guide'e nye utviklere til å bli selvopplærte med koding.
 
-### Installation
+Koding.no er ikke en plass for
 
-```
-$ yarn
-```
+❌ Installasjon-guider  
+❌ Opplæring i kodespråk
 
-### Local Development
+Det fins allerede mer en nok av, og i mye bedre kvalitet en hva vi kan forvente å toppe.
 
-```
-$ yarn start
-```
+**Problem**: Det er veldig lett å føle seg retningsløs når man driver med selvopplæring. Det er vanskelig å vite hvilken rekkefølge man bør lære om ting i. Hvilke kurs er gode? Hvilke nettsted bør man oppsøke? Hvor er det man finner andre hjelpsomme utviklere på nett?
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+**Løsning**: Koding.no
 
-### Build
+Dette er kjerneprinsippene som nettstedet er bygd på, og jeg håper at alle som velger å bidra også følger disse prinsippene.
 
-```
-$ yarn build
-```
+## Bidra
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
+Ønsker du å bidra? Kult! Alt du trenger å kunne er [markdown](https://www.markdownguide.org/) og git!
 
-### Deployment
-
-Using SSH:
-
-```
-$ USE_SSH=true yarn deploy
-```
-
-Not using SSH:
-
-```
-$ GIT_USER=<Your GitHub username> yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+Nettstedet er bygd på toppen av [Docusaurus 2.0](https://docusaurus.io/).
