@@ -137,3 +137,15 @@ sequenceDiagram
     Klient->>Bruker: UI oppdateres
     deactivate Klient
 ```
+
+I eksempelet over så skjer det 3 requests:
+
+- Første request er det initielle requestet for å hente nettsiden. Dette requestet er en GET request, og den henter HTML filen som ligger på addressen. Server svarer med HTML-filen.
+- Det andre requestet kommer fra HTML filen, og henter CSS filen som ligger på addressen. Server svarer med CSS-filen.
+- Det tredje requestet blir sendt ut av JavaScript når bruker logger inn. Dette requestet er en POST request, og den sender brukernavn og passord til serveren. Server svarer med brukerens data, og statuskode 200 (OK).
+
+I tillegg til de 3 requestene så skjer det også en spørring fra server til database.
+Dette er en spørring som henter brukerens data fra databasen, og implisitt sjekker om brukernavn og passord er riktig.
+Brukeren eksisterer, så da svarer databasen med brukerens data.
+
+Hvis brukeren ikke eksister, så ville serveren svart klienten med statuskode 401 eller 403 (Forbudt / uautorisert).
