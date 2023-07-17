@@ -2,6 +2,7 @@
 pagination_next: veien-videre
 pagination_prev: null
 title: Frontend utvikling
+description: Som en frontend utvikler er du ansvarlig for brukergrensesnittet som brukeren ser og interagerer med.
 ---
 
 import { CheckItemList } from "../../src/components/CheckItemList/CheckItemList.tsx";
@@ -50,7 +51,14 @@ Dette betyr at du som frontend utvikler må kunne litt om hvordan en server fung
 
 På vår wiki, vil du finne en liste over ressurser som kan hjelpe deg med å lære frontend utvikling:
 
-[Frontend ressurser - Koding.no](/wiki/ressurser/frontend-ressurser)
+<RelevantLinks
+  documentation={[
+    {
+      title: "Koding.no: Frontend ressurser",
+      url: "/wiki/ressurser/frontend-ressurser",
+    },
+  ]}
+/>
 
 ## Mål
 
@@ -89,7 +97,7 @@ På vår wiki, vil du finne en liste over ressurser som kan hjelpe deg med å l�
   ]}
 />
 
-### Kodespråk
+### Kodespråk / Teknologi
 
 I denne rekkefølgen anbefaler vi deg å lære deg kodespråkene:
 
@@ -106,6 +114,11 @@ I denne rekkefølgen anbefaler vi deg å lære deg kodespråkene:
     {
       id: "fe_javascript",
       label: "3. JavaScript",
+    },
+    {
+      id: "fe_javascript-framework",
+      label:
+        "4. JavaScript rammeverk (React, eller Vue, Svelte, Angular, etc...)",
     },
   ]}
 />
@@ -124,15 +137,12 @@ I denne rekkefølgen anbefaler vi deg å lære deg kodespråkene:
       id: "fe_can-create-website",
     },
     {
-      label: "Klarer å prate med backend via HTTP requests",
+      label: "Klarer å prate med backend-API via HTTP requests",
       id: "fe_understands-requests",
     },
     {
-      label: "Klarer å prate med backend via HTTP requests",
-      id: "fe_understands-requests",
-    },
-    {
-      label: "Klarer å bruke git for versjon-kontrollering",
+      label:
+        "Klarer å integrere git i arbeidsflyten (commit, add, push, pull, merge & checkout)",
       id: "fe_understands-git",
     },
   ]}
