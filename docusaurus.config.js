@@ -112,23 +112,15 @@ const config = {
             items: [
               {
                 label: "Frontend",
-                to: "/opplaering/intro",
+                to: "/opplaering/start/frontend",
               },
               {
                 label: "Backend",
-                to: "/opplaering/intro",
+                to: "/opplaering/start/backend",
               },
               {
-                label: "App-utvikling",
-                to: "/opplaering/intro",
-              },
-              {
-                label: "DevOps",
-                to: "/opplaering/intro",
-              },
-              {
-                label: "Maskinlæring",
-                to: "/opplaering/intro",
+                label: "Spillprogrammering",
+                to: "/opplaering/start/spillprogrammering",
               },
             ],
           },
