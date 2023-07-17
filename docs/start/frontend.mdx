@@ -13,11 +13,11 @@ Som en frontend utvikler er du ansvarlig for å lage det som brukeren ser og int
 
 Noen av tingene en frontend utvikler må tenke på er:
 
-- At nettsiden skal være tilgjengelig for alle, uavhengig av funksjonsevne
-- At nettsiden skal fungere på alle skjermstørrelser
-- At nettsiden skal være rask å laste inn, og enkelt søkbar for søkemotorer
-- At bruker-erfaringen skal være god og intuitiv
-- At nettsiden er GDPR-vennlig
+- Nettsiden skal være tilgjengelig for alle, uavhengig av funksjonsevne
+- Nettsiden skal fungere på alle skjermstørrelser
+- Nettsiden skal være rask å laste inn, og enkelt søkbar for søkemotorer
+- Nettsiden skal være GDPR-vennlig
+- Bruker-erfaringen skal være god og intuitiv
 
 I praksis betyr dette at du må kunne HTML, CSS og JavaScript, og ha en forståelse over hvordan en nettside henter og lagrer informasjon på internett. I tillegg er det nyttig å kunne et rammeverk som React, Vue eller Angular.
 
@@ -29,6 +29,10 @@ Dette betyr at du som frontend utvikler må kunne litt om hvordan en server fung
 
 <RelevantLinks
   documentation={[
+    {
+      title: "Koding.no: Server, klient og HTTP",
+      url: "/wiki/server-og-klient",
+    },
     {
       title: "MDN: Client-Server Overview",
       url: "https://developer.mozilla.org/en-US/docs/Learn/Server-side/First_steps/Client-Server_overview",
@@ -57,25 +61,25 @@ Dette er slik at du kan fortsette der du slapp neste gang du besøker siden.
 <CheckItemList
   items={[
     {
-      id: "server-klient",
+      id: "fe_server-klient",
       label:
         "Hva er en server og en klient, og hvordan prater de sammen?",
     },
     {
-      id: "responsivt-design",
+      id: "fe_responsivt-design",
       label: "Hva er formålet med responsivt design?",
     },
     {
-      id: "tilgjengelighet",
+      id: "fe_tilgjengelighet",
       label:
         "Hvorfor er tilgjengelighet viktig for frontendere?",
     },
     {
-      id: "https-http",
+      id: "fe_https-http",
       label: "Hva er forskjellen på HTTPS og HTTP?",
     },
     {
-      id: "javascript-framework",
+      id: "fe_javascript-framework",
       label:
         'Hva er et "javascript framework", og hvorfor er de nyttige?',
     },
@@ -89,15 +93,15 @@ I denne rekkefølgen anbefaler vi deg å lære deg kodespråkene:
 <CheckItemList
   items={[
     {
-      id: "html",
+      id: "fe_html",
       label: "1. HTML",
     },
     {
-      id: "css",
+      id: "fe_css",
       label: "2. CSS",
     },
     {
-      id: "javascript",
+      id: "fe_javascript",
       label: "3. JavaScript",
     },
   ]}
@@ -153,15 +157,19 @@ Herunder er håndvalgte ressurser som vi anbefaler deg å bruke for å lære deg
     {
       label:
         "Kan lage en enkel nettside med HTML og CSS, ut ifra gitt design",
-      id: "can-create-website",
+      id: "fe_can-create-website",
     },
     {
       label: "Forstår ansvarsskille mellom frontend og backend",
-      id: "can-create-website",
+      id: "fe_can-create-website",
     },
     {
-      label: "Klarer å prate med backend via requests",
-      id: "understands-requests",
+      label: "Klarer å prate med backend via HTTP requests",
+      id: "fe_understands-requests",
+    },
+    {
+      label: "Klarer å prate med backend via HTTP requests",
+      id: "fe_understands-requests",
     },
   ]}
 />
