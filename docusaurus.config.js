@@ -39,6 +39,8 @@ const config = {
         path: "wiki",
         routeBasePath: "wiki",
         sidebarPath: require.resolve("./sidebars.js"),
+        editUrl:
+          "https://github.com/ryfylke-react-as/koding.no/tree/main",
       },
     ],
   ],
