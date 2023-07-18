@@ -4,34 +4,54 @@ pagination_prev: null
 sidebar_position: 2
 ---
 
+import { IconTitle } from "../src/components/IconTitle/IconTitle.tsx";
+
 # Server, klient & HTTP
 
-## Aktører
+## Introduksjon
 
-#### Klient
+Når du åpner en nettside i nettleseren din, så skjer det en rekke ting i bakgrunnen.
+
+```mermaid
+flowchart LR
+    id1(Din nettleser)
+    id3(Google.com)
+    id1-. " Forespørsel " .->id3
+    id3-. " Respons " .->id1
+```
+
+1. Først sender nettleseren din en _forespørsel_ til nettstedet om å få tilgang til nettsiden.
+2. Serveren sender en _respons_ tilbake til klienten med nettsiden sitt innhold.
+3. Klienten viser nettsiden til brukeren.
+
+Klienten og server kommuniserer med hverandre over internett ved hjelp av en standard protokoll. Denne protokollen kalles HTTP.
+
+<IconTitle icon="computer">Klient</IconTitle>
 
 Klienten er en applikasjon som kjører på brukerens datamaskin. Den er ansvarlig for å vise brukergrensesnittet og sende forespørsler til serveren.
+Dette er som regel nettleseren til brukeren.
 
-#### Server
+<IconTitle icon="server">Server</IconTitle>
 
 Serveren er en applikasjon som kjører på en server-maskin. Den er ansvarlig for å motta forespørsler fra klienten, hente data fra databasen og sende data tilbake til klienten.
+En server-maskin er bare en normal datamaskin som er spesielt konfigurert for å kjøre server-applikasjoner, og som er koblet til internett.
 
-#### Database
+<IconTitle icon="database">Database</IconTitle>
 
-Databasen er en applikasjon som kjører på en server-maskin. Den er ansvarlig for å lagre data.
+Databasen er en applikasjon som kjører på en server-maskin. Den er ansvarlig for å lagre og hente data på en effektiv måte.
+Serveren kommuniserer med databasen for å hente og lagre data. Klienten snakker aldri direkte med databasen.
 
 ## HTTP
 
-HTTP er et protokoll for å sende data over nettverk. HTTP er basert på forespørsler og svar. En klient sender en forespørsel til en server, og serveren sender et svar tilbake til klienten.
+HTTP er en _protokoll_ for å sende data over nettverk. HTTP er basert på forespørsler og svar. En klient sender en forespørsel til en server, og serveren sender et svar tilbake til klienten.
 
 #### HTTPS
 
-HTTPS er en sikker versjon av HTTP. HTTPS krypterer dataene som sendes over nettverket, slik at de ikke kan leses av andre.
+HTTPS er en sikker versjon av HTTP. HTTPS krypterer dataene som sendes over nettverket, slik at de ikke kan leses av andre på veien.
 
 ### Forespørsel
 
-En forespørsel ("request") består av en **metode**, en **URL** og et sett med **headere**. En forespørsel kan også inneholde et body.
-Svaret blir ofte kalt en respons ("response").
+En forespørsel (request) er en slags melding som klienten sender til serveren. Denne meldingen inneholder informasjon om hva klienten ønsker å gjøre, og er bygget opp av følgende deler:
 
 #### Metode
 
@@ -44,14 +64,7 @@ En forespørsel kan ha en av følgende metoder:
 
 #### URL
 
-En URL er en adresse som identifiserer en ressurs på en server. En URL kan ha følgende deler:
-
-- Protokoll: `http://` eller `https://`
-- Host: `www.example.com`
-- Port: `:80`
-- Path: `/index.html`
-- Query: `?page=1`
-- Fragment: `#section-1`
+En URL er en adresse som identifiserer en ressurs på en server.
 
 #### Headere
 
@@ -65,14 +78,14 @@ Accept: text/html
 
 En forespørsel kan ha en body. En body inneholder data som blir sendt til serveren.
 
-### Eksempel på forespørsel
+#### Eksempel på forespørsel fra klient til server
 
 ```http
 GET http://www.example.com/index.html
 Accept: text/html
 ```
 
-I kode vil dette typisk se slik ut:
+I JavaScript kode vil dette typisk se slik ut:
 
 ```js
 fetch("http://www.example.com/index.html", {
@@ -83,9 +96,10 @@ fetch("http://www.example.com/index.html", {
 });
 ```
 
-### Svar fra server til klient (respons)
+### Respons
 
-Et svar består av en **statuskode**, et sett med **headere** og en **body**.
+En respons er et svar fra serveren til klienten. Dette svaret inneholder informasjon om hva som skjedde med forespørselen,
+og er bygget opp av en statuskode, headere og en body.
 
 #### Statuskode
 
@@ -98,9 +112,32 @@ En statuskode forteller klienten om forespørselen var vellykket eller ikke. En 
 
 Et svar med statuskode `200` betyr at forespørselen var vellykket. Et svar med statuskode `404` betyr at ressursen ikke ble funnet.
 
-#### Body
+#### Eksempel på respons fra server til klient
 
-Et svar kan ha en body. En body blir brukt til å sende data til klienten, for eksempel HTML, CSS, JavaScript eller JSON.
+- Status kode:
+
+  ```http
+  200 OK
+  ```
+
+- Headere:
+
+  ```http
+  Access-Control-Allow-Origin: *
+  Content-Type: application/json
+  ```
+
+- Body (JSON):
+  ```json
+  {
+    "id": 1,
+    "name": "Ola Nordmann",
+    "age": 42
+  }
+  ```
+
+Body kan også være HTML, CSS, JavaScript, bilder, videoer, eller andre typer data. JSON er bare en av mange måter å representere data på.
+Hvilke type data som sendes blir hintet til av `Content-Type` headeren.
 
 ## Visuell representasjon av HTTP
 
@@ -118,9 +155,9 @@ sequenceDiagram
     deactivate Server
     Klient->>Server: GET: /styles.css
     activate Server
-    Server-->>Klient: 200: styles.css
+    Server->>Klient: 200: styles.css
     deactivate Server
-    Klient->>Bruker: Vis nettside
+    Klient->>Bruker: Nettside vises
     deactivate Klient
     Bruker-->>Klient: Logger inn
     activate Klient
