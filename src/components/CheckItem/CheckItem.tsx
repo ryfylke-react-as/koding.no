@@ -87,4 +87,9 @@ const StyledLabel = styled.label`
       transform: translate(50%, -50%);
     }
   }
+  &:active {
+    &::before {
+      opacity: 1;
+    }
+  }
 `;
