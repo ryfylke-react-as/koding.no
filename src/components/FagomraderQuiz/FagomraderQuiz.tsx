@@ -24,7 +24,7 @@ export const FagomraderQuiz = () => {
       algoritmer: ["backend", "gaming"],
       puslespill: ["backend"],
     };
-    const result: Record<string, number> = {};
+
     for (const key in answers) {
       const answer = answers[key];
       if (answer === "Stemmer ikke") {
