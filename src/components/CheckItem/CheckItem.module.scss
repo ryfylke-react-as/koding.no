@@ -34,4 +34,10 @@
       opacity: 1;
     }
   }
+  &:has(:focus-visible) {
+    outline: 1px solid var(--ifm-color-primary);
+  }
+  input {
+    outline: none;
+  }
 }
