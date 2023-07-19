@@ -16,6 +16,7 @@ export function useLocalStorageState<T>(
   opts: UseLocalStorageOpts<T>
 ): [T, (value: T) => void] {
   const initialValue = React.useMemo(() => {
+    if (typeof window === "undefined") return opts.defaultValue;
     const ls = localStorage.getItem(opts.id);
     return ls
       ? "deserialize" in opts

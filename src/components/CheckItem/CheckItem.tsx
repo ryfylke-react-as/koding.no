@@ -1,6 +1,6 @@
+import BrowserOnly from "@docusaurus/BrowserOnly";
 import { useLocalStorageState } from "@site/src/hooks/useLocalStorage";
-import React, { useEffect, useState } from "react";
-import ConfettiExplosion from "react-confetti-explosion";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 export type CheckItem = {
@@ -39,17 +39,25 @@ export const CheckItem = ({ id, label }: CheckItem) => {
         }}
       />
       {isExploding && (
-        <ConfettiExplosion
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
+        <BrowserOnly>
+          {() => {
+            const ConfettiExplosion =
+              require("react-confetti-explosion").default;
+            return (
+              <ConfettiExplosion
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                }}
+                force={0.4}
+                duration={2200}
+                particleCount={30}
+                width={400}
+              />
+            );
           }}
-          force={0.4}
-          duration={2200}
-          particleCount={30}
-          width={400}
-        />
+        </BrowserOnly>
       )}
       {label}
     </StyledLabel>
