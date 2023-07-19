@@ -20,3 +20,8 @@ Dette er kjerneprinsippene som nettstedet er bygd på, og jeg håper at alle som
 Ønsker du å bidra? Kult! Alt du trenger å kunne er [markdown](https://www.markdownguide.org/) og git!
 
 Nettstedet er bygd på toppen av [Docusaurus 2.0](https://docusaurus.io/).
+
+### Anbefalte VSCode extensions
+
+- [MDX](https://marketplace.visualstudio.com/items?itemName=unifiedjs.vscode-mdx)  
+  **NB**: Legg til `"mdx.experimentalLanguageServer": true` i User Settings (JSON)
