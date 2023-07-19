@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { styled } from "styled-components";
+import styles from "./Quiz.module.scss";
 
 type Interface = Record<string, string>;
 
@@ -45,19 +45,21 @@ export const Quiz = <TInterface extends Interface>(
           setValues((p) => ({ ...p, [key]: answer })),
       }}
     >
-      <Container>
-        <QuizTitle>
+      <div className={styles.container}>
+        <div className={styles.quizTitle}>
           {props.title}{" "}
           <span>
             ({currentQuestion + 1}/{props.children.length})
           </span>
-        </QuizTitle>
+        </div>
         {finished && props.finishScreen}
         {finished && (
           <nav className="pagination-nav">
             <div className="pagination-nav__item pagination-nav__item--next">
               <button
-                className="pagination-nav__link"
+                className={
+                  "pagination-nav__link " + styles.navLink
+                }
                 disabled={
                   values[
                     props.children[currentQuestion].props
@@ -89,7 +91,9 @@ export const Quiz = <TInterface extends Interface>(
           <nav className="pagination-nav">
             <div className="pagination-nav__item">
               <button
-                className="pagination-nav__link"
+                className={
+                  "pagination-nav__link " + styles.navLink
+                }
                 disabled={currentQuestion === 0}
                 onClick={() => {
                   if (currentQuestion === 0) {
@@ -109,7 +113,9 @@ export const Quiz = <TInterface extends Interface>(
             </div>
             <div className="pagination-nav__item pagination-nav__item--next">
               <button
-                className="pagination-nav__link"
+                className={
+                  "pagination-nav__link " + styles.navLink
+                }
                 disabled={
                   values[
                     props.children[currentQuestion].props
@@ -140,7 +146,7 @@ export const Quiz = <TInterface extends Interface>(
             </div>
           </nav>
         )}
-      </Container>
+      </div>
     </context.Provider>
   );
 };
@@ -151,9 +157,9 @@ const Question = <TInterface extends Interface>(
   const { answer, setAnswer } = React.useContext(context);
 
   return (
-    <QuestionContainer>
+    <div className={styles.questionContainer}>
       <h3>{props.question}</h3>
-      <AnswerContainer>
+      <div className={styles.answerContainer}>
         {props.answers.map((currentAnswer, i) => (
           <label
             key={`${currentAnswer}-${
@@ -175,52 +181,9 @@ const Question = <TInterface extends Interface>(
             {currentAnswer}
           </label>
         ))}
-      </AnswerContainer>
-    </QuestionContainer>
+      </div>
+    </div>
   );
 };
 
 Quiz.Question = Question;
-
-const Container = styled.div`
-  background: var(--ifm-background-surface-color);
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  h2,
-  h3 {
-    margin: 0;
-  }
-  button.pagination-nav__link {
-    width: 100%;
-    text-align: left;
-    cursor: pointer;
-    background: transparent;
-    &:disabled {
-      cursor: not-allowed;
-      opacity: 0.7;
-    }
-  }
-`;
-
-const QuestionContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-`;
-
-const QuizTitle = styled.h2`
-  font-size: 1rem;
-  color: var(--ifm-color-primary);
-  span {
-    font-variant-numeric: normal;
-    color: var(--ifm-color-secondary-contrast-foreground);
-    font-weight: normal;
-  }
-`;
-
-const AnswerContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-`;

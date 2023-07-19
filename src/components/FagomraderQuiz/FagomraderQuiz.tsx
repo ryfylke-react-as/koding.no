@@ -1,5 +1,5 @@
 import React from "react";
-import { styled } from "styled-components";
+import styles from "./FagomraderQuiz.module.scss";
 import { Quiz } from "../Quiz/Quiz";
 
 const answers = ["Stemmer", "Stemmer delvis", "Stemmer ikke"];
@@ -50,32 +50,32 @@ export const FagomraderQuiz = () => {
 
   const finishScreens = {
     backend: (
-      <FinishScreen>
+      <div className={styles.finishScreen}>
         <h2>Backend</h2>
         <p>
           Ut i fra vår quiz, så passer du best til å jobbe med
           backend. Husk å ta en kritisk vurdering på egenhand.
         </p>
-      </FinishScreen>
+      </div>
     ),
     frontend: (
-      <FinishScreen>
+      <div className={styles.finishScreen}>
         <h2>Frontend</h2>
         <p>
           Ut i fra vår quiz, så passer du best til å jobbe med
           frontend. Husk å ta en kritisk vurdering på egenhand.
         </p>
-      </FinishScreen>
+      </div>
     ),
     gaming: (
-      <FinishScreen>
+      <div className={styles.finishScreen}>
         <h2>Spillprogrammering</h2>
         <p>
           Ut i fra vår quiz, så passer du best til å jobbe med
           spillprogrammering. Husk å ta en kritisk vurdering på
           egenhand.
         </p>
-      </FinishScreen>
+      </div>
     ),
   };
 
@@ -130,9 +130,3 @@ export const FagomraderQuiz = () => {
     </Quiz>
   );
 };
-
-const FinishScreen = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-`;

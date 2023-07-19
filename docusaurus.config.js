@@ -32,6 +32,7 @@ const config = {
     locales: ["nb"],
   },
   plugins: [
+    "docusaurus-plugin-sass",
     [
       "@docusaurus/plugin-content-docs",
       {
@@ -69,7 +70,7 @@ const config = {
             "https://github.com/ryfylke-react-as/koding.no/tree/main",
         },
         theme: {
-          customCss: require.resolve("./src/css/custom.css"),
+          customCss: require.resolve("./src/css/custom.scss"),
         },
       }),
     ],
