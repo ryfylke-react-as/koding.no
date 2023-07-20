@@ -2,14 +2,28 @@
 title: Backend
 ---
 
+import { DescriptiveLinkList } from "../../src/components/DescriptiveLinkList/DescriptiveLinkList.tsx";
+
 # Backend Ressurser
 
 Herunder er håndvalgte ressurser som vi anbefaler deg å bruke for å lære deg backend utvikling.
 
 ## Interne ressurser
 
-- [Server, klient & HTTP](/wiki/server-og-klient)
-- [Git](/wiki/git)
+<DescriptiveLinkList
+  items={[
+    {
+      title: "Server, klient & HTTP",
+      description: "Lær om servere, klienter og HTTP.",
+      url: "/wiki/konsepter/server-og-klient",
+    },
+    {
+      title: "Git",
+      description: "Lær om versjonskontrollsystemet Git.",
+      url: "/wiki/konsepter/git",
+    },
+  ]}
+/>
 
 ## Eksterne ressurser
 
