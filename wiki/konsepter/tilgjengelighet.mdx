@@ -1,6 +1,24 @@
-import { RelevantLinks } from "../src/components/RelevantLinks/RelevantLinks.tsx";
+---
+description: Tilgjengelighet handler om at alle skal kunne bruke tjenesten uavhengig av funksjonsevne. Det er viktig å tenke på tilgjengelighet tidlig i prosjektet, og ikke som en ettertanke. Det er også viktig å tenke på tilgjengelighet i alle deler av prosjektet, ikke bare i frontend.
+---
+
+import { RelevantLinks } from "../../src/components/RelevantLinks/RelevantLinks.tsx";
+import Accessibility from "../../static/img/accessibility.svg";
 
 # Tilgjengelighet
+
+<div
+  style={{
+    width: 300,
+    maxWidth: "100%",
+    float: "right",
+    margin: "0 1rem 1rem 1rem",
+  }}
+>
+  <Accessibility
+    style={{ width: "100%", height: "100%" }}
+  />
+</div>
 
 ## Hva er tilgjengelighet?
 
@@ -19,7 +37,8 @@ Tilgjengelige tjenester er også bedre for [søkemotoroptimalisering](./SEO).
 <RelevantLinks
   videos={[
     {
-      title: "Accessible Web Design: What Is It & How To Do It",
+      title:
+        "Accessible Web Design: What Is It & How To Do It",
       url: "https://www.youtube.com/watch?v=-ao_Kc_8rpE",
     },
   ]}
