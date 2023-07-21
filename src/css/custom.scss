@@ -81,36 +81,74 @@ footer {
 }
 
 .hero {
-  background-image: url("/img/hero-bg-low.png");
-}
-
-[data-theme="dark"] .hero {
-  background-image: url("/img/hero-bg-dm-low.png");
-}
-
-.hero {
   padding: 0 !important;
+
+  background-color: var(--ifm-color-primary);
+  background-image: linear-gradient(
+      30deg,
+      var(--ifm-color-primary-darkest) 12%,
+      transparent 12.5%,
+      transparent 87%,
+      var(--ifm-color-primary-darkest) 87.5%,
+      var(--ifm-color-primary-darkest)
+    ),
+    linear-gradient(
+      150deg,
+      var(--ifm-color-primary-darkest) 12%,
+      transparent 12.5%,
+      transparent 87%,
+      var(--ifm-color-primary-darkest) 87.5%,
+      var(--ifm-color-primary-darkest)
+    ),
+    linear-gradient(
+      30deg,
+      var(--ifm-color-primary-darkest) 12%,
+      transparent 12.5%,
+      transparent 87%,
+      var(--ifm-color-primary-darkest) 87.5%,
+      var(--ifm-color-primary-darkest)
+    ),
+    linear-gradient(
+      150deg,
+      var(--ifm-color-primary-darkest) 12%,
+      transparent 12.5%,
+      transparent 87%,
+      var(--ifm-color-primary-darkest) 87.5%,
+      var(--ifm-color-primary-darkest)
+    ),
+    linear-gradient(
+      60deg,
+      var(--ifm-color-primary-darkest) 25%,
+      transparent 25.5%,
+      transparent 75%,
+      var(--ifm-color-primary-darkest) 75%,
+      var(--ifm-color-primary-darkest)
+    ),
+    linear-gradient(
+      60deg,
+      var(--ifm-color-primary-darkest) 25%,
+      transparent 25.5%,
+      transparent 75%,
+      var(--ifm-color-primary-darkest) 75%,
+      var(--ifm-color-primary-darkest)
+    );
+  background-size: 80px 140px;
+  background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0,
+    40px 70px;
 }
 
 .hero .container {
-  background: rgba(255, 255, 255, 0.05);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(3px);
-  -webkit-backdrop-filter: blur(3px);
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  width: 600px;
   max-width: 100%;
-  padding: 3rem 4rem;
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(1.5px);
+  -webkit-backdrop-filter: blur(3.3px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  padding: 4rem;
 }
 
 .hero__title {
-  background: -webkit-linear-gradient(
-    94deg,
-    var(--ifm-color-primary) 0%,
-    currentColor 50%
-  );
-  text-fill-color: transparent;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   width: min-content;
   margin: 0 auto 1rem;
 }
