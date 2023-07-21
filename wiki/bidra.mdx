@@ -18,3 +18,15 @@ Det er flere måter å bidra på. Du kan for eksempel:
 
 Bidrag gjøres via [Git](./konsepter/git). Du gjør en **fork** av repository'et, legger til dine endringer,
 også setter du opp et **pull request** mot den originale kodebasen. Endringene dine vil bli gjennomgått før de legges til.
+
+## Anbefalt setup
+
+Vi anbefaler å bruke [Visual Studio Code](https://code.visualstudio.com/) som editor, og installere følgende plugins:
+
+- [MDX](https://marketplace.visualstudio.com/items?itemName=unifiedjs.vscode-mdx)  
+  Legg inn følgende i `settings.json` for å få autocomplete på komponenter i MDX-filer:
+  ```json
+  {
+    "mdx.experimentalLanguageServer": true
+  }
+  ```

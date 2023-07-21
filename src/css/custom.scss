@@ -3,8 +3,7 @@
  * bundles Infima by default. Infima is a CSS framework designed to
  * work well for content-centric websites.
  */
-@import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500&display=swap");
 :root {
   --ifm-color-primary: #ac1b61;
   --ifm-color-primary-dark: #9b1857;
@@ -19,6 +18,9 @@
     "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
   accent-color: var(--ifm-color-primary);
+  --ifm-font-family-monospace: "Ubuntu Mono", SFMono-Regular,
+    Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
+    monos;
 }
 
 [data-theme="dark"] {
@@ -82,7 +84,7 @@ footer {
 
 .hero {
   padding: 0 !important;
-
+  /* 
   background-color: var(--ifm-color-primary);
   background-image: linear-gradient(
       30deg,
@@ -134,17 +136,27 @@ footer {
     );
   background-size: 80px 140px;
   background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0,
-    40px 70px;
+    40px 70px; */
+  background-color: var(--ifm-color-primary);
+  opacity: 1;
+  background-image: radial-gradient(
+      var(--ifm-color-primary-darkest) 0.8px,
+      transparent 0.8px
+    ),
+    radial-gradient(
+      var(--ifm-color-primary-darkest) 0.8px,
+      var(--ifm-color-primary) 0.8px
+    );
+  background-size: 32px 32px;
+  background-position: 0 0, 16px 16px;
 }
 
 .hero .container {
   width: 600px;
   max-width: 100%;
-  background: rgba(255, 255, 255, 0.06);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(1.5px);
-  -webkit-backdrop-filter: blur(3.3px);
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.01);
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
   padding: 4rem;
 }
 
