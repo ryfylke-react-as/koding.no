@@ -1,22 +1,16 @@
-import { useEffect } from "react";
-import { NetlifyIndentify } from ".";
+import { useContext, useEffect, useRef, useState } from "react";
+import { NetlifyIndentify, authContext } from ".";
 
-export function useAuth(): NetlifyIndentify | null {
-  useEffect(() => {
-    if (
-      typeof window !== undefined &&
-      window.netlifyIdentity === undefined
-    ) {
-      import("netlify-identity-widget").then(
-        (netlifyIdentity) => {
-          window.netlifyIdentity = netlifyIdentity;
-          netlifyIdentity.init();
-        }
-      );
-    }
-  }, []);
-
-  return typeof window !== undefined
-    ? window.netlifyIdentity
-    : null;
+export function useAuth() {
+  const context = useContext(authContext);
+  if (!context) {
+    return {
+      isLoggedIn: false,
+      currentUser: () => null,
+      login: () => null,
+      logout: () => null,
+      open: () => null,
+    };
+  }
+  return context;
 }

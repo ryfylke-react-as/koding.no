@@ -2,6 +2,11 @@ import ConfettiExplosion from "react-confetti-explosion";
 import { useLocalStorageState } from "@site/src/hooks/useLocalStorage";
 import React, { useState } from "react";
 import styles from "./CheckItem.module.scss";
+import { useAuth } from "@site/src/auth/useAuth";
+import {
+  useGetFunction,
+  useLazyGetFunction,
+} from "@site/src/hooks/useFunction";
 
 export type CheckItem = {
   id: string;
@@ -11,13 +16,52 @@ export type CheckItem = {
 let timer: ReturnType<typeof setTimeout> = setTimeout(() => {},
 0);
 export const CheckItem = ({ id, label }: CheckItem) => {
+  const auth = useAuth();
   const [isExploding, setIsExploding] = useState(false);
-  const [checked, setChecked] = useLocalStorageState<boolean>({
-    id,
-    defaultValue: false,
-    serialize: (value) => value.toString(),
-    deserialize: (value) => value === "true",
+  const [lsChecked, lsSetChecked] =
+    useLocalStorageState<boolean>({
+      id,
+      defaultValue: false,
+      serialize: (value) => value.toString(),
+      deserialize: (value) => value === "true",
+    });
+  const serverState = useGetFunction<{ checked: string[] }>(
+    "get-checked",
+    { skip: !auth.isLoggedIn },
+    [id, auth.isLoggedIn]
+  );
+  const [checkItem] = useLazyGetFunction("check-item", {
+    params: new URLSearchParams({
+      item: id,
+    }),
   });
+  const checked = auth.isLoggedIn
+    ? serverState.data?.checked?.includes(id)
+    : lsChecked;
+
+  const toggleChecked = async () => {
+    if (auth.isLoggedIn) {
+      const oldChecked = checked;
+      await checkItem();
+      serverState.refetch();
+      if (!oldChecked) {
+        setIsExploding(true);
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+          setIsExploding(false);
+        }, 2200);
+      }
+    } else {
+      lsSetChecked(!lsChecked);
+      if (!lsChecked) {
+        setIsExploding(true);
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+          setIsExploding(false);
+        }, 2200);
+      }
+    }
+  };
 
   return (
     <label className={styles.label} title="Marker som gjort">
@@ -25,18 +69,7 @@ export const CheckItem = ({ id, label }: CheckItem) => {
         type="checkbox"
         id={id}
         checked={checked}
-        onChange={() => {
-          setChecked(!checked);
-          if (!checked) {
-            setIsExploding(true);
-            clearTimeout(timer);
-            timer = setTimeout(() => {
-              setIsExploding(false);
-            }, 2200);
-          } else {
-            setIsExploding(false);
-          }
-        }}
+        onChange={toggleChecked}
       />
       {isExploding && (
         <ConfettiExplosion

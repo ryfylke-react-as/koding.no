@@ -6,15 +6,24 @@ import Layout from "@theme/Layout";
 import HomepageFeatures from "@site/src/components/HomepageFeatures";
 
 import styles from "./index.module.css";
-import { useGetFunction } from "../hooks/useFunction";
+import {
+  useGetFunction,
+  useLazyGetFunction,
+} from "../hooks/useFunction";
 import BrowserOnly from "@docusaurus/BrowserOnly";
 import { LoginButton } from "../components/LoginButton/LoginButton";
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
-  const { data, error } = useGetFunction("check-item");
-
-  console.log(data, error);
+  const [checkTag, setCheckTag] = React.useState(0);
+  const { data: checkedRows } = useGetFunction<{
+    checked: string[];
+  }>("get-checked", {}, [checkTag]);
+  const [checkItem] = useLazyGetFunction("check-item", {
+    params: new URLSearchParams({
+      item: "a",
+    }),
+  });
 
   return (
     <header
@@ -36,6 +45,14 @@ function HomepageHeader() {
             Kom i gang
           </Link>
         </div>
+        <button
+          onClick={() => {
+            checkItem().then(() => setCheckTag((p) => p + 1));
+          }}
+        >
+          {checkedRows?.checked?.includes("a") ? "✅" : null}{" "}
+          Hello
+        </button>
         <BrowserOnly>{() => <LoginButton />}</BrowserOnly>
       </div>
     </header>

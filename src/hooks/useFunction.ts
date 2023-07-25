@@ -1,9 +1,21 @@
 import { useEffect, useState } from "react";
+import { useAuth } from "../auth/useAuth";
 
 export function useLazyGetFunction<T = unknown>(
   name: string,
-  init: RequestInit = {}
-) {
+  init: RequestInit & {
+    params?: URLSearchParams;
+  } = {}
+): [
+  () => Promise<T | null>,
+  {
+    data: T | null;
+    isLoading: boolean;
+    isError: boolean;
+    error: any;
+  }
+] {
+  const auth = useAuth();
   const [data, setData] = useState<T | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -11,9 +23,22 @@ export function useLazyGetFunction<T = unknown>(
   const getFunction = async (): Promise<T | null> => {
     setLoading(true);
     try {
+      const headers = new Headers();
+      if (auth.isLoggedIn) {
+        const user = auth.currentUser();
+        headers.set(
+          "Authorization",
+          `Bearer ${user.token.access_token}`
+        );
+      }
       const data = await fetch(
-        `/.netlify/functions/${name}`,
-        init
+        `/.netlify/functions/${name}?${
+          init?.params?.toString?.() ?? ""
+        }`,
+        {
+          ...init,
+          headers,
+        }
       ).then((res) => res.json());
       setData(data);
       setLoading(false);
@@ -38,16 +63,31 @@ export function useLazyGetFunction<T = unknown>(
 
 export function useGetFunction<T = unknown>(
   name: string,
-  init: RequestInit = {},
+  init: RequestInit & {
+    params?: URLSearchParams;
+    skip?: boolean;
+  } = {},
   dependencies: any[] = []
 ) {
+  const auth = useAuth();
   const [data, setData] = useState<T | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
+  const refetch = async () => {
     setLoading(true);
-    fetch(`/.netlify/functions/${name}`, init)
+    const headers = new Headers();
+    if (auth.isLoggedIn) {
+      const user = auth?.currentUser();
+      headers.set(
+        "Authorization",
+        `Bearer ${user.token.access_token}`
+      );
+    }
+    fetch(
+      `/.netlify/functions/${name}?${init?.params?.toString?.()}`,
+      { ...init, headers }
+    )
       .then((res) =>
         res.json().then((data) => {
           setData(data);
@@ -58,6 +98,13 @@ export function useGetFunction<T = unknown>(
         setError(err);
         setLoading(false);
       });
+  };
+
+  useEffect(() => {
+    if (init.skip) {
+      return;
+    }
+    refetch();
   }, dependencies);
 
   return {
@@ -65,5 +112,6 @@ export function useGetFunction<T = unknown>(
     isLoading: loading,
     isError: error,
     error,
+    refetch,
   };
 }
