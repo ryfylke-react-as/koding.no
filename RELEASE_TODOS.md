@@ -1,0 +1,1 @@
+- Endre på `url` i `docusaurus.config.js` fra `beta.koding.no` -> `koding.no`.
