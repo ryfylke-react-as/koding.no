@@ -1,12 +1,9 @@
 import netlifyIdentity from "netlify-identity-widget";
 
+export type NetlifyIndentify = typeof netlifyIdentity;
+
 declare global {
   interface Window {
-    netlifyIdentity: typeof netlifyIdentity;
+    netlifyIdentity: NetlifyIndentify;
   }
 }
-
-window.netlifyIdentity = netlifyIdentity;
-netlifyIdentity.init();
-
-export const auth = netlifyIdentity;

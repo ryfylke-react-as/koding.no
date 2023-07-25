@@ -6,12 +6,13 @@ import Layout from "@theme/Layout";
 import HomepageFeatures from "@site/src/components/HomepageFeatures";
 
 import styles from "./index.module.css";
-import { useFunction } from "../hooks/useFunction";
-import { auth } from "../auth";
+import { useGetFunction } from "../hooks/useFunction";
+import BrowserOnly from "@docusaurus/BrowserOnly";
+import { LoginButton } from "../components/LoginButton/LoginButton";
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
-  const { data, error } = useFunction("check-item");
+  const { data, error } = useGetFunction("check-item");
 
   console.log(data, error);
 
@@ -35,13 +36,7 @@ function HomepageHeader() {
             Kom i gang
           </Link>
         </div>
-        <button
-          onClick={() => {
-            auth.open("login");
-          }}
-        >
-          Login
-        </button>
+        <BrowserOnly>{() => <LoginButton />}</BrowserOnly>
       </div>
     </header>
   );
