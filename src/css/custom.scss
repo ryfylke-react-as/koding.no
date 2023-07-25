@@ -152,7 +152,6 @@ footer {
 }
 
 .hero .container {
-  width: 600px;
   max-width: 100%;
   background: rgba(255, 255, 255, 0.01);
   backdrop-filter: blur(1px);
@@ -161,8 +160,7 @@ footer {
 }
 
 .hero__title {
-  width: min-content;
-  margin: 0 auto 1rem;
+  margin: 0 auto 1.5rem;
 }
 
 .table-of-contents__left-border {
