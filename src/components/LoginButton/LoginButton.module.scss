@@ -1,0 +1,16 @@
+.login,
+.logout {
+  background: var(--ifm-alert-background-color-highlight);
+  border: none;
+  padding: 0.375rem 1.5rem;
+  font: inherit;
+  border-radius: var(--ifm-button-border-radius);
+  color: var(--ifm-button-color);
+  font-weight: 700;
+  color: inherit;
+  cursor: pointer;
+}
+
+.logout {
+  background: var(--ifm-background-surface-color);
+}

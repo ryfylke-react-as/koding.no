@@ -7,7 +7,11 @@ export function useLazyGetFunction<T = unknown>(
     params?: URLSearchParams;
   } = {}
 ): [
-  () => Promise<T | null>,
+  (
+    getInit?: RequestInit & {
+      params?: URLSearchParams;
+    }
+  ) => Promise<T | null>,
   {
     data: T | null;
     isLoading: boolean;
@@ -20,7 +24,9 @@ export function useLazyGetFunction<T = unknown>(
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const getFunction = async (): Promise<T | null> => {
+  const getFunction = async (
+    getInit = init
+  ): Promise<T | null> => {
     setLoading(true);
     try {
       const headers = new Headers();
@@ -33,10 +39,10 @@ export function useLazyGetFunction<T = unknown>(
       }
       const data = await fetch(
         `/.netlify/functions/${name}?${
-          init?.params?.toString?.() ?? ""
+          getInit?.params?.toString?.() ?? ""
         }`,
         {
-          ...init,
+          ...getInit,
           headers,
         }
       ).then((res) => res.json());
@@ -67,7 +73,7 @@ export function useGetFunction<T = unknown>(
     params?: URLSearchParams;
     skip?: boolean;
   } = {},
-  dependencies: any[] = []
+  dependencies: any[] = [init?.skip]
 ) {
   const auth = useAuth();
   const [data, setData] = useState<T | null>(null);
@@ -84,20 +90,24 @@ export function useGetFunction<T = unknown>(
         `Bearer ${user.token.access_token}`
       );
     }
-    fetch(
-      `/.netlify/functions/${name}?${init?.params?.toString?.()}`,
-      { ...init, headers }
-    )
-      .then((res) =>
-        res.json().then((data) => {
-          setData(data);
-          setLoading(false);
-        })
-      )
-      .catch((err) => {
-        setError(err);
-        setLoading(false);
-      });
+    try {
+      const data = await fetch(
+        `/.netlify/functions/${name}?${
+          init?.params?.toString?.() ?? ""
+        }`,
+        {
+          ...init,
+          headers,
+        }
+      ).then((res) => res.json());
+      setData(data);
+      setLoading(false);
+      return data;
+    } catch (err) {
+      setError(err);
+      setLoading(false);
+      return null;
+    }
   };
 
   useEffect(() => {

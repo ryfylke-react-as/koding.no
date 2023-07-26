@@ -7,7 +7,7 @@ const getChecked = async (user: string) => {
     [user]
   );
   if (!Array.isArray(rows)) {
-    throw new Error();
+    throw new Error("Unable to get checked rows");
   }
   return rows;
 };

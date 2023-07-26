@@ -166,3 +166,7 @@ footer {
 .table-of-contents__left-border {
   border-left: none;
 }
+
+#netlify-identity-widget {
+  z-index: 9999 !important;
+}

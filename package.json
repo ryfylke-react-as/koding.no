@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
-    "start": "docusaurus start",
+    "start": "docusaurus start --port 3000",
+    "netlify-up": "netlify dev",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
@@ -23,6 +24,7 @@
     "@netlify/functions": "^0.11.1",
     "@types/netlify-identity-widget": "^1.9.3",
     "clsx": "^1.2.1",
+    "concurrently": "^8.2.0",
     "docusaurus-plugin-sass": "^0.2.4",
     "dotenv": "^16.3.1",
     "faunadb": "^4.8.0",
@@ -32,6 +34,7 @@
     "react": "^17.0.2",
     "react-confetti-explosion": "^2.1.2",
     "react-dom": "^17.0.2",
+    "react-query": "^3.39.3",
     "sass": "^1.63.6"
   },
   "devDependencies": {

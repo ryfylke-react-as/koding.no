@@ -15,53 +15,17 @@ export type CheckItem = {
 
 let timer: ReturnType<typeof setTimeout> = setTimeout(() => {},
 0);
-export const CheckItem = ({ id, label }: CheckItem) => {
-  const auth = useAuth();
-  const [isExploding, setIsExploding] = useState(false);
-  const [lsChecked, lsSetChecked] =
-    useLocalStorageState<boolean>({
-      id,
-      defaultValue: false,
-      serialize: (value) => value.toString(),
-      deserialize: (value) => value === "true",
-    });
-  const serverState = useGetFunction<{ checked: string[] }>(
-    "get-checked",
-    { skip: !auth.isLoggedIn },
-    [id, auth.isLoggedIn]
-  );
-  const [checkItem] = useLazyGetFunction("check-item", {
-    params: new URLSearchParams({
-      item: id,
-    }),
-  });
-  const checked = auth.isLoggedIn
-    ? serverState.data?.checked?.includes(id)
-    : lsChecked;
 
-  const toggleChecked = async () => {
-    if (auth.isLoggedIn) {
-      const oldChecked = checked;
-      await checkItem();
-      serverState.refetch();
-      if (!oldChecked) {
-        setIsExploding(true);
-        clearTimeout(timer);
-        timer = setTimeout(() => {
-          setIsExploding(false);
-        }, 2200);
-      }
-    } else {
-      lsSetChecked(!lsChecked);
-      if (!lsChecked) {
-        setIsExploding(true);
-        clearTimeout(timer);
-        timer = setTimeout(() => {
-          setIsExploding(false);
-        }, 2200);
-      }
-    }
-  };
+export const CheckItem = ({
+  label,
+  id,
+  onToggle,
+  checked,
+}: CheckItem & {
+  checked: boolean;
+  onToggle: () => void;
+}) => {
+  const [isExploding, setIsExploding] = useState(false);
 
   return (
     <label className={styles.label} title="Marker som gjort">
@@ -69,7 +33,16 @@ export const CheckItem = ({ id, label }: CheckItem) => {
         type="checkbox"
         id={id}
         checked={checked}
-        onChange={toggleChecked}
+        onChange={() => {
+          onToggle();
+          if (!checked) {
+            setIsExploding(true);
+            clearTimeout(timer);
+            timer = setTimeout(() => {
+              setIsExploding(false);
+            }, 2000);
+          }
+        }}
       />
       {isExploding && (
         <ConfettiExplosion

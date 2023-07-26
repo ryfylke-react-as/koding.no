@@ -4,6 +4,12 @@
   cursor: pointer;
   font-size: 1.275rem;
   position: relative;
+  transition: all 0.2s ease-in-out;
+  &[data-loading="true"] {
+    cursor: wait;
+    opacity: 0.75;
+    transform: scale(0.99);
+  }
   &::before {
     content: "";
     position: absolute;
@@ -30,6 +36,7 @@
     }
   }
   &:active {
+    transform: scale(0.99);
     &::before {
       opacity: 1;
     }

@@ -14,17 +14,6 @@ import BrowserOnly from "@docusaurus/BrowserOnly";
 import { LoginButton } from "../components/LoginButton/LoginButton";
 
 function HomepageHeader() {
-  const { siteConfig } = useDocusaurusContext();
-  const [checkTag, setCheckTag] = React.useState(0);
-  const { data: checkedRows } = useGetFunction<{
-    checked: string[];
-  }>("get-checked", {}, [checkTag]);
-  const [checkItem] = useLazyGetFunction("check-item", {
-    params: new URLSearchParams({
-      item: "a",
-    }),
-  });
-
   return (
     <header
       className={clsx("hero hero--primary", styles.heroBanner)}
@@ -45,15 +34,6 @@ function HomepageHeader() {
             Kom i gang
           </Link>
         </div>
-        <button
-          onClick={() => {
-            checkItem().then(() => setCheckTag((p) => p + 1));
-          }}
-        >
-          {checkedRows?.checked?.includes("a") ? "✅" : null}{" "}
-          Hello
-        </button>
-        <BrowserOnly>{() => <LoginButton />}</BrowserOnly>
       </div>
     </header>
   );
