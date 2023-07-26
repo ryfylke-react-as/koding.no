@@ -16,6 +16,7 @@ export default function Root({ children }) {
         setIsLoggedIn(true);
         setNetlifyIdentity({ ...netlifyIdentity });
         netlifyIdentity.close();
+        netlifyIdentity.refresh();
       });
       netlifyIdentity.on("logout", () => setIsLoggedIn(false));
       netlifyIdentity.init({

@@ -1,8 +1,19 @@
+import { connect } from "http2";
 import mysql, { Connection } from "mysql2";
 
-export const connection = mysql.createConnection(
-  process.env.DATABASE_URL
-);
+const connectionString = process.env.DATABASE_URL;
+/* const user = connectionString.split("mysql://")[1].split(":")[0];
+const password = connectionString
+  .split("mysql://")[1]
+  .split(":")[1]
+  .split("@")[0];
+const host = connectionString
+  .split("mysql://")[1]
+  .split(":")[1]
+  .split("@")[1]; */
+
+export const connection =
+  mysql.createConnection(connectionString);
 
 export const query = (query: string) => {
   return new Promise<
