@@ -7,6 +7,8 @@ import useLazyQuery from "@site/src/hooks/useLazyQuery";
 import { useMutation } from "react-query";
 import { toast } from "@site/src/lib/toast";
 import { debounce } from "@site/src/utils";
+import Admonition from "@theme/Admonition";
+import { H2, H3 } from "../Header/Header";
 
 export const ProgressionPage = (props: {
   /** `frontend`, `backend`, `spillprogrammering`, etc... */
@@ -106,15 +108,15 @@ export const ProgressionPage = (props: {
 
   return (
     <>
-      <h2>Mål</h2>
+      <H2>Mål</H2>
       {auth.isLoggedIn ? (
-        <div className="theme-admonition theme-admonition-tip alert alert--success">
-          Logget inn som{" "}
+        <Admonition type="tip" title="Velkommen tilbake!">
+          Du er logget inn som{" "}
           <strong>
             {auth.currentUser().user_metadata.full_name}
           </strong>
           . Fremgangen din blir lagret automatisk.
-        </div>
+        </Admonition>
       ) : (
         <>
           <p>
@@ -137,7 +139,7 @@ export const ProgressionPage = (props: {
           </div>
         </>
       )}
-      <h3>Konsepter</h3>
+      <H3>Konsepter</H3>
       <CheckItemList
         items={Object.entries(progression.konsepter).map(
           ([key, value]) => ({
@@ -148,7 +150,7 @@ export const ProgressionPage = (props: {
         onToggleCheckbox={onToggleCheckbox}
         checked={checked}
       />
-      <h3>Kodespråk</h3>
+      <H3>Kodespråk</H3>
       <CheckItemList
         items={Object.entries(progression.kodesprak).map(
           ([key, value]) => ({
@@ -159,7 +161,7 @@ export const ProgressionPage = (props: {
         onToggleCheckbox={onToggleCheckbox}
         checked={checked}
       />
-      <h3>Ferdigheter</h3>
+      <H3>Ferdigheter</H3>
       <CheckItemList
         items={Object.entries(progression.ferdigheter).map(
           ([key, value]) => ({

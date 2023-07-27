@@ -4,47 +4,28 @@
   cursor: pointer;
   font-size: 1.275rem;
   position: relative;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.15s ease-in-out;
+  align-items: flex-start;
+  border-radius: 3px;
   &[data-loading="true"] {
     cursor: wait;
     opacity: 0.75;
     transform: scale(0.99);
   }
-  &::before {
-    content: "";
-    position: absolute;
-    left: -0.25rem;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 0.5rem;
-    height: 0.5rem;
-    border-radius: 50%;
-    background: var(--ifm-color-primary);
-    opacity: 0;
-    transition: all 0.2s ease-in-out;
-  }
-  &:hover::before {
-    opacity: 0.5;
+  &:hover {
+    background: var(--ifm-breadcrumb-item-background-active);
   }
   &:has(input:checked) {
     color: var(--ifm-color-primary);
-    &::before {
-      transition: all 0.2s ease-in-out;
-      opacity: 0;
-      left: 0;
-      transform: translate(50%, -50%);
-    }
   }
   &:active {
     transform: scale(0.99);
-    &::before {
-      opacity: 1;
-    }
   }
   &:has(:focus-visible) {
     outline: 1px solid var(--ifm-color-primary);
   }
   input {
     outline: none;
+    margin-top: 0.7rem;
   }
 }

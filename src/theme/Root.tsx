@@ -18,9 +18,15 @@ export default function Root({ children }) {
         importedNetlifyIdentity.on("login", () => {
           setIsLoggedIn(true);
           setNetlifyIdentity({ ...importedNetlifyIdentity });
-          importedNetlifyIdentity.close();
+          toast({
+            title: "Logget inn",
+            kind: "success",
+          });
+          importedNetlifyIdentity.close(); // close the modal
           importedNetlifyIdentity.refresh().catch((err) => {
+            // Logout and prompt login if token refresh fails
             importedNetlifyIdentity.logout();
+            importedNetlifyIdentity.open("login");
           });
         });
         importedNetlifyIdentity.on("logout", () => {

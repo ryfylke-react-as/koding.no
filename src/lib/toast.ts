@@ -26,7 +26,7 @@ export const {
       }: {
         children: React.ReactNode;
       }) => React.createElement(React.Fragment, {}, children),
-    } as unknown as ReturnType<typeof initToast>);
+    } as unknown as ReturnType<typeof initToast<Toast>>);
 
 export const toast = (
   toast: Toast & {
