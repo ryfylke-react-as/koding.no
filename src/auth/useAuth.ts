@@ -6,7 +6,14 @@ export function useAuth() {
   if (!context) {
     return {
       isLoggedIn: false,
-      currentUser: () => null,
+      currentUser: () => ({
+        token: {
+          access_token: "",
+        },
+        user_metadata: {
+          full_name: "",
+        },
+      }),
       login: () => null,
       logout: () => null,
       open: () => null,

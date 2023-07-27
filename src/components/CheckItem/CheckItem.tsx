@@ -1,12 +1,6 @@
 import ConfettiExplosion from "react-confetti-explosion";
-import { useLocalStorageState } from "@site/src/hooks/useLocalStorage";
 import React, { useState } from "react";
 import styles from "./CheckItem.module.scss";
-import { useAuth } from "@site/src/auth/useAuth";
-import {
-  useGetFunction,
-  useLazyGetFunction,
-} from "@site/src/hooks/useFunction";
 
 export type CheckItem = {
   id: string;

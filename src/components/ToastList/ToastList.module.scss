@@ -1,0 +1,35 @@
+.toastList {
+  position: fixed;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  button {
+    cursor: pointer;
+    margin: 0;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    padding-left: 0.875rem;
+    animation: toastIn 0.4s ease-in-out;
+    background-color: var(--ifm-background-color);
+  }
+}
+
+@keyframes toastIn {
+  from {
+    transform: translateY(10%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+  }
+}
