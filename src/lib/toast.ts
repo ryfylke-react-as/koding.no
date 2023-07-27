@@ -13,8 +13,14 @@ export const {
 } = typeof document !== "undefined"
   ? initToast<Toast>()
   : ({
+      // server patch
       toast: () => {},
-      useToasts: () => [],
+      useToasts: () => ({
+        toasts: [],
+        cancelToastTimeout: () => {},
+        restartToastTimeout: () => {},
+        onRemoveToast: () => {},
+      }),
       ToastProvider: ({
         children,
       }: {

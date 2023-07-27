@@ -80,7 +80,6 @@ export const CheckItemListBase = (props: Props) => {
 };
 
 export const CheckItemList = (props: Props) => {
-  console.log("woop!");
   return (
     <BrowserOnly fallback={<div>Loading...</div>}>
       {() => <CheckItemListBase {...props} />}
