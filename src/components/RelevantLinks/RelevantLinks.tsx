@@ -91,6 +91,9 @@ export const RelevantLinks = (props: Props) => {
         padding: "1rem",
         position: "relative",
         isolation: "isolate",
+        display: "flex",
+        flexDirection: "column",
+        gap: "0.25rem",
         ...(props.float
           ? props.float === "left"
             ? {

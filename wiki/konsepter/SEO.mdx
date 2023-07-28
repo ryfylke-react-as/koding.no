@@ -4,6 +4,7 @@ description: SEO står for Search Engine Optimization, og handler om å optimali
 ---
 
 import SEO from "../../static/img/seo.svg";
+import { RelevantLinks } from "../../src/components/RelevantLinks/RelevantLinks.tsx";
 
 # SEO
 
@@ -35,6 +36,17 @@ Men søkemotorere er ikke mennesker, og de kan ikke forstå nettsiden på samme 
 roboter som leser innholdet ("crawler") på nettsiden, så det er viktig å gjøre det så enkelt som mulig for dem å forstå hva nettsiden handler om.
 
 I praksis betyr dette at man bør bruke _semantisk_ HTML som beskriver innholdet bra, sikre at nettsiden er rask,
-og at den også fungerer godt for brukere med funksjonshemminger. Dette er også viktig for å gi brukerne en god opplevelse, og noe som søkemotorer klarer å ta hensyn til.
+og at den også [fungerer godt for brukere med funksjonshemminger](./tilgjengelighet). Dette er også viktig for å gi brukerne en god opplevelse, og noe som søkemotorer klarer å ta hensyn til.
 
 I tillegg er det nyttig å sikre at innholdet på nettsiden er relevant for de som søker etter det, og at det er bra nok til at andre nettsider linker til det.
+
+## Ressurser
+
+<RelevantLinks
+  documentation={[
+    {
+      title: "SEO Starter Guide (Google)",
+      url: "https://developers.google.com/search/docs/fundamentals/seo-starter-guide",
+    },
+  ]}
+/>
