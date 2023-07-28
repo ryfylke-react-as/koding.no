@@ -26,6 +26,7 @@
     "@types/netlify-identity-widget": "^1.9.3",
     "clsx": "^1.2.1",
     "concurrently": "^8.2.0",
+    "crypto": "^1.0.1",
     "docusaurus-plugin-sass": "^0.2.4",
     "dotenv": "^16.3.1",
     "faunadb": "^4.8.0",

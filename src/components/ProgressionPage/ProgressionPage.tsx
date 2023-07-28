@@ -113,7 +113,9 @@ export const ProgressionPage = (props: {
         <Admonition type="tip" title="Velkommen tilbake!">
           Du er logget inn som{" "}
           <strong>
-            {auth.currentUser().user_metadata.full_name}
+            <a href="/profil">
+              {auth.currentUser().user_metadata.full_name}
+            </a>
           </strong>
           . Fremgangen din blir lagret automatisk.
         </Admonition>

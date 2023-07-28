@@ -19,11 +19,11 @@
     gap: 0.5rem;
     align-items: center;
     padding-left: 0.875rem;
-    animation: toastIn 0.4s ease-in-out;
-    background-color: var(--ifm-background-color);
+    animation: toastIn 0.25s ease-in-out;
+    background-color: var(--ifm-color-emphasis-200);
+    border-width: 2px;
     &:hover {
-      background-color: var(--ifm-background-color);
-      opacity: 0.75;
+      background-color: var(--ifm-color-emphasis-300);
       color: inherit;
     }
   }
@@ -31,7 +31,7 @@
 
 @keyframes toastIn {
   from {
-    transform: translateY(10%);
+    transform: scale(0.5) translateY(10%);
     opacity: 0;
   }
   to {

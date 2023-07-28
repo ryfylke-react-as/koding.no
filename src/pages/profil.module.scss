@@ -1,0 +1,45 @@
+.main {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  label {
+    display: flex;
+    gap: 0.5rem;
+    cursor: pointer;
+  }
+}
+
+.header {
+  padding: 2rem 1rem;
+  background: var(--ifm-color-emphasis-100);
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  h1 {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
+  }
+}
+
+.container {
+  width: 800px;
+  max-width: 100%;
+  margin: 1rem auto;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  h1,
+  h2,
+  h3,
+  ul,
+  p {
+    margin: 0;
+  }
+}

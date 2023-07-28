@@ -10,6 +10,7 @@ export function useAuth() {
         token: {
           access_token: "",
         },
+        email: "",
         user_metadata: {
           full_name: "",
         },

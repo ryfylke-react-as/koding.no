@@ -33,6 +33,7 @@ const ids = [
   "fe_can-use-js",
   "fe_package-managers-use",
   "fe_js-framework-use",
+  "be_python",
 ] as const;
 
 export const progressionMap = createProgressionMap<
@@ -79,7 +80,9 @@ export const progressionMap = createProgressionMap<
   },
   backend: {
     konsepter: {},
-    kodesprak: {},
+    kodesprak: {
+      ["be_python"]: "1. Python",
+    },
     ferdigheter: {},
   },
   spillprogrammering: {
@@ -88,3 +91,32 @@ export const progressionMap = createProgressionMap<
     ferdigheter: {},
   },
 });
+
+// Flattens the progressionMap records into a single object
+export const totalProgressMap = Object.keys(
+  progressionMap
+).reduce((acc, key) => {
+  const typedKey = key as keyof typeof progressionMap;
+  if (progressionMap[typedKey].konsepter) {
+    Object.keys(progressionMap[typedKey].konsepter).forEach(
+      (key) => {
+        acc[key] = progressionMap[typedKey].konsepter[key];
+      }
+    );
+  }
+  if (progressionMap[typedKey].ferdigheter) {
+    Object.keys(progressionMap[typedKey].ferdigheter).forEach(
+      (key) => {
+        acc[key] = progressionMap[typedKey].ferdigheter[key];
+      }
+    );
+  }
+  if (progressionMap[typedKey].kodesprak) {
+    Object.keys(progressionMap[typedKey].kodesprak).forEach(
+      (key) => {
+        acc[key] = progressionMap[typedKey].kodesprak[key];
+      }
+    );
+  }
+  return acc;
+}, {} as Record<string, string>);
