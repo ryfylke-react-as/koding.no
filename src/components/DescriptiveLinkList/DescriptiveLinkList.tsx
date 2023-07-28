@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./DescriptiveLinkList.module.scss";
+import Link from "@docusaurus/Link";
 
 type DescriptiveLinkListProps = {
   items: {
@@ -21,7 +22,7 @@ export const DescriptiveLinkList: React.FC<
           !item.url.includes("koding.no");
         return (
           <li key={item.url}>
-            <a href={item.url}>
+            <Link href={item.url}>
               <h4>
                 {isExternal ? (
                   <svg
@@ -55,7 +56,7 @@ export const DescriptiveLinkList: React.FC<
                 {item.title}
               </h4>
               <p>{item.description}</p>
-            </a>
+            </Link>
           </li>
         );
       })}

@@ -1,3 +1,4 @@
+import Link from "@docusaurus/Link";
 import React from "react";
 
 type Link = {
@@ -145,7 +146,7 @@ export const RelevantLinks = (props: Props) => {
             >
               {props[key as "videos"].map((link) => (
                 <li key={link.url}>
-                  <a
+                  <Link
                     href={link.url}
                     target="_blank"
                     style={{
@@ -159,7 +160,7 @@ export const RelevantLinks = (props: Props) => {
                   >
                     {keysToIcon[key as keyof typeof keysToIcon]}
                     {link.title}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

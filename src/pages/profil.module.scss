@@ -16,7 +16,11 @@
 
 .header {
   padding: 2rem 1rem;
-  background: var(--ifm-color-emphasis-100);
+  background: linear-gradient(
+    324deg,
+    var(--ifm-color-emphasis-100),
+    var(--ifm-color-emphasis-200)
+  );
   border-bottom: 1px solid var(--ifm-color-emphasis-200);
   h1 {
     display: flex;

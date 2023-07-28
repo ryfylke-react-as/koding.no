@@ -1,3 +1,4 @@
+import Link from "@docusaurus/Link";
 import React from "react";
 
 type Props = {
@@ -6,7 +7,7 @@ type Props = {
 
 export function GoogleSuggestion(props: Props) {
   return (
-    <a
+    <Link
       href={`https://google.com/search?q=${encodeURIComponent(
         props.value
       )}`}
@@ -50,6 +51,6 @@ export function GoogleSuggestion(props: Props) {
       >
         Google søk
       </span>
-    </a>
+    </Link>
   );
 }

@@ -1,3 +1,4 @@
+import Link from "@docusaurus/Link";
 import React, { useEffect, useState } from "react";
 
 type Response<T extends string> = {
@@ -66,7 +67,8 @@ export const UtdanningNoBox = <T extends string>(props: {
     >
       <div className="card__header shadow-tl">
         <h3>
-          <a href={yrke.url}>Utdanning.no</a>: {yrke.tittel}
+          <Link href={yrke.url}>Utdanning.no</Link>:{" "}
+          {yrke.tittel}
         </h3>
       </div>
       <div className="card__body">

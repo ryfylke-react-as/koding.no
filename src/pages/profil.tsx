@@ -9,6 +9,7 @@ import {
 import { useFetch } from "../utils/api";
 import { useQuery } from "react-query";
 import { getImageUrl } from "../utils/user";
+import Link from "@docusaurus/Link";
 
 function LoggedInPage() {
   const [showAll, setShowAll] = useState(false);
@@ -49,7 +50,9 @@ function LoggedInPage() {
     <div className={styles.container}>
       <header className={styles.header}>
         <h1>
-          <img src={getImageUrl(currentUser.email)} />{" "}
+          {currentUser?.email && (
+            <img src={getImageUrl(currentUser.email)} />
+          )}{" "}
           {currentUser.user_metadata.full_name}
         </h1>
       </header>
@@ -68,7 +71,9 @@ function LoggedInPage() {
         ) : (
           <>
             <h3>
-              <a href="/opplaering/start/frontend">Frontend</a>
+              <Link href="/opplaering/start/frontend#mål">
+                Frontend
+              </Link>
             </h3>
             {getProgress("frontend").length === 0 && "-"}
             <ul>
@@ -82,7 +87,9 @@ function LoggedInPage() {
               ))}
             </ul>
             <h3>
-              <a href="/opplaering/start/backend">Backend</a>
+              <Link href="/opplaering/start/backend#mål">
+                Backend
+              </Link>
             </h3>
             {getProgress("backend").length === 0 && "-"}
             <ul>
@@ -96,9 +103,9 @@ function LoggedInPage() {
               ))}
             </ul>
             <h3>
-              <a href="/opplaering/start/spillprogrammering">
+              <Link href="/opplaering/start/spillprogrammering#mål">
                 Spillprogrammering
-              </a>
+              </Link>
             </h3>
             {getProgress("spillprogrammering").length === 0 &&
               "-"}

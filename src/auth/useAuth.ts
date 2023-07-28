@@ -1,24 +1,27 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import { NetlifyIndentify, authContext } from ".";
 
-export function useAuth() {
+type Return =
+  | (NetlifyIndentify & {
+      isLoggedIn: boolean;
+      initialized: true;
+    })
+  | {
+      isLoggedIn: boolean;
+      currentUser: () => null;
+      initialized: false;
+      open: () => null;
+    };
+
+export function useAuth(): Return {
   const context = useContext(authContext);
   if (!context) {
     return {
       isLoggedIn: false,
-      currentUser: () => ({
-        token: {
-          access_token: "",
-        },
-        email: "",
-        user_metadata: {
-          full_name: "",
-        },
-      }),
-      login: () => null,
-      logout: () => null,
+      currentUser: () => null,
       open: () => null,
+      initialized: false,
     };
   }
-  return context;
+  return { ...context, initialized: true };
 }

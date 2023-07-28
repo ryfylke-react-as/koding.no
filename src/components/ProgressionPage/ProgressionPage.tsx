@@ -8,14 +8,18 @@ import { useMutation } from "react-query";
 import { toast } from "@site/src/lib/toast";
 import { debounce } from "@site/src/utils";
 import Admonition from "@theme/Admonition";
-import { H2, H3 } from "../Header/Header";
+import Link from "@docusaurus/Link";
 
-export const ProgressionPage = (props: {
+import { H2, H3 } from "../Header/Header";
+import BrowserOnly from "@docusaurus/BrowserOnly";
+
+type Props = {
   /** `frontend`, `backend`, `spillprogrammering`, etc... */
   id: string;
-}) => {
-  const progression = progressionMap[props.id];
+};
 
+export const ProgressionPage = (props: Props) => {
+  const progression = progressionMap[props.id];
   const [checked, setChecked] = React.useState<string[]>([]);
   const auth = useAuth();
   const appFetch = useFetch();
@@ -56,9 +60,6 @@ export const ProgressionPage = (props: {
     },
     {
       onSuccess: (_a, v) => {
-        console.log("Progressjon lagret ✅", {
-          progressjon: v.newChecked,
-        });
         toast({
           title: "Fremgang lagret",
           kind: "success",
@@ -108,14 +109,13 @@ export const ProgressionPage = (props: {
 
   return (
     <>
-      <H2>Mål</H2>
       {auth.isLoggedIn ? (
         <Admonition type="tip" title="Velkommen tilbake!">
           Du er logget inn som{" "}
           <strong>
-            <a href="/profil">
+            <Link href="/profil">
               {auth.currentUser().user_metadata.full_name}
-            </a>
+            </Link>
           </strong>
           . Fremgangen din blir lagret automatisk.
         </Admonition>
