@@ -15,16 +15,38 @@ Det er flere måter å bidra på. Du kan for eksempel:
 - [Gi tilbakemelding](https://github.com/ryfylke-react-as/koding.no/issues)
 - Redigere eksisterende artikler for å skreddersy informasjonen, eller rettskriving.
 - Legge til manglede artikler og innhold
+- Fikse feil og mangler i koden
+- Legge til nye funksjoner
 
 Bidrag gjøres via [Git](./konsepter/git). Du gjør en **fork** av repository'et, legger til dine endringer,
 også setter du opp et **pull request** mot den originale kodebasen. Endringene dine vil bli gjennomgått før de legges til.
+
+### Bidra med innhold
+
+Innholdet på nettsiden er skrevet i [MDX](https://mdxjs.com/). Det er en kombinasjon av Markdown og React.
+Det er enkelt å komme i gang med, og du kan lese mer om det [her](./konsepter/mdx).
+
+På hver side er det en **`Rediger denne siden`** link som tar deg direkte til den relevante filen på GitHub.
+
+### Bidra med kode
+
+Prosjektet er satt opp med [Docusaurus 2](https://docusaurus.io/docs). Det er en React-basert statisk sidegenerator.
+
+Docusaurus, litt likt som Next, kjører koden din i en Node.js prosess. Det betyr at du kan bruke alle Node.js moduler du vil, men
+også at du ikke alltid har tilgang til nettleser-APIer som `window` og `document`. Dette er fordi koden din kan kjøres både på server og i nettleser.
+
+:::tip
+Bruk `<BrowserOnly>` komponenten fra `@docusaurus` for å kun kjøre kode i nettleser. Eventuelt kan du sjekke om `window` er definert.
+:::
+
+Koding.no bruker også [netlify functions](https://www.netlify.com/products/functions/) for å kjøre kode på server, og [netlify identity](https://docs.netlify.com/visitor-access/identity/) for å håndtere innlogging.
 
 ## Anbefalt setup
 
 Vi anbefaler å bruke [Visual Studio Code](https://code.visualstudio.com/) som editor, og installere følgende plugins:
 
 - [MDX](https://marketplace.visualstudio.com/items?itemName=unifiedjs.vscode-mdx)  
-  Legg inn følgende i `settings.json` for å få autocomplete på komponenter i MDX-filer:
+  Legg inn følgende i `settings.json` for å få autocomplete på React komponenter i MDX-filer:
   ```json
   {
     "mdx.experimentalLanguageServer": true
