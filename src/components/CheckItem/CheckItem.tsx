@@ -5,16 +5,30 @@ import styles from "./CheckItem.module.scss";
 export type CheckItem = {
   id: string;
   label: string;
+  level?: 1 | 2 | 3;
 };
 
 let timer: ReturnType<typeof setTimeout> = setTimeout(() => {},
 0);
+
+const levelToType = {
+  1: "success",
+  2: "info",
+  3: "danger",
+};
+
+const levelToLabel = {
+  1: "Nivå 1",
+  2: "Nivå 2",
+  3: "Nivå 3",
+};
 
 export const CheckItem = ({
   label,
   id,
   onToggle,
   checked,
+  level,
 }: CheckItem & {
   checked: boolean;
   onToggle: () => void;
@@ -52,6 +66,13 @@ export const CheckItem = ({
         />
       )}
       {label}
+      {level !== undefined && (
+        <span
+          className={`badge badge--sm badge--${levelToType[level]}`}
+        >
+          {levelToLabel[level]}
+        </span>
+      )}
     </label>
   );
 };

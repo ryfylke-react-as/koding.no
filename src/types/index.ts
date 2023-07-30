@@ -47,5 +47,8 @@ type Merge<T extends object> = {
 
 /** { uniqueId: "Label for checkbox" } */
 export type ProgressionRecord<T extends string> = {
-  [K in T]?: string;
+  [K in T]?: {
+    label: string;
+    level: 1 | 2 | 3;
+  };
 };

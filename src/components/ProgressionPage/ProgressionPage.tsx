@@ -146,7 +146,8 @@ export const ProgressionPage = (props: Props) => {
         items={Object.entries(progression.konsepter).map(
           ([key, value]) => ({
             id: key,
-            label: value,
+            label: value.label,
+            level: value.level,
           })
         )}
         onToggleCheckbox={onToggleCheckbox}
@@ -157,7 +158,8 @@ export const ProgressionPage = (props: Props) => {
         items={Object.entries(progression.kodesprak).map(
           ([key, value]) => ({
             id: key,
-            label: value,
+            label: value.label,
+            level: value.level,
           })
         )}
         onToggleCheckbox={onToggleCheckbox}
@@ -168,7 +170,8 @@ export const ProgressionPage = (props: Props) => {
         items={Object.entries(progression.ferdigheter).map(
           ([key, value]) => ({
             id: key,
-            label: value,
+            label: value.label,
+            badge: value.level,
           })
         )}
         onToggleCheckbox={onToggleCheckbox}
