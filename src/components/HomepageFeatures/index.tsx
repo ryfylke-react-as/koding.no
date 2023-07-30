@@ -1,6 +1,8 @@
 import React from "react";
 import clsx from "clsx";
 import styles from "./styles.module.css";
+import BrowserOnly from "@docusaurus/BrowserOnly";
+import { useScrollPercentBetween } from "@site/src/hooks/useScrollPercentageBetween";
 
 type FeatureItem = {
   title: string;
@@ -46,10 +48,26 @@ const FeatureList: FeatureItem[] = [
 ];
 
 function Feature({ title, Svg, description }: FeatureItem) {
+  const percent = useScrollPercentBetween({
+    after: 0,
+    before: 350,
+  });
+
   return (
-    <div className={clsx("col col--4")}>
+    <div
+      className={clsx("col col--4")}
+      style={{ transform: `translateY(-${percent * 0.4}px)` }}
+    >
       <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
+        <Svg
+          className={styles.featureSvg}
+          role="img"
+          style={{
+            transform: `rotate(${
+              percent * 0.05
+            }deg) translateY(${(percent / 100) * 8}px)`,
+          }}
+        />
       </div>
       <div className="text--center padding-horiz--md">
         <h3>{title}</h3>
@@ -65,7 +83,9 @@ export default function HomepageFeatures(): JSX.Element {
       <div className="container">
         <div className="row">
           {FeatureList.map((props, idx) => (
-            <Feature key={idx} {...props} />
+            <BrowserOnly>
+              {() => <Feature key={idx} {...props} />}
+            </BrowserOnly>
           ))}
         </div>
       </div>

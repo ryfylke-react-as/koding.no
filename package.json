@@ -22,6 +22,7 @@
     "@docusaurus/theme-mermaid": "^2.4.1",
     "@mdx-js/react": "^1.6.22",
     "@netlify/functions": "^0.11.1",
+    "@ryfylke-react/scroll-handler": "^1.0.21",
     "@ryfylke-react/toast": "^0.1.61",
     "@types/netlify-identity-widget": "^1.9.3",
     "clsx": "^1.2.1",

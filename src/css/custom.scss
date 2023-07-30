@@ -99,25 +99,17 @@ footer {
       var(--bg-color-1) 0.8px
     );
   background-size: 32px 32px;
-  background-position: 0 0, 16px 16px;
-  animation: bgPos 6s linear infinite;
+  background-position: 0 calc(calc(var(--scroll) / 100) * 84px),
+    16px calc(calc(var(--scroll) / 100) * 128px);
   @media (prefers-reduced-motion: reduce) {
     animation: none;
   }
 }
 
-@keyframes bgPos {
-  0% {
-    background-position: 0 0, 16px 16px;
-  }
-  100% {
-    background-position: 0 32px, 16px 48px;
-  }
-}
-
 .hero .container {
   max-width: 100%;
-  backdrop-filter: blur(2px);
+  background: rgba(0, 0, 0, 0.01);
+  backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(1px);
   padding: 4rem;
 }
