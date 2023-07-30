@@ -11,12 +11,12 @@ import { createProgressionMap } from "../utils/index";
  */
 
 const ids = [
-  "fe_server-klient",
+  "server-klient",
   "fe_htmlcssjs",
   "fe_responsivt-design",
   "fe_tilgjengelighet",
-  "fe_http-request",
-  "fe_https-http",
+  "http-request",
+  "https-http",
   "fe_version-control",
   "fe_package-managers-know",
   "fe_js-framework-know",
@@ -41,47 +41,114 @@ export const progressionMap = createProgressionMap<
 >({
   frontend: {
     konsepter: {
-      ["fe_server-klient"]: "Server vs klient",
-      ["fe_htmlcssjs"]: "Semantisk HTML",
-      ["fe_responsivt-design"]: "Responsivt design",
-      ["fe_tilgjengelighet"]: "Tilgjengelighet",
-      ["fe_http-request"]: "Hva er en HTTP forespørsel?",
-      ["fe_https-http"]: "HTTPS",
-      ["fe_version-control"]:
-        "Versjon-kontrollering (version control / git)",
-      ["fe_package-managers-know"]: "NPM",
-      ["fe_js-framework-know"]: "JavaScript rammeverk",
-      ["fe_api"]: "Hva er et API?",
-      ["fe_database"]: "Hva er en database?",
+      ["server-klient"]: {
+        level: 1,
+        label: "Server vs klient",
+      },
+      ["http-request"]: {
+        level: 1,
+        label: "Hva er en HTTP forespørsel?",
+      },
+      ["https-http"]: { level: 1, label: "HTTPS" },
+      ["fe_htmlcssjs"]: {
+        level: 2,
+        label: "Semantisk HTML",
+      },
+      ["fe_tilgjengelighet"]: {
+        level: 2,
+        label: "Tilgjengelighet",
+      },
+      ["fe_responsivt-design"]: {
+        level: 2,
+        label: "Responsivt design",
+      },
+      ["fe_api"]: {
+        level: 2,
+        label: "Hva er et API?",
+      },
+      ["fe_database"]: {
+        level: 2,
+        label: "Hva er en database?",
+      },
+      ["fe_version-control"]: {
+        level: 3,
+        label: "Versjon-kontrollering (version control / git)",
+      },
+      ["fe_package-managers-know"]: {
+        level: 3,
+        label: "NPM",
+      },
+      ["fe_js-framework-know"]: {
+        level: 3,
+        label: "JavaScript rammeverk",
+      },
     },
     kodesprak: {
-      ["fe_html"]: "1. HTML",
-      ["fe_css"]: "2. CSS",
-      ["fe_javascript"]: "3. JavaScript",
+      ["fe_html"]: { level: 1, label: "HTML" },
+      ["fe_css"]: { level: 2, label: "CSS" },
+      ["fe_javascript"]: {
+        level: 3,
+        label: "JavaScript",
+      },
     },
     ferdigheter: {
-      ["fe_can-create-website"]:
-        "Kan lage en enkel nettside med HTML og CSS, ut ifra gitt design",
-      ["fe_fe-be-diff"]:
-        "Forstår ansvarsskille mellom frontend og backend",
-      ["fe_understands-requests"]:
-        "Klarer å prate med et API via HTTP forespørsler",
-      ["fe_understands-git"]:
-        "Klarer å integrere git inn i arbeidsflyten sin",
-      ["fe_understands_load"]:
-        "Har god forståelse for hvordan en nettside lastes inn i nettleseren",
-      ["fe_can-use-js"]:
-        "Kan bruke JavaScript effektivt for å lage interaktive nettsider",
-      ["fe_package-managers-use"]:
-        'Klarer å installere pakker gjennom "package managers" (npm, yarn, etc...)',
-      ["fe_js-framework-use"]:
-        "Klarer å bruke et JavaScript rammeverk for å lage en nettside",
+      ["fe_can-create-website"]: {
+        level: 2,
+        label:
+          "Kan lage en enkel nettside med HTML og CSS, ut ifra gitt design",
+      },
+      ["fe_fe-be-diff"]: {
+        level: 2,
+        label:
+          "Forstår ansvarsskille mellom frontend og backend",
+      },
+      ["fe_understands-requests"]: {
+        level: 2,
+        label: "Klarer å prate med et API via HTTP forespørsler",
+      },
+      ["fe_understands-git"]: {
+        level: 2,
+        label: "Klarer å integrere git inn i arbeidsflyten sin",
+      },
+      ["fe_understands_load"]: {
+        level: 3,
+        label:
+          "Har god forståelse for hvordan en nettside lastes inn i nettleseren",
+      },
+      ["fe_can-use-js"]: {
+        level: 3,
+        label:
+          "Kan bruke JavaScript effektivt for å lage interaktive nettsider",
+      },
+      ["fe_package-managers-use"]: {
+        level: 3,
+        label:
+          'Klarer å installere pakker gjennom "package managers" (npm, yarn, etc...)',
+      },
+      ["fe_js-framework-use"]: {
+        level: 3,
+        label:
+          "Klarer å bruke et JavaScript rammeverk for å lage en nettside",
+      },
     },
   },
   backend: {
-    konsepter: {},
+    konsepter: {
+      ["server-klient"]: {
+        level: 1,
+        label: "Server vs klient",
+      },
+      ["http-request"]: {
+        level: 1,
+        label: "Hva er en HTTP forespørsel?",
+      },
+      ["https-http"]: { level: 1, label: "HTTPS" },
+    },
     kodesprak: {
-      ["be_python"]: "1. Python",
+      ["be_python"]: {
+        level: 2,
+        label: "Python",
+      },
     },
     ferdigheter: {},
   },

@@ -1,12 +1,6 @@
 import BrowserOnly from "@docusaurus/BrowserOnly";
-import { useAuth } from "@site/src/auth/useAuth";
-import { queryClient } from "@site/src/theme/Root";
-import React, { useCallback, useEffect } from "react";
-import { useMutation, useQuery } from "react-query";
+import React from "react";
 import { CheckItem } from "../CheckItem/CheckItem";
-import useLazyQuery from "@site/src/hooks/useLazyQuery";
-import { toast } from "@site/src/lib/toast";
-import { useFetch } from "@site/src/utils/api";
 
 export type Props = {
   items: CheckItem[];
@@ -81,7 +75,7 @@ export const CheckItemListBase = (props: Props) => {
 
 export const CheckItemList = (props: Props) => {
   return (
-    <BrowserOnly fallback={<div>Loading...</div>}>
+    <BrowserOnly fallback={<div>Laster inn...</div>}>
       {() => <CheckItemListBase {...props} />}
     </BrowserOnly>
   );

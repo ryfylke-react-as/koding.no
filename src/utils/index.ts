@@ -20,13 +20,7 @@ export function createProgressionMap<
       ferdigheter: ProgressionRecord<TKeys>;
     }
   >
->(
-  arg: ValidateUniquePaths<
-    T[string]["konsepter" | "kodesprak" | "ferdigheter"]
-  > extends true
-    ? T
-    : never
-) {
+>(arg: T) {
   return arg;
 }
 
