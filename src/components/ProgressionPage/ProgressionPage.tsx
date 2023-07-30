@@ -171,7 +171,7 @@ export const ProgressionPage = (props: Props) => {
           ([key, value]) => ({
             id: key,
             label: value.label,
-            badge: value.level,
+            level: value.level,
           })
         )}
         onToggleCheckbox={onToggleCheckbox}
