@@ -65,7 +65,6 @@ export const CheckItem = ({
           width={400}
         />
       )}
-      {label}
       {level !== undefined && (
         <span
           className={`badge badge--sm badge--${levelToType[level]}`}
@@ -73,6 +72,7 @@ export const CheckItem = ({
           {levelToLabel[level]}
         </span>
       )}
+      {label}
     </label>
   );
 };

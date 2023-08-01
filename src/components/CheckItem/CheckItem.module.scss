@@ -7,6 +7,7 @@
   transition: all 0.15s ease-in-out;
   align-items: flex-start;
   border-radius: 3px;
+  padding: 0.25rem 0.5rem;
   &[data-loading="true"] {
     cursor: wait;
     opacity: 0.75;
@@ -29,11 +30,12 @@
     margin-top: 0.7rem;
   }
   span {
-    margin: 0.45rem 0.5rem 0 auto;
+    margin: 0.45rem 0.5rem 0;
     opacity: 0.85;
     font-size: 50%;
     background: var(--ifm-color-emphasis-200);
     color: var(--ifm-color-emphasis-800);
+    min-width: max-content;
   }
 }
 

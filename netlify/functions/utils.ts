@@ -33,6 +33,15 @@ export const query = (query: string) => {
   });
 };
 
+/**
+ * ```typescript
+ * try {
+ *  const res = await execute("INSERT INTO ... VALUES (?)", ["John Doe"]);
+ * } catch (err) {
+ *  console.log(err);
+ * }
+ * ```
+ */
 export const execute = (query: string, input: any[]) => {
   return new Promise<
     | mysql.OkPacket

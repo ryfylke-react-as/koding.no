@@ -172,42 +172,48 @@ Du må refreshe siden etterpå.`
           </div>
         </>
       )}
-      <H3>Konsepter</H3>
-      <CheckItemList
-        items={Object.entries(progression.konsepter).map(
-          ([key, value]) => ({
-            id: key,
-            label: value.label,
-            level: value.level,
-          })
-        )}
-        onToggleCheckbox={onToggleCheckbox}
-        checked={checked}
-      />
-      <H3>Kodespråk</H3>
-      <CheckItemList
-        items={Object.entries(progression.kodesprak).map(
-          ([key, value]) => ({
-            id: key,
-            label: value.label,
-            level: value.level,
-          })
-        )}
-        onToggleCheckbox={onToggleCheckbox}
-        checked={checked}
-      />
-      <H3>Ferdigheter</H3>
-      <CheckItemList
-        items={Object.entries(progression.ferdigheter).map(
-          ([key, value]) => ({
-            id: key,
-            label: value.label,
-            level: value.level,
-          })
-        )}
-        onToggleCheckbox={onToggleCheckbox}
-        checked={checked}
-      />
+      {itemsQuery.isLoading ? (
+        <p>Henter brukerdata...</p>
+      ) : (
+        <>
+          <H3>Konsepter</H3>
+          <CheckItemList
+            items={Object.entries(progression.konsepter).map(
+              ([key, value]) => ({
+                id: key,
+                label: value.label,
+                level: value.level,
+              })
+            )}
+            onToggleCheckbox={onToggleCheckbox}
+            checked={checked}
+          />
+          <H3>Kodespråk</H3>
+          <CheckItemList
+            items={Object.entries(progression.kodesprak).map(
+              ([key, value]) => ({
+                id: key,
+                label: value.label,
+                level: value.level,
+              })
+            )}
+            onToggleCheckbox={onToggleCheckbox}
+            checked={checked}
+          />
+          <H3>Ferdigheter</H3>
+          <CheckItemList
+            items={Object.entries(progression.ferdigheter).map(
+              ([key, value]) => ({
+                id: key,
+                label: value.label,
+                level: value.level,
+              })
+            )}
+            onToggleCheckbox={onToggleCheckbox}
+            checked={checked}
+          />
+        </>
+      )}
     </>
   );
 };
