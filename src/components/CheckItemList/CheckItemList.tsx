@@ -29,7 +29,7 @@ export const CheckItemListBase = (props: Props) => {
               ></path>
             </svg>
           </span>
-          TODO
+          TO-DO
         </div>
       </div>
     );

@@ -32,5 +32,13 @@
     margin: 0.45rem 0.5rem 0 auto;
     opacity: 0.85;
     font-size: 50%;
+    background: var(--ifm-color-emphasis-200);
+    color: var(--ifm-color-emphasis-800);
+  }
+}
+
+[data-theme="dark"] .label {
+  span {
+    background: var(--ifm-color-emphasis-200);
   }
 }

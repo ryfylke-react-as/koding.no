@@ -13,6 +13,8 @@ import Link from "@docusaurus/Link";
 import { H2, H3 } from "../Header/Header";
 import BrowserOnly from "@docusaurus/BrowserOnly";
 
+const LOCALSTORAGE_KEY = "progression-checked";
+
 type Props = {
   /** `frontend`, `backend`, `spillprogrammering`, etc... */
   id: string;
@@ -68,12 +70,17 @@ export const ProgressionPage = (props: Props) => {
     }
   );
 
-  const syncToBackend = useCallback(
+  const sync = useCallback(
     debounce(() => {
       if (auth.isLoggedIn) {
         checkedMutation.mutate({
           newChecked: getLatestCheckedState(),
         });
+      } else {
+        localStorage.setItem(
+          LOCALSTORAGE_KEY,
+          JSON.stringify(getLatestCheckedState())
+        );
       }
     }, 1000),
     [auth.isLoggedIn]
@@ -88,7 +95,7 @@ export const ProgressionPage = (props: Props) => {
       !checked.includes(id) ? "true" : "false"
     );
     setChecked(newChecked);
-    syncToBackend();
+    sync();
   };
 
   const getLatestCheckedState = () => {
@@ -104,6 +111,30 @@ export const ProgressionPage = (props: Props) => {
   useEffect(() => {
     if (auth.isLoggedIn) {
       lazyGetItems();
+    } else {
+      const lsValue = localStorage.getItem(LOCALSTORAGE_KEY);
+      if (lsValue) {
+        try {
+          const parsed = JSON.parse(lsValue);
+          setChecked(parsed);
+        } catch (e) {
+          toast({
+            title: "Korrupt lagre-data (mer info i konsollen)",
+            kind: "error",
+          });
+          console.error(
+            `Korrupt (lokal) lagre-data. 
+            
+Dette kan potensielt fikses hvis du inspiserer
+localStorage.getItem("${LOCALSTORAGE_KEY}")
+
+og fikser feilen manuelt med
+localStorage.setItem("${LOCALSTORAGE_KEY}", "...fikset data...")
+
+Du må refreshe siden etterpå.`
+          );
+        }
+      }
     }
   }, [auth.isLoggedIn]);
 

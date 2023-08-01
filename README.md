@@ -16,4 +16,4 @@ Dette er kjerneprinsippet som nettstedet er bygd på, og jeg håper at alle som 
 
 Koding.no er bygd på toppen av [Docusaurus 2.0](https://docusaurus.io/).
 
-Les mer om bidrag [her](https://beta.koding.no/wiki/bidrag)
+Les mer om bidrag [her](https://koding.no/wiki/bidrag)

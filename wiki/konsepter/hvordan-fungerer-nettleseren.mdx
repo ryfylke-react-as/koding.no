@@ -21,17 +21,15 @@ Når nettleseren har en URL, må den finne ut hvilken server den skal sende en f
 
 Når nettleseren har URL-en, må den finne ut hvilken IP-adresse den skal sende en forespørsel til. Dette gjøres ved å slå opp domenenavnet i DNS.
 
-En DNS server sin jobb er å ta imot et **`domene`**
+En DNS server sin jobb er å ta imot et **`domene`** og gi tilbake en **`IP-adresse`**.
 
-:::info Eksempel
-`example.com`
-:::
-
-og gi tilbake en IP-adresse
-
-:::info Eksempel
-`93.184.216.34`
-:::
+```mermaid
+flowchart LR
+    id1(Din nettleser)
+    id3(DNS Server)
+    id1-. " example.com " .->id3
+    id3-. " 93.184.216.34 " .->id1
+```
 
 Nettleseren trenger IP-adressen for å kunne sende [forespørseler](./server-og-klient#forespørsel) til riktig server.
 
@@ -93,23 +91,23 @@ Nettleseren sender endelig en [`GET` forespørsel](./server-og-klient#forespørs
 
 ```html
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="nb">
   <head>
     <meta charset="UTF-8" />
-    <title>My simple page</title>
+    <title>Min eksempel side</title>
     <link rel="stylesheet" href="styles.css" />
-    <script src="myscript.js"></script>
+    <script src="eksempel.js"></script>
   </head>
   <body>
-    <h1 class="heading">My Page</h1>
+    <h1 class="heading">Min side</h1>
     <p>
-      A paragraph with a
+      Et paragraf med en
       <a href="https://example.com/about">link</a>
     </p>
     <div>
-      <img src="myimage.jpg" alt="image description" />
+      <img src="mitt-bilde.jpg" alt="bilde beskrivelse" />
     </div>
-    <script src="anotherscript.js"></script>
+    <script src="eksempel-2.js"></script>
   </body>
 </html>
 ```
@@ -162,7 +160,7 @@ Da må nettleseren stoppe renderingen, og vente på at Javascript-filene blir la
 Det er derfor nyttig å laste inn Javascript-filer på slutten av `<body>`-elementet, og bruke [`defer` eller `async`-attributtet](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#attributes),
 slik at bruker ikke må vente på at Javascript-filene blir lastet inn før siden blir interaktiv.
 
-I eksempelet over, vil `myscript.js` bli lastet inn før resten av `<body>` elementet rendres, siden den kommer først i HTML-filen, og ikke er _deferred_.
+I eksempelet over, vil `eksempel.js` bli lastet inn før resten av `<body>` elementet rendres, siden den kommer først i HTML-filen, og ikke er _deferred_.
 :::
 
 Så snart nettleseren har lastet inn og parset Javascript-filene, kan den endelig vise den interaktive siden til brukeren.
