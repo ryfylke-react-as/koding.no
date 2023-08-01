@@ -82,11 +82,15 @@ export default function HomepageFeatures(): JSX.Element {
     <section className={styles.features}>
       <div className="container">
         <div className="row">
-          {FeatureList.map((props, idx) => (
-            <BrowserOnly>
-              {() => <Feature key={idx} {...props} />}
-            </BrowserOnly>
-          ))}
+          <BrowserOnly>
+            {() => (
+              <>
+                {FeatureList.map((props, idx) => (
+                  <Feature key={idx} {...props} />
+                ))}
+              </>
+            )}
+          </BrowserOnly>
         </div>
       </div>
     </section>
