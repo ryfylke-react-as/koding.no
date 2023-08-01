@@ -186,4 +186,4 @@ export const totalProgressMap = Object.keys(
     );
   }
   return acc;
-}, {} as Record<string, string>);
+}, {} as Record<string, { level: number; label: string }>);

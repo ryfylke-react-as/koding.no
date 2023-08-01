@@ -81,7 +81,7 @@ function LoggedInPage() {
                 <li key={key}>
                   <span>
                     {progress.includes(key) ? "✅" : "❌"}{" "}
-                    {totalProgressMap[key]}
+                    {totalProgressMap[key].label}
                   </span>
                 </li>
               ))}
@@ -97,7 +97,7 @@ function LoggedInPage() {
                 <li key={key}>
                   <span>
                     {progress.includes(key) ? "✅" : "❌"}{" "}
-                    {totalProgressMap[key]}
+                    {totalProgressMap[key].label}
                   </span>
                 </li>
               ))}
@@ -114,7 +114,7 @@ function LoggedInPage() {
                 <li key={key}>
                   <span>
                     {progress.includes(key) ? "✅" : "❌"}{" "}
-                    {totalProgressMap[key]}
+                    {totalProgressMap[key].label}
                   </span>
                 </li>
               ))}
