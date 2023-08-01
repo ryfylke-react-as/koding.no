@@ -21,3 +21,7 @@ yarn-error.log*
 
 # Local Netlify folder
 .netlify
+
+# Idea project files
+*.iml
+.idea/
