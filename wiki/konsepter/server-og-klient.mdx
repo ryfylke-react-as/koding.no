@@ -11,7 +11,7 @@ import { IconTitle } from "../../src/components/IconTitle/IconTitle.tsx";
 
 ## Introduksjon
 
-Når du åpner en nettside i nettleseren din, så skjer det en rekke ting i bakgrunnen.
+Når du åpner en nettside i nettleseren din, så [skjer det en rekke ting i bakgrunnen](./hvordan-fungerer-nettleseren), men det som er viktig å vite er at nettleseren din sender en _forespørsel_ til en _server_ som ligger på en annen datamaskin. Serveren sender så en _respons_ tilbake til nettleseren din, som inneholder nettsiden du ønsker å se.
 
 ```mermaid
 flowchart LR
@@ -26,10 +26,6 @@ flowchart LR
 3. Klienten viser nettsiden til brukeren.
 
 Klienten og server kommuniserer med hverandre over internett ved hjelp av en standard protokoll. Denne protokollen kalles HTTP.
-
-:::info
-For å finne ut hvilken PC som skal motta forespørselen basert på domenenavnet, så bruker klienten en _DNS-server_. En DNS-server oversetter domenenavn til IP-adresser. For eksempel så oversetter DNS-serveren domenenavnet `google.com` til IP-adressen [`142.251.46.206`](http://142.251.46.206).
-:::
 
 <IconTitle icon="computer">Klient</IconTitle>
 
@@ -70,6 +66,10 @@ En forespørsel kan ha en av følgende metoder:
 #### URL
 
 En URL er en adresse som identifiserer en ressurs på en server.
+
+:::info Eksempel
+`http://www.example.com/mitt-bilde.png`.
+:::
 
 #### Headere
 
