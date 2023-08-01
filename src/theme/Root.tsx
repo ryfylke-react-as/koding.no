@@ -54,6 +54,15 @@ export default function Root({ children }) {
   });
 
   useEffect(() => {
+    if (
+      typeof window !== "undefined" &&
+      document.location.hostname === "beta.koding.no"
+    ) {
+      // Redirect til nyeste staging-deployment
+      window.location.replace(
+        "https://staging--koding-no.netlify.app/"
+      );
+    }
     import("netlify-identity-widget").then(
       (importedNetlifyIdentity) => {
         importedNetlifyIdentity.on("login", () => {
