@@ -29,7 +29,7 @@ const config = {
   // to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: "nb",
-    locales: ["nb"],
+    locales: ["nb", "no"],
   },
   plugins: [
     "docusaurus-plugin-sass",
@@ -42,6 +42,12 @@ const config = {
         sidebarPath: require.resolve("./sidebars.js"),
         editUrl:
           "https://github.com/ryfylke-react-as/koding.no/tree/main",
+      },
+    ],
+    [
+      require.resolve("@cmfcmf/docusaurus-search-local"),
+      {
+        language: "no",
       },
     ],
   ],
