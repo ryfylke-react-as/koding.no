@@ -40,7 +40,7 @@ const FeatureList: FeatureItem[] = [
       .default,
     description: (
       <>
-        Alt innhold på Koding.no er skrevet og skreddersynn av
+        Alt innhold på Koding.no er skrevet og skreddersydd av
         frivillige bidragsytere.
       </>
     ),
