@@ -16,6 +16,6 @@ Dette er kjerneprinsippet som nettstedet er bygd på, og jeg håper at alle som 
 
 Koding.no er bygd på toppen av [Docusaurus 2.0](https://docusaurus.io/).
 
-* [Les mer om bidrag](https://koding.no/wiki/bidra)
+- [Les mer om bidrag](https://koding.no/ressurser/bidra)
 
-* [Bli med på Discord kanalen](https://discord.gg/gxtAr4SzWs)
+- [Bli med på Discord kanalen](https://discord.gg/gxtAr4SzWs)

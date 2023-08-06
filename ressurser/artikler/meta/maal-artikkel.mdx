@@ -1,0 +1,91 @@
+# Mål artikkel
+
+En mål artikkel er en artikkel (eller serie av artikler) som tar for seg et mål i progresjonen.
+
+Ofte inneholder også mål artikkelen en form for kompetansetest.
+
+## Hva kan være et mål?
+
+Et mål er typisk en gruppe med tema som henger sammen.
+
+:::tip Eksempel
+Forstå grunnleggende CSS
+:::
+
+## Bidra med mål artikkel
+
+Mål artikler befinner seg kun i **Kom i gang** og **Opplæring** seksjonene. Det første spørsmålet du må stille deg selv er
+
+> Hvor passer dette målet inn i progresjonen?
+
+Det er viktig at du ikke legger til mål som overlapper med eksisterende mål. Hvis du er usikker på hvor målet passer inn, så spør på Discord eller GitHub.
+
+Når du har funnet ut hvor målet passer inn, så skrive artikkelen din og legge den på rett plass i kodebasen. Du kan se på eksisterende mål artikler for å få en pekepinn på hvordan de skal se ut.
+
+### Hvordan skrive mål artikler
+
+Mål artikler bør være korte og konsise. I steden for å gå inn i dybden på et tema, bør du heller linke til andre interne eller eksterne ressurs artikler.
+
+Formålet med artiklen bør være å nevne de forskjellige emnene som hører til målet, og gi en kort introduksjon til hvert emne, i tillegg til å linke til relaterte ressurser.
+
+På slutten av artikkelen bør du også legge til en kompetansetest. Denne skal teste om leseren har forstått det som står i artikkelen.
+
+### Kompetansetest
+
+Kompetansetester er ganske enkle å lage. Du trenger nesten kun å lage et JSON objekt.
+
+Hvis filen til artikkelen din heter `5-hva-er-en-variabel.md`, så må kompetansetesten hete `5-quiz.tsx`. Inne i den filen gjør du som følgende:
+
+```tsx
+import {
+  KompetanseTest,
+  KompetanseTestData,
+} from "@site/src/components/KompetanseTest/KompetanseTest";
+import React from "react";
+
+const data: KompetanseTestData = {
+  sporsmal: [
+    {
+      sporsmal: "Hva er jobben til HTML?",
+      svar: [
+        "Å definere utseende til et dokument",
+        "Å definere strukturen til et dokument",
+        "Å definere funksjonalitet til et dokument",
+      ],
+      korrekt: 1,
+    },
+    {
+      sporsmal: "Hva er jobben til CSS?",
+      svar: [
+        "Å definere utseende til et dokument",
+        "Å definere strukturen til et dokument",
+        "Å definere funksjonalitet til et dokument",
+      ],
+      korrekt: 0,
+    },
+  ],
+};
+
+export const Test = () => <KompetanseTest data={data} />;
+```
+
+Så kan du etterpå legge inn kompetansetesten i artikkelen din ved å gjøre følgende:
+
+1. Importer komponenten øverst i filen (under frontmatter, men over resten av artikkelen)
+2. Legg inn komponenten i artikkelen din ved å skrive `<Test />`
+
+```mdx
+---
+sidebar_position: 5
+---
+
+import { Test } from "./5-quiz.tsx";
+
+# Variabler og datatyper
+
+En variabel er en ...
+
+## Kompetansetest
+
+<Test />
+```

@@ -14,6 +14,7 @@ type Props<TInterface extends Interface> = {
   onSubmit: (answers: Partial<TInterface>) => void;
   finishScreen: React.ReactNode;
   title: string;
+  onVerifyStep?: (step: number, answer: string) => true | string;
 };
 
 const context = React.createContext<{
@@ -28,21 +29,30 @@ export const Quiz = <TInterface extends Interface>(
   props: Props<TInterface>
 ) => {
   const [finished, setFinished] = React.useState(false);
+  const [error, setError] = React.useState<string | null>(null);
   const [values, setValues] = React.useState<
     Partial<TInterface>
   >({});
   const [currentQuestion, setCurrentQuestion] =
     React.useState(0);
 
+  const answer =
+    values[props.children[currentQuestion].props.questionKey];
+
+  const setAnswer = (answer: string, key: string) =>
+    setValues((p) => ({ ...p, [key]: answer }));
+
+  useEffect(() => {
+    if (error !== null) {
+      setError(null);
+    }
+  }, [answer]);
+
   return (
     <context.Provider
       value={{
-        answer:
-          values[
-            props.children[currentQuestion].props.questionKey
-          ],
-        setAnswer: (answer, key) =>
-          setValues((p) => ({ ...p, [key]: answer })),
+        answer,
+        setAnswer,
       }}
     >
       <div className={styles.container}>
@@ -87,6 +97,9 @@ export const Quiz = <TInterface extends Interface>(
             {props.children[currentQuestion]}
           </React.Fragment>
         )}
+        {error !== null && (
+          <div className={styles.error}>{error}</div>
+        )}
         {!finished && (
           <nav className="pagination-nav">
             <div className="pagination-nav__item">
@@ -123,6 +136,21 @@ export const Quiz = <TInterface extends Interface>(
                   ] === undefined
                 }
                 onClick={() => {
+                  if (
+                    props.onVerifyStep &&
+                    props.onVerifyStep(
+                      currentQuestion,
+                      answer
+                    ) !== true
+                  ) {
+                    setError(
+                      props.onVerifyStep(
+                        currentQuestion,
+                        answer
+                      ) as string
+                    );
+                    return;
+                  }
                   if (
                     currentQuestion ===
                     props.children.length - 1

@@ -30,7 +30,7 @@ function HomepageHeaderBase(props: { scroll?: number }) {
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
-            to="/opplaering/intro"
+            to="/kom-i-gang/intro"
           >
             Kom i gang
           </Link>

@@ -71,7 +71,7 @@ function LoggedInPage() {
         ) : (
           <>
             <h3>
-              <Link href="/opplaering/start/frontend#mål">
+              <Link href="/kom-i-gang/start/frontend#mål">
                 Frontend
               </Link>
             </h3>
@@ -87,7 +87,7 @@ function LoggedInPage() {
               ))}
             </ul>
             <h3>
-              <Link href="/opplaering/start/backend#mål">
+              <Link href="/kom-i-gang/start/backend#mål">
                 Backend
               </Link>
             </h3>
@@ -103,7 +103,7 @@ function LoggedInPage() {
               ))}
             </ul>
             <h3>
-              <Link href="/opplaering/start/spillprogrammering#mål">
+              <Link href="/kom-i-gang/start/spillprogrammering#mål">
                 Spillprogrammering
               </Link>
             </h3>

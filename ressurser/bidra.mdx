@@ -1,0 +1,100 @@
+---
+sidebar_position: 2
+title: Bidra
+---
+
+import { Highlight } from "@site/src/components/Highlight/Highlight.tsx";
+
+# Vær med på utviklingen!
+
+Koding.no er et _open source_ prosjekt. Det betyr at alle kan bidra til å utvikle nettsiden.
+Det er bare å lage en kopi av nettsiden, gjøre endringer og sende inn en forespørsel om å få endringene dine inkludert i nettsiden.
+
+For at vi skal kunne jobbe mot et felles mål, så har vi laget noen kjerneprinsipper som vi ønsker at alle skal følge.
+Det er viktig at du leser disse før du begynner å bidra.
+
+## <Highlight>Kjerneprinsipper</Highlight>
+
+- Koding.no har hovedmål om å **styre selvlærende elever i riktig retning**, og ikke å være en fullverdig læringsplattform.
+  Vi informerer om de beste ressursene, og gir elevene innsikt i hvilke områder de bør lære mer om.
+- Koding.no konkurrerer ikke med andre læringsplattformer, vi aggregaterer og lenker til de beste ressursene som finnes.
+- Koding.no skal være enkel å bruke, og lett å forstå.
+
+## Samfunn
+
+Vi har en [Discord](https://discord.gg/8QH2Yz9) server hvor du kan stille spørsmål og diskutere med andre som bidrar til prosjektet.
+
+## Hvordan bidrar jeg?
+
+1. [Gi tilbakemelding](https://github.com/ryfylke-react-as/koding.no/issues) på nettsiden, og foreslå nye funksjoner
+2. Legge til ny [**mål artikkel**](/ressurser/artikler/meta/maal-artikkel)
+3. Legge til ny **ressurs artikkel**
+4. Redigere og rettskrive eksisterende artikler for å skreddersy informasjonen.
+5. Jobbe på UX og design, teknisk komponent arkitektur, eller andre tekniske oppgaver.
+
+:::info Viktig
+En **mål artikkel** er en relativt kort artikkel som beskriver et mål, tilbyr ressurser som er relevante for å nå målet og også gjerne en kompetansetest. [Les mer her](/ressurser/artikler/meta/maal-artikkel)
+
+**Ressurs artikler** befinner seg i **Ressurser** seksjonen. Disse er ofte mer detaljerte enn mål artikler, og kan være frittstående.
+:::
+
+Det kan være lurt å holde kontakt med andre som bidrar til prosjektet, slik at du enkelt kan spørre spørsmål og åpne diskusjoner. Dette gjør du
+på vår [Discord server](https://discord.gg/gxtAr4SzWs) og [GitHub Issues](https://github.com/ryfylke-react-as/koding.no/issues).
+
+Bidrag gjøres via [Git](./konsepter/git). Hvis du er ikke er helt sikker på hvordan dette funker, så kan du lese mer om det [her](#hvordan-gjør-jeg-et-bidrag-via-git).
+
+### Bidra med teknisk arbeid
+
+Prosjektet er satt opp med [Docusaurus 2](https://docusaurus.io/docs). Det er en React-basert statisk sidegenerator.
+
+Docusaurus, litt likt som Next, kjører koden din i en Node.js prosess. Det betyr at du kan bruke alle Node.js moduler du vil, men
+også at du ikke alltid har tilgang til nettleser-APIer som `window` og `document`. Dette er fordi koden din kan kjøres både på server og i nettleser.
+
+:::tip
+Bruk `<BrowserOnly>` komponenten fra `@docusaurus` for å kun kjøre kode i nettleser. Eventuelt kan du sjekke om `window` er definert.
+:::
+
+Koding.no bruker også [netlify functions](https://www.netlify.com/products/functions/) for å kjøre kode på server, og [netlify identity](https://docs.netlify.com/visitor-access/identity/) for å håndtere innlogging.
+
+#### Anbefalt setup
+
+Vi anbefaler å bruke [Visual Studio Code](https://code.visualstudio.com/) som editor, og installere følgende plugins:
+
+- [MDX](https://marketplace.visualstudio.com/items?itemName=unifiedjs.vscode-mdx)
+  Legg inn følgende i `settings.json` for å få autocomplete på React komponenter i MDX-filer:
+  ```json
+  {
+    "mdx.experimentalLanguageServer": true
+  }
+  ```
+
+## Hvordan gjør jeg et bidrag via Git?
+
+### 1. Lag en kopi (fork) av kodebasen
+
+Trykk på knappen **`Fork`** øverst til høyre på GitHub.
+
+<img
+  src="/img/fork.png"
+  alt="Skjermbilde av Github som viser fork-knappen"
+/>
+
+### 2. Klone koden til din maskin
+
+Nå som du har en kopi av koden på din egen GitHub-konto, kan du klone den ned til din maskin.
+
+Du finner koden på din egen GitHub-konto, under **`Repositories`**. Trykk på **`Code`** knappen, og kopier URL-en.
+
+### 3. Gjør dine endringer lokalt
+
+Åpne koden i din favoritt-editor, og gjør endringene du ønsker. Du kan også kjøre nettsiden lokalt for å se hvordan
+endringene dine ser ut. (`npm run start`).
+
+Sjekk også [bidra med kode](#bidra-med-kode) for mer informasjon om hvordan koden er satt opp.
+
+### 4. Send inn endringene dine
+
+Etter at du har gjort dine endringer og pushet de til din kopi av koden, kan du sende inn en **pull request**.
+
+Gå til den originale kodebasen. Der skal det nå være en ny knapp, **`Compare & pull request`**. Trykk på den for å sette opp en pull request.
+Noen vil gå over endringene dine og holde en dialog gående med deg, før endringene blir inkludert i nettsiden.

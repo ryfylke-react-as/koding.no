@@ -41,3 +41,7 @@
   display: flex;
   flex-direction: column;
 }
+
+.error {
+  color: var(--ifm-color-danger);
+}
