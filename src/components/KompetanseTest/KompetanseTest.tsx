@@ -2,6 +2,12 @@ import React from "react";
 import { Quiz } from "../Quiz/Quiz";
 import ConfettiExplosion from "react-confetti-explosion";
 import styles from "./KompetanseTest.module.scss";
+import useIsBrowser from "@docusaurus/useIsBrowser";
+import useGlobalData from "@docusaurus/useGlobalData";
+import { useMutation } from "react-query";
+import { useFetch } from "@site/src/utils/api";
+import { queryClient } from "@site/src/theme/Root";
+import { useCurrentDocID } from "@site/src/hooks/useCurrentDocID";
 
 export type KompetanseTestData = {
   tittel: string;
@@ -23,6 +29,26 @@ export const KompetanseTest = (props: Props) => {
   const [success, setSuccess] = React.useState<boolean | null>(
     null
   );
+  const appFetch = useFetch();
+  const updateProgress = useMutation({
+    mutationFn: async (docId: string) => {
+      const res = await appFetch(
+        `/.netlify/functions/set-completed`,
+        {
+          method: "POST",
+          body: JSON.stringify({
+            id: docId,
+          }),
+        }
+      );
+      return res;
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries(["progress", { docId }]);
+    },
+  });
+
+  const docId = useCurrentDocID();
 
   const onSubmit = (answers: Record<string, string>) => {
     let i = 0;
@@ -37,6 +63,9 @@ export const KompetanseTest = (props: Props) => {
       i++;
     }
     setSuccess(errors === 0);
+    if (errors === 0) {
+      updateProgress.mutate(docId);
+    }
   };
 
   return (

@@ -3,6 +3,7 @@ import { authContext } from "../auth";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ToastList } from "../components/ToastList/ToastList";
 import { toast } from "../lib/toast";
+import useIsBrowser from "@docusaurus/useIsBrowser";
 
 export const queryClient = new QueryClient();
 
@@ -47,6 +48,7 @@ const reducer = (
 
 // Default implementation, that you can customize
 export default function Root({ children }) {
+  const isBrowser = useIsBrowser();
   const [state, dispatch] = useReducer(reducer, {
     isLoggedIn: false,
     netlifyIdentity: null,
@@ -112,7 +114,7 @@ export default function Root({ children }) {
         }
       }
     );
-  }, []);
+  }, [isBrowser]);
 
   useEffect(() => {
     if (state.isLoggedIn && !state.lastCallWasInitial) {
@@ -125,20 +127,20 @@ export default function Root({ children }) {
   }, [state.isLoggedIn]);
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <authContext.Provider
-        value={
-          state.netlifyIdentity
-            ? {
-                ...state.netlifyIdentity,
-                isLoggedIn: state.isLoggedIn,
-              }
-            : null
-        }
-      >
+    <authContext.Provider
+      value={
+        state.netlifyIdentity
+          ? {
+              ...state.netlifyIdentity,
+              isLoggedIn: state.isLoggedIn,
+            }
+          : null
+      }
+    >
+      <QueryClientProvider client={queryClient}>
         {children}
         <ToastList />
-      </authContext.Provider>
-    </QueryClientProvider>
+      </QueryClientProvider>
+    </authContext.Provider>
   );
 }

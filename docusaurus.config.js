@@ -119,7 +119,8 @@ const config = {
             position: "left",
             label: "Ressurser",
           },
-          { to: "/blog", label: "Blogg", position: "right" },
+          { to: "/bidra", label: "👩‍💻 Bidra", position: "right" },
+          { to: "/blog", label: "📰 Blogg", position: "right" },
         ],
       },
       footer: {

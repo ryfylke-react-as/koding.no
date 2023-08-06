@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Link from "@theme-original/DocSidebarItem/Link";
 import useIsBrowser from "@docusaurus/useIsBrowser";
 import { useQuery } from "react-query";
 import { useFetch } from "@site/src/utils/api";
+import { useCurrentDocID } from "@site/src/hooks/useCurrentDocID";
+import useLazyQuery from "@site/src/hooks/useLazyQuery";
+import { useAuth } from "@site/src/auth/useAuth";
+import useGlobalData from "@docusaurus/useGlobalData";
 
 export default function LinkWrapper(props) {
   const isBrowser = useIsBrowser();
@@ -19,22 +23,30 @@ export default function LinkWrapper(props) {
 }
 
 const LinkWrapperInBrowser = (props) => {
+  const auth = useAuth();
   const appFetch = useFetch();
-  const query = useQuery({
-    queryKey: ["doc", props.item.docId],
-    queryFn: async () => {
+  const docId = `opplaering/${props.item.docId}`;
+  const [runQuery, query] = useLazyQuery(
+    ["progress", { docId: docId }],
+    async () => {
       const res = await appFetch<{
         completed: boolean;
       }>("/.netlify/functions/is-completed", {
         method: "POST",
         body: JSON.stringify({
-          id: props.item.docId,
+          id: docId,
         }),
       });
 
       return res;
-    },
-  });
+    }
+  );
+
+  useEffect(() => {
+    if (auth.isLoggedIn) {
+      runQuery();
+    }
+  }, [auth.isLoggedIn]);
 
   return (
     <div style={{ position: "relative" }}>

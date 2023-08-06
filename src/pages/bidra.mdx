@@ -10,8 +10,8 @@ import { Highlight } from "@site/src/components/Highlight/Highlight.tsx";
 Koding.no er et _open source_ prosjekt. Det betyr at alle kan bidra til å utvikle nettsiden.
 Det er bare å lage en kopi av nettsiden, gjøre endringer og sende inn en forespørsel om å få endringene dine inkludert i nettsiden.
 
-For at vi skal kunne jobbe mot et felles mål, så har vi laget noen kjerneprinsipper som vi ønsker at alle skal følge.
-Det er viktig at du leser disse før du begynner å bidra.
+For at vi skal kunne jobbe mot et felles mål, så har vi laget noen kjerneprinsipper som **alle må følge** hvis de ønsker å bidra.
+Det er viktig at du leser disse før du setter i gang.
 
 ## <Highlight>Kjerneprinsipper</Highlight>
 
@@ -56,6 +56,17 @@ Bruk `<BrowserOnly>` komponenten fra `@docusaurus` for å kun kjøre kode i nett
 
 Koding.no bruker også [netlify functions](https://www.netlify.com/products/functions/) for å kjøre kode på server, og [netlify identity](https://docs.netlify.com/visitor-access/identity/) for å håndtere innlogging.
 
+#### Kjør prosjektet lokalt
+
+1. Installer [Node.js & NPM](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) (versjon 14 eller nyere)
+2. Klon ned [Github Repository'et](https://github.com/ryfylke-react-as/koding.no) til prosjektet
+3. Kjør `npm install` for å installere avhengigheter
+4. Kjør `npm run start` for å starte prosjektet lokalt
+
+Endringer du gjør i koden vil automatisk oppdateres i nettleseren på [http://localhost:3000](http://localhost:3000).
+
+Hvis du skal gjøre arbeid som krever at du bruker netlify functions, eller autorisering, så er dette litt mer komplisert. Ta kontakt med oss på [Discord](https://discord.gg/8QH2Yz9) for å få hjelp.
+
 #### Anbefalt setup
 
 Vi anbefaler å bruke [Visual Studio Code](https://code.visualstudio.com/) som editor, og installere følgende plugins:
@@ -67,6 +78,8 @@ Vi anbefaler å bruke [Visual Studio Code](https://code.visualstudio.com/) som e
     "mdx.experimentalLanguageServer": true
   }
   ```
+
+---
 
 ## Hvordan gjør jeg et bidrag via Git?
 

@@ -8,24 +8,32 @@ import { toast } from "../lib/toast";
 export const createAppFetch =
   (auth: ReturnType<typeof useAuth>) =>
   async <T>(url: string, init: RequestInit = {}): Promise<T> => {
-    const headers = new Headers();
-    headers.append(
-      "Authorization",
-      `Bearer ${auth.currentUser().token.access_token}`
-    );
-    return await fetch(url, { headers, ...init }).then((res) => {
-      if (res.status === 401 && auth.isLoggedIn) {
-        toast({
-          title: "Sessjon utløpt",
-          kind: "warning",
-        });
-        auth.logout();
-      }
-      if (!res.ok) {
-        throw new Error(res.statusText);
-      }
-      return res.json();
-    });
+    try {
+      const headers = new Headers();
+      headers.append(
+        "Authorization",
+        `Bearer ${auth.currentUser()?.token?.access_token}`
+      );
+      return await fetch(url, { headers, ...init }).then(
+        (res) => {
+          if (res.status === 401 && auth.isLoggedIn) {
+            toast({
+              title: "Sessjon utløpt",
+              kind: "warning",
+            });
+            auth.logout();
+          } else if (res.status === 401 && !auth.isLoggedIn) {
+            auth.logout();
+          }
+          if (!res.ok) {
+            throw new Error(res.statusText);
+          }
+          return res.json();
+        }
+      );
+    } catch (error) {
+      console.log(error);
+    }
   };
 
 export const useFetch = (): ReturnType<
