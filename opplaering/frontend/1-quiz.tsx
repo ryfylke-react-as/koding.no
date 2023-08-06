@@ -2,7 +2,6 @@ import {
   KompetanseTest,
   KompetanseTestData,
 } from "@site/src/components/KompetanseTest/KompetanseTest";
-import { Quiz } from "@site/src/components/Quiz/Quiz";
 import React from "react";
 
 const data: KompetanseTestData = {
