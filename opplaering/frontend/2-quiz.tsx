@@ -85,6 +85,5 @@ const data: KompetanseTestData = {
 };
 
 export const Test = () => {
-  console.log(useGlobalData());
   return <KompetanseTest data={data} />;
 };

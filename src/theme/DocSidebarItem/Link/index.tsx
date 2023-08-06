@@ -7,6 +7,7 @@ import { useCurrentDocID } from "@site/src/hooks/useCurrentDocID";
 import useLazyQuery from "@site/src/hooks/useLazyQuery";
 import { useAuth } from "@site/src/auth/useAuth";
 import useGlobalData from "@docusaurus/useGlobalData";
+import styles from "./index.module.scss";
 
 export default function LinkWrapper(props) {
   const isBrowser = useIsBrowser();
@@ -68,10 +69,7 @@ const LinkWrapperInBrowser = (props) => {
             viewBox="0 0 24 24"
             strokeWidth={3}
             stroke="currentColor"
-            style={{
-              width: "1em",
-              height: "1em",
-            }}
+            className={styles.check}
           >
             <path
               strokeLinecap="round"

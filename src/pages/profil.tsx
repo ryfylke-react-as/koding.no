@@ -10,6 +10,7 @@ import { useFetch } from "../utils/api";
 import { useQuery } from "react-query";
 import { getImageUrl } from "../utils/user";
 import Link from "@docusaurus/Link";
+import { LoginButton } from "../components/LoginButton/LoginButton";
 
 function LoggedInPage() {
   const [showAll, setShowAll] = useState(false);
@@ -57,70 +58,7 @@ function LoggedInPage() {
         </h1>
       </header>
       <main className={styles.main}>
-        <h2>Total fremgang</h2>
-        <label>
-          <input
-            type="checkbox"
-            checked={showAll}
-            onChange={() => setShowAll(!showAll)}
-          />
-          Vis alle fremgangsmål
-        </label>
-        {itemsQuery.isLoading ? (
-          <p>Vent litt...</p>
-        ) : (
-          <>
-            <h3>
-              <Link href="/kom-i-gang/start/frontend#mål">
-                Frontend
-              </Link>
-            </h3>
-            {getProgress("frontend").length === 0 && "-"}
-            <ul>
-              {getProgress("frontend").map((key) => (
-                <li key={key}>
-                  <span>
-                    {progress.includes(key) ? "✅" : "❌"}{" "}
-                    {totalProgressMap[key].label}
-                  </span>
-                </li>
-              ))}
-            </ul>
-            <h3>
-              <Link href="/kom-i-gang/start/backend#mål">
-                Backend
-              </Link>
-            </h3>
-            {getProgress("backend").length === 0 && "-"}
-            <ul>
-              {getProgress("backend").map((key) => (
-                <li key={key}>
-                  <span>
-                    {progress.includes(key) ? "✅" : "❌"}{" "}
-                    {totalProgressMap[key].label}
-                  </span>
-                </li>
-              ))}
-            </ul>
-            <h3>
-              <Link href="/kom-i-gang/start/spillprogrammering#mål">
-                Spillprogrammering
-              </Link>
-            </h3>
-            {getProgress("spillprogrammering").length === 0 &&
-              "-"}
-            <ul>
-              {getProgress("spillprogrammering").map((key) => (
-                <li key={key}>
-                  <span>
-                    {progress.includes(key) ? "✅" : "❌"}{" "}
-                    {totalProgressMap[key].label}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </>
-        )}
+        <LoginButton />
       </main>
     </div>
   );
@@ -128,10 +66,6 @@ function LoggedInPage() {
 
 export default function Profil() {
   const auth = useAuth();
-
-  if (!auth.isLoggedIn) {
-    auth.open("login");
-  }
 
   return (
     <Layout
