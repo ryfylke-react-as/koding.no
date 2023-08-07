@@ -11,6 +11,7 @@ type Return =
       currentUser: () => null;
       initialized: false;
       open: () => null;
+      logout: () => null;
     };
 
 export function useAuth(): Return {
@@ -21,6 +22,7 @@ export function useAuth(): Return {
       currentUser: () => null,
       open: () => null,
       initialized: false,
+      logout: () => null,
     };
   }
   return { ...context, initialized: true };

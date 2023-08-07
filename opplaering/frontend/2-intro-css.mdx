@@ -1,0 +1,223 @@
+---
+sidebar_position: 2
+---
+
+import { RelevantLinks } from "@site/src/components/RelevantLinks/RelevantLinks.tsx";
+import { Test } from "./2-quiz.tsx";
+
+# Grunnleggende CSS
+
+- [x] CSS er et språk for å beskrive utseende til et dokument skrevet i et markeringsspråk som HTML.
+- [x] CSS er et akronym for Cascading Style Sheets.
+- [x] CSS er et stilark som beskriver hvordan HTML-elementer skal vises på skjermen, papir eller i andre medier.
+- [x] CSS spesifiserer hvordan elementene skal plasseres, farger, størrelser, osv.
+- [x] CSS er et separat kodespråk med egen syntaks, som brukes sammen med HTML.
+
+CSS er et mektig verktøy for å beskrive utseende til nettsider. CSS kan brukes til å endre farger, størrelser, plasseringer, osv. av HTML-elementer.
+CSS kan også brukes til å lage animasjoner og andre effekter.
+
+## Hvor legger vi CSS?
+
+Det finnes tre måter å legge CSS på en HTML-side.
+
+### Inline CSS
+
+Inline CSS er CSS som er lagt direkte på et HTML-element. Dette gjøres ved å bruke `style`-attributtet på et HTML-element.
+
+**Eksempel**
+
+```html
+<p style="color: red;">Hei</p>
+```
+
+### Intern CSS
+
+Intern CSS er CSS som er lagt i `<style>`-elementet i `<head>`-elementet. Intern CSS gjelder for hele dokumentet.
+
+**Eksempel**
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      p {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <p>Hei</p>
+  </body>
+</html>
+```
+
+### Ekstern CSS
+
+Ekstern CSS er CSS som er lagret i en egen fil. Denne filen kan så lenkes til HTML-dokumentet ved å bruke `<link>`-elementet i `<head>`-elementet.
+
+**Eksempel**
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <p>Hei</p>
+  </body>
+</html>
+```
+
+## CSS syntaks
+
+CSS bruker regler for å beskrive utseende til HTML-elementer.
+
+:::info
+En regel består av en selektor (`selector`) og en deklarasjon (`declaration`).
+:::
+
+```css
+selektor {
+  deklarasjon;
+}
+```
+
+:::info
+En deklarasjon består av et **egenskapsnavn** (`property`) og en **verdi** (`value`).
+:::
+
+```css
+selektor {
+  egenskapsnavn: verdi;
+}
+```
+
+## CSS selektorer
+
+En CSS-selektor er en måte å velge ut HTML-elementer som skal få en spesiell stil. Det finnes mange forskjellige selektorer som kan brukes til å velge ut elementer.
+Du kan for eksempel velge ut...
+
+- Alle elementer av en bestemt tag
+- Alle elementer med en bestemt klasse
+- Hver andre element som er barn av et annet element av en bestemt tag osv...
+
+En selektor "matcher" et element hvis selektoren beskriver elementet. For eksempel matcher selektoren `p` alle `<p>`-elementer.
+Når selektoren matcher et element vil alle deklarasjonene i regelen bli brukt på det elementet.
+
+<RelevantLinks
+  documentation={[
+    {
+      title: "CSS Selectors - MDN",
+      url: "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_selectors",
+    },
+  ]}
+  videos={[
+    {
+      title: "CSS Selectors Tutorial for Beginners",
+      url: "https://www.youtube.com/watch?v=QgxkYbGr2II",
+    },
+  ]}
+/>
+
+## Viktige konsepter
+
+### Arv
+
+Arv er et viktig konsept i CSS. Arv betyr at et element arver egenskaper fra foreldrelementet sitt. For eksempel vil et `<p>`-element arve egenskaper fra `<body>`-elementet.
+
+**Eksempel**
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <p>Hei</p>
+  </body>
+</html>
+```
+
+I dette eksempelet vil teksten i `<p>`-elementet bli rød siden `<p>`-elementet arver egenskapen `color` fra `<body>`-elementet.
+
+### Spesifisitet
+
+Spesifisitet er et viktig konsept i CSS. Spesifisitet er en måte å bestemme hvilken regel som skal brukes når flere regler matcher et element. Spesifisitet er et tall som beregnes ut fra hvilke selektorer som er brukt i en regel.
+
+**Eksempel**
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      #min-id {
+        color: blue;
+      }
+
+      p {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <p id="min-id">Hei</p>
+  </body>
+</html>
+```
+
+I dette eksempelet vil teksten i `<p>`-elementet bli blå siden regelen med id-selektoren har **høyere spesifisitet** enn regelen med elementselektoren.
+
+<RelevantLinks
+  documentation={[
+    {
+      title: "Specificity - MDN",
+      url: "https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity",
+    },
+  ]}
+  videos={[
+    {
+      title: "Learn CSS Specificity In 11 Minutes",
+      url: "https://www.youtube.com/watch?v=CHyPGSpIhSs",
+    },
+  ]}
+/>
+
+## CSS enheter
+
+CSS bruker enheter for å angi størrelser. Det finnes mange forskjellige enheter som kan brukes til å angi størrelser.
+
+<RelevantLinks
+  documentation={[
+    {
+      title: "CSS values and units - MDN",
+      url: "https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Values_and_units",
+    },
+  ]}
+  videos={[
+    {
+      title: "Learn CSS Units In 8 Minutes",
+      url: "https://www.youtube.com/watch?v=-GR52czEd-0",
+    },
+  ]}
+/>
+
+## Oppsummering
+
+I denne leksjonen har vi lært om grunnleggende CSS. Vi har lært om hva CSS er,
+hvordan vi legger CSS på en HTML-side, CSS syntaks, CSS selektorer, viktige konsepter
+i CSS og CSS enheter.
+
+Det er ikke forventet at du skal ha full forståelse for alle konseptene i denne leksjonen, men
+det er viktig at du har fått en introduksjon til CSS og at du har fått en forståelse for hva CSS er.
+
+## Kompetansetest
+
+<Test />

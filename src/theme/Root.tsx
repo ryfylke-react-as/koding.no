@@ -3,6 +3,7 @@ import { authContext } from "../auth";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ToastList } from "../components/ToastList/ToastList";
 import { toast } from "../lib/toast";
+import useIsBrowser from "@docusaurus/useIsBrowser";
 
 export const queryClient = new QueryClient();
 
@@ -47,6 +48,7 @@ const reducer = (
 
 // Default implementation, that you can customize
 export default function Root({ children }) {
+  const isBrowser = useIsBrowser();
   const [state, dispatch] = useReducer(reducer, {
     isLoggedIn: false,
     netlifyIdentity: null,
@@ -54,65 +56,68 @@ export default function Root({ children }) {
   });
 
   useEffect(() => {
-    if (
-      typeof window !== "undefined" &&
-      document.location.hostname === "beta.koding.no"
-    ) {
-      // Redirect til nyeste staging-deployment
-      window.location.replace(
-        "https://staging--koding-no.netlify.app/"
-      );
-    }
-    import("netlify-identity-widget").then(
-      (importedNetlifyIdentity) => {
-        importedNetlifyIdentity.on("login", () => {
-          dispatch({
-            type: "login",
-            payload: {
-              netlifyIdentity: { ...importedNetlifyIdentity },
-            },
+    if (isBrowser && !state.netlifyIdentity) {
+      if (document.location.hostname === "beta.koding.no") {
+        // Redirect til nyeste staging-deployment
+        window.location.replace(
+          "https://staging--koding-no.netlify.app/"
+        );
+      }
+
+      import("netlify-identity-widget").then(
+        (importedNetlifyIdentity) => {
+          importedNetlifyIdentity.on("login", () => {
+            dispatch({
+              type: "login",
+              payload: {
+                netlifyIdentity: { ...importedNetlifyIdentity },
+              },
+            });
+            importedNetlifyIdentity.close(); // close the modal
+            importedNetlifyIdentity.refresh().catch((err) => {
+              console.log("Error refreshing token: ", err);
+              // Logout and prompt login if token refresh fails
+              dispatch({
+                type: "logout",
+                payload: {
+                  netlifyIdentity: {
+                    ...importedNetlifyIdentity,
+                  },
+                },
+              });
+              importedNetlifyIdentity.open("login");
+            });
           });
-          importedNetlifyIdentity.close(); // close the modal
-          importedNetlifyIdentity.refresh().catch((err) => {
-            // Logout and prompt login if token refresh fails
+
+          importedNetlifyIdentity.on("logout", () => {
             dispatch({
               type: "logout",
               payload: {
                 netlifyIdentity: { ...importedNetlifyIdentity },
               },
             });
-            importedNetlifyIdentity.open("login");
+            toast({
+              title: "Du er nå logget ut",
+              kind: "info",
+            });
           });
-        });
 
-        importedNetlifyIdentity.on("logout", () => {
-          dispatch({
-            type: "logout",
-            payload: {
-              netlifyIdentity: { ...importedNetlifyIdentity },
-            },
+          importedNetlifyIdentity.init({
+            locale: "no",
           });
-          toast({
-            title: "Du er nå logget ut",
-            kind: "info",
-          });
-        });
 
-        importedNetlifyIdentity.init({
-          locale: "no",
-        });
-
-        if (!importedNetlifyIdentity?.currentUser?.()) {
-          dispatch({
-            type: "setNetlifyIdentity",
-            payload: {
-              netlifyIdentity: { ...importedNetlifyIdentity },
-            },
-          });
+          if (!importedNetlifyIdentity?.currentUser?.()) {
+            dispatch({
+              type: "setNetlifyIdentity",
+              payload: {
+                netlifyIdentity: { ...importedNetlifyIdentity },
+              },
+            });
+          }
         }
-      }
-    );
-  }, []);
+      );
+    }
+  }, [isBrowser]);
 
   useEffect(() => {
     if (state.isLoggedIn && !state.lastCallWasInitial) {
@@ -125,20 +130,24 @@ export default function Root({ children }) {
   }, [state.isLoggedIn]);
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <authContext.Provider
-        value={
-          state.netlifyIdentity
-            ? {
-                ...state.netlifyIdentity,
-                isLoggedIn: state.isLoggedIn,
-              }
-            : null
-        }
-      >
+    <authContext.Provider
+      value={
+        state.netlifyIdentity
+          ? {
+              ...state.netlifyIdentity,
+              open: (type) => {
+                state.netlifyIdentity.open(type);
+                console.log("open", type);
+              },
+              isLoggedIn: state.isLoggedIn,
+            }
+          : null
+      }
+    >
+      <QueryClientProvider client={queryClient}>
         {children}
         <ToastList />
-      </authContext.Provider>
-    </QueryClientProvider>
+      </QueryClientProvider>
+    </authContext.Provider>
   );
 }

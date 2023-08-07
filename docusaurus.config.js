@@ -36,9 +36,20 @@ const config = {
     [
       "@docusaurus/plugin-content-docs",
       {
-        id: "wiki",
-        path: "wiki",
-        routeBasePath: "wiki",
+        id: "ressurser",
+        path: "ressurser",
+        routeBasePath: "ressurser",
+        sidebarPath: require.resolve("./sidebars.js"),
+        editUrl:
+          "https://github.com/ryfylke-react-as/koding.no/tree/main",
+      },
+    ],
+    [
+      "@docusaurus/plugin-content-docs",
+      {
+        id: "opplaering",
+        path: "opplaering",
+        routeBasePath: "opplaering",
         sidebarPath: require.resolve("./sidebars.js"),
         editUrl:
           "https://github.com/ryfylke-react-as/koding.no/tree/main",
@@ -56,7 +67,7 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
-          routeBasePath: "/opplaering",
+          routeBasePath: "/kom-i-gang",
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
@@ -94,15 +105,22 @@ const config = {
             type: "docSidebar",
             sidebarId: "tutorialSidebar",
             position: "left",
-            label: "Lær koding",
+            label: "Kom i gang",
           },
           {
-            to: "/wiki",
-            activeBaseRegex: "/wiki/",
+            to: "/opplaering",
+            activeBaseRegex: "/opplaering/",
             position: "left",
-            label: "Wiki",
+            label: "Opplæring",
           },
-          { to: "/blog", label: "Blogg", position: "left" },
+          {
+            to: "/ressurser",
+            activeBaseRegex: "/ressurser/",
+            position: "left",
+            label: "Ressurser",
+          },
+          { to: "/bidra", label: "👩‍💻 Bidra", position: "right" },
+          { to: "/blog", label: "📰 Blogg", position: "right" },
         ],
       },
       footer: {
@@ -112,16 +130,12 @@ const config = {
             title: "Opplæring",
             items: [
               {
-                label: "Frontend",
-                to: "/opplaering/start/frontend",
+                label: "Kom i gang",
+                to: "/kom-i-gang/intro",
               },
               {
-                label: "Backend",
-                to: "/opplaering/start/backend",
-              },
-              {
-                label: "Spillprogrammering",
-                to: "/opplaering/start/spillprogrammering",
+                label: "Finn ditt fagområde",
+                to: "/opplaering",
               },
             ],
           },
