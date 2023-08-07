@@ -137,7 +137,10 @@ export default function Root({ children }) {
               ...state.netlifyIdentity,
               open: (type) => {
                 state.netlifyIdentity.open(type);
-                console.log("open", type);
+              },
+              logout: () => {
+                state.netlifyIdentity.logout();
+                queryClient.invalidateQueries();
               },
               isLoggedIn: state.isLoggedIn,
             }

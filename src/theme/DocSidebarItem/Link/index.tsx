@@ -8,6 +8,7 @@ import useLazyQuery from "@site/src/hooks/useLazyQuery";
 import { useAuth } from "@site/src/auth/useAuth";
 import useGlobalData from "@docusaurus/useGlobalData";
 import styles from "./index.module.scss";
+import { progressChannel } from "@site/src/lib/custom-events";
 
 export default function LinkWrapper(props) {
   const isBrowser = useIsBrowser();
@@ -24,11 +25,12 @@ export default function LinkWrapper(props) {
 }
 
 const LinkWrapperInBrowser = (props) => {
+  const [_rerenderer, rerender] = React.useState(0);
   const auth = useAuth();
   const appFetch = useFetch();
   const url = document.location.pathname;
   const docId = `${url.split("/")[1]}/${props.item.docId}`;
-  const [runQuery, query] = useLazyQuery(
+  const query = useQuery(
     ["progress", { docId: docId }],
     async () => {
       const res = await appFetch<{
@@ -41,14 +43,31 @@ const LinkWrapperInBrowser = (props) => {
       });
 
       return res;
+    },
+    {
+      enabled: auth.isLoggedIn,
     }
   );
+  const valueFromLocalStorage = localStorage.getItem(
+    `progress-${docId}`
+  );
+
+  const runQuery = query.refetch;
 
   useEffect(() => {
     if (auth.isLoggedIn) {
       runQuery();
     }
   }, [auth.isLoggedIn]);
+
+  useEffect(() => {
+    const unsubscribe = progressChannel.subscribe((data) => {
+      if (docId === data.docId) {
+        rerender((p) => p + 1);
+      }
+    });
+    return () => unsubscribe();
+  }, [docId]);
 
   return (
     <div style={{ position: "relative" }}>
@@ -63,7 +82,10 @@ const LinkWrapperInBrowser = (props) => {
           color: "var(--ifm-color-primary)",
         }}
       >
-        {query.data && query.data.completed && (
+        {((auth.isLoggedIn &&
+          query.data &&
+          query.data.completed) ||
+          valueFromLocalStorage === "true") && (
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"

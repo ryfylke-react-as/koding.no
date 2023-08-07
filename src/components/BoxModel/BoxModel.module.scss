@@ -1,0 +1,42 @@
+.box {
+  border: 1px dashed var(--ifm-color-content);
+  background: var(--ifm-color-content-inverse);
+  text-align: center;
+  color: var(--ifm-color-content);
+  padding: 0.2rem 1.2rem 1.2rem 1.2rem;
+  font-weight: bold;
+  font-family: var(--ifm-font-family-monospace);
+  width: 300px;
+  max-width: 100%;
+  div {
+    padding: 0.1rem 1.1rem 1.1rem 1.1rem;
+    border: 1px dashed;
+    &:hover {
+      border-style: solid;
+    }
+  }
+  &:hover {
+    border-style: solid;
+  }
+  > div {
+    background: var(--ifm-color-emphasis-200);
+    color: var(--ifm-color-emphasis-900);
+    > div {
+      border: 1px dashed var(--ifm-color-content);
+      background: var(--ifm-color-content-inverse);
+      color: var(--ifm-color-content);
+      > div {
+        background: var(--ifm-color-emphasis-200);
+        color: var(--ifm-color-emphasis-900);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        height: 5rem;
+        &:hover {
+          background: var(--ifm-color-emphasis-300);
+        }
+      }
+    }
+  }
+}

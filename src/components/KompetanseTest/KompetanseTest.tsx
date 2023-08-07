@@ -8,6 +8,8 @@ import { useMutation } from "react-query";
 import { useFetch } from "@site/src/utils/api";
 import { queryClient } from "@site/src/theme/Root";
 import { useCurrentDocID } from "@site/src/hooks/useCurrentDocID";
+import { progressChannel } from "@site/src/lib/custom-events";
+import { useAuth } from "@site/src/auth/useAuth";
 
 export type KompetanseTestData = {
   tittel: string;
@@ -29,6 +31,7 @@ export const KompetanseTest = (props: Props) => {
   const [success, setSuccess] = React.useState<boolean | null>(
     null
   );
+  const auth = useAuth();
   const appFetch = useFetch();
   const updateProgress = useMutation({
     mutationFn: async (docId: string) => {
@@ -45,6 +48,12 @@ export const KompetanseTest = (props: Props) => {
     },
     onSuccess: () => {
       queryClient.invalidateQueries(["progress", { docId }]);
+      if (!auth.isLoggedIn) {
+        localStorage.setItem(`progress-${docId}`, "true");
+        progressChannel.send({
+          docId,
+        });
+      }
     },
   });
 

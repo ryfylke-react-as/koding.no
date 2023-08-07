@@ -1,0 +1,140 @@
+import { RelevantLinks } from "@site/src/components/RelevantLinks/RelevantLinks.tsx";
+import { BoxModel } from "@site/src/components/BoxModel/BoxModel.tsx";
+import { Test } from "./3-css-layout.quiz.tsx";
+
+# CSS Layout
+
+"Layout" omfatter alt som har med plassering av innhold å gjøre.
+Kanskje du ønsker at 2 elementer ligger horisontalt ved siden av hverandre, eller at det skal være et mellomrom mellom 2 elementer.
+Dette er layout.
+
+Uten å ha en god forståelse av layout og hvordan det fungerer i CSS, så vil du slite med å lage nettsider som ser bra ut.
+
+## Inline vs Block
+
+Alle elementer i CSS har en `display`-egenskap. Denne egenskapen bestemmer hvordan elementet skal vises på skjermen.
+
+De 2 vanligste verdiene for `display` er `inline` og `block`.
+
+- `inline`-elementer tar ikke opp hele bredden på skjermen, og kan derfor ligge ved siden av hverandre.
+- `block`-elementer tar opp hele bredden på skjermen, og vil derfor alltid ligge under hverandre.
+
+```css
+#element {
+  display: block;
+}
+```
+
+<RelevantLinks
+  articles={[
+    {
+      title:
+        "CSS Inline vs Inline-Block vs Block (Samantha Ming)",
+      url: "https://www.samanthaming.com/pictorials/css-inline-vs-inlineblock-vs-block/",
+    },
+  ]}
+  videos={[
+    {
+      title:
+        "Block, Inline and Inline-Block explained (Kevin Powell)",
+      url: "https://www.youtube.com/watch?v=x_i2gga-sYg",
+    },
+  ]}
+/>
+
+## Box model
+
+Alle elementer i CSS har en "boks" rundt seg.
+Denne boksen består av 4 deler:
+
+<BoxModel />
+
+<div style={{ height: "1rem" }} />
+
+![Box model](/img/box-model.png)
+
+### Margin
+
+`margin`-egenskapen lar deg legge til et mellomrom **rundt** et element.
+
+```css
+#element {
+  margin: 1rem;
+}
+```
+
+Eksempel: Avstanden mellom kodeboksen og teksten over/under er 1rem `margin`.
+
+### Padding
+
+`padding`-egenskapen lar deg legge til et mellomrom **inni** et element.
+
+```css
+#element {
+  padding: 1rem;
+}
+```
+
+Eksempel: Kodeboksen ovenfor har en `padding` på 1rem.
+
+## Position
+
+Den mest primitive måten å plassere elementer på er å bruke `position`-egenskapen.
+Denne lar deg plassere et element på et bestemt koordinat, relatert til skjermen eller et annet element.
+
+```css
+#element {
+  position: absolute;
+  top: 100px;
+  left: 100px;
+}
+```
+
+Eksempel: Navigasjonen på denne siden er plassert ved hjelp av `position: fixed`.
+
+## Flexbox
+
+Flexbox er en layout-modell som lar deg plassere elementer på en mer fleksibel måte.
+Denne layout-modellen er veldig populær, og brukes av mange.
+
+```css
+#container {
+  display: flex;
+}
+```
+
+Eksempel: De aller fleste elementer som ligger ved siden av hverandre (horisontalt og vertikalt) på denne siden er plassert ved hjelp av Flexbox.
+
+Flexbox kan være litt vrient å forstå seg på i starten, men det er **veldig** viktig og definitivt verdt å lære seg.
+
+<RelevantLinks
+  articles={[
+    {
+      title: "A Complete Guide to Flexbox (CSS-Tricks)",
+      url: "https://css-tricks.com/snippets/css/a-guide-to-flexbox/",
+    },
+  ]}
+  videos={[
+    {
+      title: "Flexbox CSS In 20 Minutes (Traversy Media)",
+      url: "https://www.youtube.com/watch?v=JJSoEo8JSnc",
+    },
+  ]}
+/>
+
+## Grid
+
+Hvis flexbox er det definitive svaret på endimensjonale layout-problemer, er Grid det definitive svaret på todimensjonale layout-problemer.
+
+Grid lar deg spesifisere et rutenett, og plassere elementer i dette rutenettet.
+
+```css
+#container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+```
+
+Kanskje ikke like aktivt brukt som [flexbox](#flexbox), men enda veldig viktig å vite om.
+
+<Test />
