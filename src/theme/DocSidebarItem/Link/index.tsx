@@ -26,7 +26,8 @@ export default function LinkWrapper(props) {
 const LinkWrapperInBrowser = (props) => {
   const auth = useAuth();
   const appFetch = useFetch();
-  const docId = `opplaering/${props.item.docId}`;
+  const url = document.location.pathname;
+  const docId = `${url.split("/")[1]}/${props.item.docId}`;
   const [runQuery, query] = useLazyQuery(
     ["progress", { docId: docId }],
     async () => {

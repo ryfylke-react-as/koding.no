@@ -50,6 +50,7 @@ export const handler: Handler = async (
       }),
     };
   } catch (err) {
+    console.log(err);
     return {
       statusCode: 500,
       body: JSON.stringify({
