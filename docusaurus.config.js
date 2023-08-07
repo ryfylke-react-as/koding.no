@@ -130,16 +130,12 @@ const config = {
             title: "Opplæring",
             items: [
               {
-                label: "Frontend",
-                to: "/kom-i-gang/start/frontend",
+                label: "Kom i gang",
+                to: "/kom-i-gang/intro",
               },
               {
-                label: "Backend",
-                to: "/kom-i-gang/start/backend",
-              },
-              {
-                label: "Spillprogrammering",
-                to: "/kom-i-gang/start/spillprogrammering",
+                label: "Finn ditt fagområde",
+                to: "/opplaering",
               },
             ],
           },
