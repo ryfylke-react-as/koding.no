@@ -22,26 +22,62 @@ function LoginButton() {
   }
   if (auth.isLoggedIn) {
     return (
-      <Link
-        href="/profil"
-        className="navbar__item navbar__link"
-        style={{ marginRight: "0.5rem" }}
-      >
-        🙋 Profil
-      </Link>
+      <div className="dropdown dropdown--hoverable">
+        <Link
+          href="/profil"
+          className="navbar__item navbar__link"
+          style={{ marginRight: "0.5rem" }}
+        >
+          🔐 {auth.currentUser().user_metadata.full_name}
+        </Link>
+
+        <ul className="dropdown__menu">
+          <li>
+            <Link className="dropdown__link" href="/profil">
+              Profil
+            </Link>
+          </li>
+          <li>
+            <Link
+              className="dropdown__link"
+              href="#"
+              onClick={() => {
+                auth.logout();
+              }}
+            >
+              Logg ut
+            </Link>
+          </li>
+        </ul>
+      </div>
     );
   }
   return (
-    <Link
-      href="#"
-      onClick={(e) => {
-        e.preventDefault();
-        auth.open("login");
-      }}
-      className="navbar__item navbar__link"
-      style={{ marginRight: "0.5rem" }}
-    >
-      🔐 Logg inn
-    </Link>
+    <div className="dropdown dropdown--hoverable">
+      <Link
+        href="#"
+        onClick={(e) => {
+          e.preventDefault();
+          auth.open("login");
+        }}
+        className="navbar__item navbar__link"
+        style={{ marginRight: "0.5rem" }}
+      >
+        🔐 Lokal bruker
+      </Link>
+      <ul className="dropdown__menu">
+        <li>
+          <Link
+            className="dropdown__link"
+            href="#"
+            onClick={() => {
+              auth.open("login");
+            }}
+          >
+            Logg inn
+          </Link>
+        </li>
+      </ul>
+    </div>
   );
 }

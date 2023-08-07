@@ -4,6 +4,9 @@
   opacity: 0;
   animation: slapIn 100ms cubic-bezier(0.76, 0.09, 0.69, 1.2)
     0.2s forwards;
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
 }
 
 @keyframes slapIn {

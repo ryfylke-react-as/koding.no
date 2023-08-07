@@ -72,7 +72,11 @@ Ekstern CSS er CSS som er lagret i en egen fil. Denne filen kan så lenkes til H
 
 ## CSS syntaks
 
-CSS bruker regler for å beskrive utseende til HTML-elementer. En regel består av en selektor og en deklarasjon.
+CSS bruker regler for å beskrive utseende til HTML-elementer.
+
+:::info
+En regel består av en selektor (`selector`) og en deklarasjon (`declaration`).
+:::
 
 ```css
 selektor {
@@ -80,7 +84,9 @@ selektor {
 }
 ```
 
+:::info
 En deklarasjon består av et **egenskapsnavn** (`property`) og en **verdi** (`value`).
+:::
 
 ```css
 selektor {
@@ -99,6 +105,21 @@ Du kan for eksempel velge ut...
 
 En selektor "matcher" et element hvis selektoren beskriver elementet. For eksempel matcher selektoren `p` alle `<p>`-elementer.
 Når selektoren matcher et element vil alle deklarasjonene i regelen bli brukt på det elementet.
+
+<RelevantLinks
+  documentation={[
+    {
+      title: "CSS Selectors - MDN",
+      url: "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_selectors",
+    },
+  ]}
+  videos={[
+    {
+      title: "CSS Selectors Tutorial for Beginners",
+      url: "https://www.youtube.com/watch?v=QgxkYbGr2II",
+    },
+  ]}
+/>
 
 ## Viktige konsepter
 
@@ -137,12 +158,12 @@ Spesifisitet er et viktig konsept i CSS. Spesifisitet er en måte å bestemme hv
 <html>
   <head>
     <style>
-      p {
-        color: red;
-      }
-
       #min-id {
         color: blue;
+      }
+
+      p {
+        color: red;
       }
     </style>
   </head>
@@ -152,9 +173,15 @@ Spesifisitet er et viktig konsept i CSS. Spesifisitet er en måte å bestemme hv
 </html>
 ```
 
-I dette eksempelet vil teksten i `<p>`-elementet bli rød siden regelen med elementselektoren har **høyere spesifisitet** enn regelen med id-selektoren.
+I dette eksempelet vil teksten i `<p>`-elementet bli blå siden regelen med id-selektoren har **høyere spesifisitet** enn regelen med elementselektoren.
 
 <RelevantLinks
+  documentation={[
+    {
+      title: "Specificity - MDN",
+      url: "https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity",
+    },
+  ]}
   videos={[
     {
       title: "Learn CSS Specificity In 11 Minutes",
@@ -168,6 +195,12 @@ I dette eksempelet vil teksten i `<p>`-elementet bli rød siden regelen med elem
 CSS bruker enheter for å angi størrelser. Det finnes mange forskjellige enheter som kan brukes til å angi størrelser.
 
 <RelevantLinks
+  documentation={[
+    {
+      title: "CSS values and units - MDN",
+      url: "https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Values_and_units",
+    },
+  ]}
   videos={[
     {
       title: "Learn CSS Units In 8 Minutes",
