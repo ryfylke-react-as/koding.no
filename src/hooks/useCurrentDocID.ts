@@ -8,9 +8,13 @@ export function useCurrentDocID() {
       return "__server__";
     }
     const url = new URL(window.location.href);
-    const docId = url.pathname.split("/");
-    docId.shift();
-    return docId.join("/");
+    const path = url.pathname.split("/");
+    path.shift();
+    const asText = path.join("/");
+    if (asText.endsWith("/")) {
+      path.pop();
+    }
+    return path.join("/");
   }, [isBrowser]);
 
   return docId;
