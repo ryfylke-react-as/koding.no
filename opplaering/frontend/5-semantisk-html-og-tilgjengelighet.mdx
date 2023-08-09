@@ -1,0 +1,72 @@
+import { RelevantLinks } from "@site/src/components/RelevantLinks/RelevantLinks.tsx";
+import { Test } from "./5-semantisk-html-og-tilgjengelighet.quiz.tsx";
+
+# Semantisk HTML & Tilgjengelighet
+
+## Semantisk HTML
+
+HTML er et språk som er bygget opp av ulike elementer. Hvert element har en egen _betydning_, og det er viktig å bruke de riktige elementene til riktig tid. Dette gjør at vi kan lage nettsider som er semantisk korrekte. Semantisk HTML er viktig fordi det gjør nettsiden mer tilgjengelig for alle, og det gjør det enklere for søkemotorer å indeksere innholdet på nettsiden.
+
+### Eksempel på semantisk HTML
+
+```html
+<!-- Ikke semantisk -->
+<div class="article">
+  <div class="article__header">
+    <h1 class="article__title">Lorem ipsum</h1>
+    <p class="article__meta">Publisert 12.12.2020</p>
+  </div>
+  <div class="article__content">
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing
+      elit.
+    </p>
+  </div>
+</div>
+
+<!-- Semantisk -->
+<article>
+  <header>
+    <h1>Lorem ipsum</h1>
+    <p>Publisert 12.12.2020</p>
+  </header>
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+  </p>
+</article>
+```
+
+Ved å fortelle nettleseren at vi har en artikkel, kan den gjøre en bedre jobb med å tolke innholdet. Dette gjør at skjermlesere kan lese opp innholdet på en bedre måte, og søkemotorer kan indeksere innholdet på en bedre måte.
+
+<RelevantLinks
+  videos={[
+    {
+      title: "Semantic HTML (Kevin Powell)",
+      url: "https://youtu.be/HJ0-fUJ-2F0?t=175",
+    },
+  ]}
+/>
+
+## Tilgjengelighet
+
+Tilgjengelighet handler om å lage nettsider som er tilgjengelig for alle. Dette gjør at alle kan bruke nettsiden, uavhengig av funksjonsevne. Det er viktig å lage nettsider som er tilgjengelig for alle, fordi det er en menneskerett å kunne bruke internett.
+
+Semantisk HTML er en metode for å gjøre nettsider mer tilgjengelig. Noen andre metoder er...
+
+- Å bruke riktige farger
+  - God kontrast mellom tekst og bakgrunn
+  - Ikke bruke farger som er vanskelig å se for fargeblinde
+  - Bruke farger som symboliserer det de faktisk gjør (f.eks. rød farge for å indikere at noe er feil)
+- Å bruke riktig størrelse på klikkbare elementer
+- Tydelig typografi
+- Responsiv design
+- Alternativ tekst på bilder og annet innhold
+- Følge standarder og retningslinjer for tilgjengelighet (WCAG)
+
+## Mini-øvelse
+
+Se tilbake på prosjektene du har laget tidligere. Er det noe du kan gjøre for å gjøre nettsidene mer tilgjengelige, eller semantiske?
+
+## Kompetansetest
+
+<Test />

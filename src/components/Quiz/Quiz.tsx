@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
 import styles from "./Quiz.module.scss";
+// @ts-ignore
+import ReactMarkdown from "react-markdown";
 
 type Interface = Record<string, string>;
 
@@ -186,7 +188,9 @@ const Question = <TInterface extends Interface>(
 
   return (
     <div className={styles.questionContainer}>
-      <h3>{props.question}</h3>
+      <h3>
+        <ReactMarkdown children={props.question} />
+      </h3>
       <div className={styles.answerContainer}>
         {props.answers.map((currentAnswer, i) => (
           <label
@@ -206,7 +210,7 @@ const Question = <TInterface extends Interface>(
                 );
               }}
             />{" "}
-            {currentAnswer}
+            <ReactMarkdown children={currentAnswer} />
           </label>
         ))}
       </div>

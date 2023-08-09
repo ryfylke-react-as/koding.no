@@ -1,0 +1,118 @@
+import { RelevantLinks } from "@site/src/components/RelevantLinks/RelevantLinks.tsx";
+
+# Responsiv design
+
+## Hva er responsiv design?
+
+Responsiv design er en måte å lage nettsider på som gjør at nettsiden **tilpasser seg skjermstørrelsen til enheten som brukes**.
+Det vil si at nettsiden ser bra ut på både mobil, nettbrett og PC.
+
+### Hvorfor er responsiv design viktig?
+
+Viste du at **>50%** av all trafikk på internett kommer fra **mobil**?
+I noen tilfeller kan det være at mer enn 90% av trafikken kommer fra mobil.
+
+### Hva er overflow?
+
+Overflow er når innholdet i en container er bredere enn selve containeren. Da må brukeren potensielt scrolle for å se alt innholdet, eller i værste tilfelle så blir noe av innholdet skjult.
+
+Brukere er vant til å scrolle vertikalt, men ikke horisontalt. Derfor er det viktig at nettsiden er designet slik at brukeren ikke trenger å scrolle horisontalt.
+
+## Prinsipper å følge
+
+### 1. HTML er responsivt fra naturens side
+
+HTML er responsivt fra naturens side. Det vil si at HTML-elementer tilpasser seg skjermstørrelsen til enheten som brukes.
+
+**Det er ikke før du selv introduserer begrensinger som `width` og `height` at HTML ikke lenger er responsivt.** Derfor er ofte det beste å ikke sette `width` og `height` til noen _statiske_ verdier i CSS.
+
+:::tip
+En _statisk_ verdi er en verdi som ikke endrer seg, feks `px`. En _dynamisk_ verdi er en verdi som endrer seg basert på kontekst, feks `100%`, `auto` eller `inherit`.
+:::
+
+<RelevantLinks
+  videos={[
+    {
+      title:
+        "5 simple tips to making responsive layouts the easy way (Kevin Powell)",
+      url: "https://www.youtube.com/watch?v=VQraviuwbzU",
+    },
+  ]}
+/>
+
+### 2. Bruk `max-width` i stedet for `width`
+
+Hvis du må sette en `width` på et element, så bruk `max-width` i stedet for `width`. Da vil elementet alltid være mindre eller lik `max-width` uansett skjermstørrelse.
+
+```css
+.container {
+  max-width: 600px;
+}
+```
+
+### 3. Utnytt `em` og `rem`
+
+`em` og `rem` er dynamiske enheter som endrer seg basert på nettleseren og brukerens innstillinger.
+
+:::info
+
+- `1rem` = brukeren (nettleseren) sin _standard tekststørrelse_, som oftest `16px`.
+
+:::
+
+Hvis du zoomer inn på en nettside (som i praksis endrer nettleseren sin tekststørrelse) vil `em` og `rem` endre seg.
+
+Dette kan være nyttig hvis du ønsker at elementer skal endre størrelse basert på tekststørrelsen til brukeren. Typiske eksempler på dette er `padding` rundt tekst, og tekst.
+
+```css
+.container {
+  padding: 1rem;
+  font-size: 0.875rem;
+}
+```
+
+Dette kan også være nyttig for å gjøre nettsiden mer tilgjengelig for brukere med nedsatt syn, som gjerne har større tekststørrelse enn andre.
+
+### 4. Flexbox og Grid
+
+Flexbox og Grid er moderne metoder å lage layout på som gjør det enkelt å lage responsiv design.
+
+```css
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+```
+
+I eksempelet over vil elementene i containeren bli plassert ved siden av hverandre hvis det er plass til det. Hvis det ikke er plass vil elementene bli plassert under hverandre.
+
+### 5. Media queries (som en siste utvei)
+
+Media queries er en måte å endre CSS basert på skjermstørrelsen til enheten som brukes.
+
+```css
+@media (max-width: 600px) {
+  body {
+    background-color: blue;
+  }
+}
+```
+
+I eksempelet over vil bakgrunnsfargen til body-elementet være blå hvis skjermstørrelsen er mindre enn 600px.
+
+Media queries bør være en siste utvei, og brukes kun hvis det ikke er mulig å lage en responsiv nettside ved å følge de andre prinsippene. Dette er fordi media queries gjør det vanskeligere å vedlikeholde
+nettsiden, og kan føre til at nettsiden blir tregere.
+
+## Husk å teste designet!
+
+Det er viktig å teste nettsiden din på forskjellige enheter for å se at den ser bra ut på alle størrelser.
+
+Dette kan du gjøre rett fra PC-en ved å bruke feks [Chrome DevTools](https://developer.chrome.com/docs/devtools/device-mode/) eller
+[Firefox Developer Tools](https://firefox-source-docs.mozilla.org/devtools-user/responsive_design_mode/).
+
+## Kompetansetest
+
+import { Test } from "./4-intro-responsiv-design.quiz.tsx";
+
+<Test />

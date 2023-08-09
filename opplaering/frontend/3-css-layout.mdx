@@ -107,6 +107,16 @@ Eksempel: De aller fleste elementer som ligger ved siden av hverandre (horisonta
 
 Flexbox kan være litt vrient å forstå seg på i starten, men det er **veldig** viktig og definitivt verdt å lære seg.
 
+### Mental modell
+
+Tenk på alt innholdet i en flex container som en lang rekke med elementer. Hvert element har en bestemt størrelse, og en bestemt plassering i rekken.
+
+Flex kan være både horisontalt og vertikalt (row / column), og ved å neste flex-containere kan du lage veldig avanserte layouter.
+
+![Flexbox mental model](/img/mental-model-flex.png)
+
+Ved å bruke align og justify kan du plassere elementene i flex-containere på forskjellige måter.
+
 <RelevantLinks
   articles={[
     {
@@ -136,5 +146,33 @@ Grid lar deg spesifisere et rutenett, og plassere elementer i dette rutenettet.
 ```
 
 Kanskje ikke like aktivt brukt som [flexbox](#flexbox), men enda veldig viktig å vite om.
+
+## Oppsummering
+
+- `display`-egenskapen bestemmer hvordan et element skal vises på skjermen.
+- `inline`-elementer tar ikke opp hele bredden på skjermen, og kan derfor ligge ved siden av hverandre. Du kan ikke sette `width` eller `height` på `inline`-elementer.
+- `block`-elementer tar opp hele bredden på skjermen, og vil derfor alltid ligge under hverandre. Du kan sette `width` og `height` på `block`-elementer.
+- `margin`-egenskapen lar deg legge til et mellomrom **rundt** et element.
+- `padding`-egenskapen lar deg legge til et mellomrom **inni** et element.
+- `position`-egenskapen lar deg plassere et element på et bestemt koordinat, relatert til skjermen eller et annet element.
+- **Flexbox** er en layout-modell som lar deg plassere elementer på en fleksibel og responsiv måte.
+- **Grid** lar deg spesifisere et rutenett, og plassere elementer i dette rutenettet.
+
+## Prosjekt
+
+Nå er det på tide med et nytt prosjekt!
+
+Du skal lage en nettside som har følgende layout:
+
+![Prosjekt](/img/layout-prosjekt.png)
+
+### Krav
+
+- Nettsiden skal ha en `header`, en `main` og en `nav`
+- Midt-seksjonen skal tilpasse seg mindre skjermstørrelser
+- Navigasjonen skal være plassert øverst på siden, og skal være synlig hele tiden (selv når du scroller)
+- Du skal bruke `flex`, og `position:fixed` for å oppnå layoutet.
+
+## Kompetansetest
 
 <Test />
