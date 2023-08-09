@@ -7,6 +7,17 @@ import { RelevantLinks } from "../../src/components/RelevantLinks/RelevantLinks.
 # Byggesystem
 Et byggesystem håndterer bygging/kompilering av koden din, avhengigheter den måtte ha, og andre lignende oppgaver.
 
+```mermaid
+flowchart LR
+    id1(Koden din)
+    id2(Avhengigheter)
+    id3(Byggesystem)
+    id4(Produksjonsklar kode)
+    id1-->id3
+    id3-->id4
+    id3-. "Håndterer" .-id2
+```
+
 
 ### Hvorfor bruke et byggesystem?
 Du har kanskje laget ganske enkle applikasjoner hittil? Du vil nok legge merke til at kommandoene for å kompilere blir stadig mer komplekse når du har flere filer. Det er flere grunner til å bruke et byggesystem:
