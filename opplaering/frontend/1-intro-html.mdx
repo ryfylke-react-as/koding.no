@@ -55,6 +55,36 @@ Dette er nyttig å forstå for å unngå forvirring når du skal lære deg HTML,
   ]}
 />
 
+## Grunnleggende HTML
+
+HTML står for HyperText Markup Language. Dette er selve _skjelettet_ til en standard nettside.
+
+I all hovedsak består HTML av **elementer** som forklarer hvordan innholdet skal formateres av nettleseren.
+Elementer som åpnes `<p>` skal som regel lukkes `</p>`, med noen unntak.
+
+Elementer kan ha **attributter** som kan gi mer info til nettleseren, f.eks. `href=""` som viser hvor en lenke leder til (se eksempel under).
+Ofte blir `class=""` og `id=""` brukt i sammenheng med CSS og JavaScript.
+
+**Eksempel**
+
+```html
+<h1>Overskrift</h1>
+<p>
+  En paragraf med en
+  <a href="https://eksempel.no">lenke</a>
+</p>
+<button id="knapp" onclick="pressed()">En knapp</button>
+```
+
+<RelevantLinks
+  documentation={[
+    {
+      title: "Liste over HTML tags",
+      url: "https://www.w3schools.com/tags/ref_byfunc.asp",
+    },
+  ]}
+/>
+
 ## Prosjekt
 
 > Tada ✨! Din første nettside.
