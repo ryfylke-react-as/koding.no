@@ -1,5 +1,4 @@
 import { RelevantLinks } from "@site/src/components/RelevantLinks/RelevantLinks.tsx";
-import { RevealAnswer } from "@site/src/components/RevealAnswer/RevealAnswer.tsx";
 import { Test } from "./intro-js.quiz.tsx";
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
@@ -17,7 +16,7 @@ Med JavaScript kan du til og med lage et helt spill, eller animere 3D objekter.
 
 Det finnes i hovedsak to måter å legge JavaScript på en HTML-side:
 
-### Internt JavaScript
+### Intern JavaScript
 
 Intern JavaScript er lagt i `<script>`-elementet som regel i slutten av `<body>`-elementet, men kan også legges i `<head>`-elementet.
 
@@ -135,9 +134,9 @@ Kanskje la du merke til at 1-tallet har apostrofer. Da leser JavaScript det som 
   </TabItem>
 </Tabs>
 
-## Objekter og arrays
+## Arrays
 
-Variabler kan holde andre ting enn bare tall og tekst. For eksempel en liste med mange ting kalt **array**:
+En **array** er en liste som kan inneholde ulike verdier. Her er et eksempel:
 
 ```js
 let liste = ["a", "b", "c", 1, 2, 3];
@@ -163,6 +162,8 @@ JavaScript, og de fleste andre programmeringsspråk starter å telle på 0, ikke
   </TabItem>
 </Tabs>
 
+## Objekter
+
 Du kan også lage et **objekt**, som kan holde data på en mer oversiktlig måte:
 
 ```js
@@ -182,8 +183,9 @@ const navn = ola.fornavn + " " + ola.etternavn;
 
 ## Funksjoner
 
-For å organisere logikken på en oversiktlig måte brukes funksjoner.
+For å organisere logikken på en oversiktlig måte brukes **funksjoner**.
 Se for deg en spesiallaget maskin, der du kan putte en ting inn, så gjør maskinen jobben sin og du får en ny ting ut.
+Eller hvis du har brukt Excel, kjenner du nok til `=SUM()` funksjonen, den fungerer litt på samme måte.
 
 For å lage en funksjon bruker du nøkkelordet `function`, etterfølgt av et valgfritt navn som beskriver oppgaven til funksjonen, og deretter parentes `()`, som du kan hente verdier fra.
 Til slutt er all logikken i en funksjon samlet inne i krøllparenteser `{}`. Verdien kan sendes tilbake ved hjelp av nøkkelordet `return`.
@@ -229,7 +231,20 @@ Svaret er 50. De to tallene 10 og 5, ble sendt inn i funksjonen, kalkulert, og s
 
 ## Samhandle med HTML
 
-JavaScript kan samhandle med HTML på ulike vis. Her har vi en enkel liste i HTML:
+Når en nettside lastes inn, lager nettleseren en datamodell av strukturen kalt **Document Object Model**, forkortet **DOM**.
+Dette gir JavaScript muligheten til å samhandle med, og endre innholdet på en nettside på en standardisert måte.
+
+<RelevantLinks
+  documentation={[
+    {
+      title:
+        "How the JavaScript DOM Works – A Practical Tutorial",
+      url: "https://www.freecodecamp.org/news/the-javascript-dom-a-practical-tutorial/",
+    },
+  ]}
+/>
+
+Her har vi en enkel liste i HTML:
 
 ```html
 <ul class="liste">
@@ -239,13 +254,13 @@ JavaScript kan samhandle med HTML på ulike vis. Her har vi en enkel liste i HTM
 </ul>
 ```
 
-For å hente hele listen kan jeg skrive følgende i JavaScript:
+For å hente hele listen fra **DOM**, bruker du objektet `document`, og skriver følgende i JavaScript:
 
 ```js
 let liste = document.querySelector("ul");
 ```
 
-`querySelector` er en innebygd funksjon i JavaScript der vi kan sende inn navnet på HTML-elementet, og der vi får tilbake et element.
+`querySelector` er en funksjon i **DOM** der vi kan sende inn en CSS selector. Den gir oss tilbake et element som matcher selectoren oppgitt.
 Her er flere eksempler:
 
 ```js
