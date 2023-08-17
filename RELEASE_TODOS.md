@@ -1,1 +1,2 @@
 - Endre på `url` i `docusaurus.config.js` fra `beta.koding.no` -> `koding.no`.
+- Se gjennom og endre rekkefølgen i sidemenyene med `sidebar_position` til det som er mest logisk.
