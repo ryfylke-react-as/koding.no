@@ -58,9 +58,9 @@ export default function Root({ children }) {
   useEffect(() => {
     if (isBrowser && !state.netlifyIdentity) {
       if (document.location.hostname === "beta.koding.no") {
-        // Redirect til nyeste staging-deployment
+        // Redirect til koding.no hvis bruker er på beta
         window.location.replace(
-          "https://staging--koding-no.netlify.app/"
+          "https://koding.no" + document.location.pathname
         );
       }
 
