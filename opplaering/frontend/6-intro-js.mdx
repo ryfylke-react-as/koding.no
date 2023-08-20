@@ -1,5 +1,5 @@
 import { RelevantLinks } from "@site/src/components/RelevantLinks/RelevantLinks.tsx";
-import { Test } from "./intro-js.quiz.tsx";
+import { Test } from "./6-intro-js.quiz.tsx";
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 
@@ -58,8 +58,7 @@ Alle JavaScript-filene som er lagt til i samme HTML-dokumentet har tilgang til d
 
 ## Nøkkelord
 
-Alle programmeringsspråk har noen nøkkelord som har en spesifikk oppgave, en del av disse bør du kunne for å skrive i JavaScript.
-Under skal vi se mer på noen av dem.
+Alle programmeringsspråk har noen nøkkelord som har en spesifikk oppgave, en del av disse bør du vite om, slik at du ikke møter på konflikter med variabel-navn.
 
 <RelevantLinks
   documentation={[
@@ -70,19 +69,40 @@ Under skal vi se mer på noen av dem.
   ]}
 />
 
-Legg også merke til at en linje ofte slutter med semikolon `;`.
-I JavaScript er det ikke påkrevd som i andre språk, men det kan være lurt å vende seg til det.
-
 ## Variabler
 
-Variabler blir brukt over alt i JavaScript. Før ble alltid `var` brukt, men i nyere tid er kommet to nye som blir mer brukt: `let` og `const`.
-Sistnevnte brukes dersom en verdi er konstant, og ellers brukes som regel `let`.
+En variabel er en beholder for en verdi. Denne verdien kan endres, og brukes flere steder i koden.
+Hvor du kan bruke en variabel, avhenger av hvor den er definert. Dette kalles **scope**.
 
-**Eksempel**
+<RelevantLinks
+  documentation={[
+    {
+      title: "JavaScript Scope - W3Schools",
+      url: "https://www.w3schools.com/js/js_scope.asp",
+    },
+  ]}
+/>
+
+### Opprette variabler
+
+Det fins tre måter å lage en variabler på:
+
+- `var`: Tidligere den eneste måten å lage en variabel. Denne bør du ikke bruke lenger.
+- `let`: Denne brukes for å lage en variabel som kan re-defineres senere
+- `const`: Denne brukes for å lage en variabel som ikke kan re-defineres senere
+
+Syntaksen for å lage en variabel er:
+
+`let / const / var` `variabelnavn` = `verdi`
+
+#### Eksempel
 
 ```js
-let tall = 100;
-let tekst = "Hei på deg";
+let x = 2;
+const y = "ola nordmann";
+// re-definer variabel:
+x = 3;
+x = "hei";
 ```
 
 Hvilken verdi tror du `y` har?
@@ -92,7 +112,7 @@ Hvilken verdi tror du `y` har?
 
 ```js
 const x = 4;
-let y = x * 2;
+const y = x * 2;
 ```
 
   </TabItem>
@@ -116,7 +136,7 @@ Hvilken verdi tror du `b` har?
 
 ```js
 const a = 5;
-let b = a + "1";
+const b = a + "1";
 ```
 
   </TabItem>
@@ -134,12 +154,103 @@ Kanskje la du merke til at 1-tallet har apostrofer. Da leser JavaScript det som 
   </TabItem>
 </Tabs>
 
-## Arrays
+## String
+
+En **string** er en tekst. Den kan inneholde bokstaver, tall, symboler, og mellomrom.
+
+```js
+const tekst = "Hei, jeg er en tekst";
+const tekst2 = `Her er forrgje tekst: ${tekst}`;
+```
+
+Det fins mange funksjoner du kan bruke på en **string**. Her er noen eksempler:
+
+```js
+// Hente ut en del av teksten:
+const delAvTekst = tekst.substring(0, 3); // = "Hei"
+
+// Hente ut lengden på teksten:
+const lengde = tekst.length; // = 20
+
+// Gjøre om til store bokstaver:
+const storTekst = tekst.toUpperCase(); // = "HEI, JEG ER EN TEKST"
+
+// Gjøre om til små bokstaver:
+const litenTekst = tekst.toLowerCase(); // = "hei, jeg er en tekst"
+```
+
+Husk at en **string** er en tekst, og ikke et tall. Hva tror du verdien til `verdi` er?
+
+<Tabs>
+  <TabItem value="code" label="Kode" default>
+
+```js
+const tall = 2;
+const tekst = "2";
+const verdi = tall + tekst;
+```
+
+  </TabItem>
+  <TabItem value="answer" label="Svar">
+
+verdi = **22**
+
+```js
+2 + "2" = "22"
+```
+
+Svaret er 22, siden når du legger sammen en tekst og et tall, blir tallet omgjort til tekst. Og hvis du legger sammen to tekster, blir de satt sammen.
+
+```js
+const test = "hei" + "22"; // = "hei22"
+```
+
+  </TabItem>
+</Tabs>
+
+<RelevantLinks
+  documentation={[
+    {
+      title: "String - MDN",
+      url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    },
+  ]}
+/>
+
+## Nummer
+
+Et **nummer** er et tall. Det kan være et heltall, eller et desimaltall.
+
+```js
+const tall = 2;
+const tall2 = 2.5;
+```
+
+Her er noen eksempler av operasjoner du kan gjøre med tall:
+
+```js
+// Legge sammen to tall:
+const sum = tall + tall2; // = 4.5
+
+// Trekke fra to tall:
+const differanse = tall - tall2; // = -0.5
+
+// Multiplisere to tall:
+const produkt = tall * tall2; // = 5
+
+// Dele to tall:
+const kvotient = tall / tall2; // = 0.8
+
+// Hente ut resten av en divisjon:
+const rest = tall % tall2; // = 2
+```
+
+## Array
 
 En **array** er en liste som kan inneholde ulike verdier. Her er et eksempel:
 
 ```js
-let liste = ["a", "b", "c", 1, 2, 3];
+const liste = ["a", "b", "c", 1, 2, 3];
 ```
 
 Det går an å hente ut data fra en **array**, ved å bruke tall for en **indeks**.
@@ -149,7 +260,7 @@ Hva tror du verdien til `verdi` er?
   <TabItem value="code" label="Kode" default>
 
 ```js
-let verdi = liste[1];
+const verdi = liste[1];
 ```
 
   </TabItem>
@@ -162,7 +273,7 @@ JavaScript, og de fleste andre programmeringsspråk starter å telle på 0, ikke
   </TabItem>
 </Tabs>
 
-## Objekter
+## Objekt
 
 Du kan også lage et **objekt**, som kan holde data på en mer oversiktlig måte:
 
@@ -178,8 +289,17 @@ let ola = {
 Her kan du hente verdiene med punktum (**.**), og bruke dem andre steder:
 
 ```js
-const navn = ola.fornavn + " " + ola.etternavn;
+const navn = `${ola.fornavn} ${ola.etternavn}`;
 ```
+
+<RelevantLinks
+  documentation={[
+    {
+      title: "Template literals (Template strings) - MDN",
+      url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals",
+    },
+  ]}
+/>
 
 ## Funksjoner
 
@@ -203,6 +323,10 @@ Den samme funksjonen kan også skrives til en variabel med `=>` symbolet, det f�
 
 ```js
 const multiplisere = (x, y) => x * y;
+// eventuelt:
+const multiplisere_alt = (x, y) => {
+  return x * y;
+};
 ```
 
 En variabel kan bruke denne funksjonen. Hva tror du verdien til `verdi` er?

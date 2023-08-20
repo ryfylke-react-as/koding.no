@@ -4,6 +4,7 @@ title: Bidra
 ---
 
 import { Highlight } from "@site/src/components/Highlight/Highlight.tsx";
+import { ColorBox } from "@site/src/components/ColorBox/ColorBox.tsx";
 
 # Vær med på utviklingen!
 
@@ -86,6 +87,57 @@ Vi anbefaler å bruke [Visual Studio Code](https://code.visualstudio.com/) som e
     "mdx.experimentalLanguageServer": true
   }
   ```
+
+### Farger & Design system
+
+Koding.no bruker Docusaurus, som bruker [Infima](https://infima.dev/) som design system.
+
+Hovedfargen er overordnet i hele nettsiden, og er definert i `custom.scss` filen. Du kan bruke CSS variabelen `--ifm-color-primary` for å bruke hovedfargen:
+
+#### Lys modus
+
+<div data-theme="light" style={{ marginBottom: "1rem" }}>
+  <ColorBox
+    contrast="white"
+    color="var(--ifm-color-primary-lightest)"
+  />
+  <ColorBox
+    contrast="white"
+    color="var(--ifm-color-primary-lighter)"
+  />
+  <ColorBox
+    contrast="white"
+    color="var(--ifm-color-primary-light)"
+  />
+  <ColorBox
+    contrast="white"
+    color="var(--ifm-color-primary)"
+  />
+  <ColorBox
+    contrast="white"
+    color="var(--ifm-color-primary-dark)"
+  />
+  <ColorBox
+    contrast="white"
+    color="var(--ifm-color-primary-darker)"
+  />
+  <ColorBox
+    contrast="white"
+    color="var(--ifm-color-primary-darkest)"
+  />
+</div>
+
+#### Mørk modus
+
+<div data-theme="dark">
+  <ColorBox color="var(--ifm-color-primary-lightest)" />
+  <ColorBox color="var(--ifm-color-primary-lighter)" />
+  <ColorBox color="var(--ifm-color-primary-light)" />
+  <ColorBox color="var(--ifm-color-primary)" />
+  <ColorBox color="var(--ifm-color-primary-dark)" />
+  <ColorBox color="var(--ifm-color-primary-darker)" />
+  <ColorBox color="var(--ifm-color-primary-darkest)" />
+</div>
 
 ---
 
