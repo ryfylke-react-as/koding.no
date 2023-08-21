@@ -1,21 +1,19 @@
 # Koding.no
 
-Koding.no er et open-source prosjekt med hovedmål om å hjelpe å guide'e nye utviklere til å bli selvopplærte med koding.
+Koding.no er et open-source prosjekt som har som hovedmål å veilede nye utviklere mot selvstyrt læring innen koding.
 
-Koding.no er ikke en plass for installasjonsguider eller opplæring i kodespråk. Det fins allerede mer en nok av, og i mye bedre kvalitet en hva vi kan forvente å toppe.
+Koding.no er ikke stedet for installasjonsveiledninger eller opplæring i programmeringsspråk. Det finnes allerede mer enn nok av slike ressurser, og ofte av høyere kvalitet enn det vi kan håpe på å overgå.
 
-**Problem**: Det er veldig lett å føle seg retningsløs når man driver med selvopplæring. Det er vanskelig å vite hvilken rekkefølge man bør lære om ting i. Hvilke kurs er gode? Hvilke nettsted bør man oppsøke? Hvor er det man finner andre hjelpsomme utviklere på nett?
+**Problem**: Selvstyrt læring kan ofte føles ustrukturert og retningsløs. Det er utfordrende å vite i hvilken rekkefølge man bør lære ting, hvilke kurs som er gode, hvilke nettsteder man bør besøke, og hvor man finner andre hjelpsomme utviklere på nettet.
 
-**Løsning**: Koding.no, forhåpentligvis.
+**Løsning**: Forhåpentligvis, Koding.no.
 
-Dette er kjerneprinsippet som nettstedet er bygd på, og jeg håper at alle som velger å bidra også følger dette prinsippet. Korte og enkle forklaringer, også gode eksterne ressurser for kursing og opplæring rundt konkrete kodespråk.
+Dette er kjernepremisset som nettstedet er bygget på, og jeg håper at alle som velger å bidra også følger dette prinsippet. Vi tilbyr korte og enkle forklaringer, samt gode eksterne ressurser for kurs og opplæring rundt spesifikke programmeringsspråk.
 
-## Bidra
+Vil du bidra? Flott! Alt du trenger å kunne er [markdown](https://www.markdownguide.org/) og git! (og kanskje litt [React](https://react.dev))
 
-Ønsker du å bidra? Kult! Alt du trenger å kunne er [markdown](https://www.markdownguide.org/) og git! (og kanskje litt [React](https://react.dev))
+Koding.no er bygget på toppen av [Docusaurus 2.0](https://docusaurus.io/).
 
-Koding.no er bygd på toppen av [Docusaurus 2.0](https://docusaurus.io/).
+- [Les mer om hvordan du kan bidra](https://koding.no/bidra)
 
-- [Les mer om bidrag](https://koding.no/bidra)
-
-- [Bli med på Discord kanalen](https://discord.gg/gxtAr4SzWs)
+- [Bli med i vår Discord-kanal](https://discord.gg/gxtAr4SzWs)
