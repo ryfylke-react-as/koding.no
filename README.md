@@ -10,6 +10,8 @@ Koding.no er ikke stedet for installasjonsveiledninger eller opplæring i progra
 
 Dette er kjernepremisset som nettstedet er bygget på, og jeg håper at alle som velger å bidra også følger dette prinsippet. Vi tilbyr korte og enkle forklaringer, samt gode eksterne ressurser for kurs og opplæring rundt spesifikke programmeringsspråk.
 
+## Bidra
+
 Vil du bidra? Flott! Alt du trenger å kunne er [markdown](https://www.markdownguide.org/) og git! (og kanskje litt [React](https://react.dev))
 
 Koding.no er bygget på toppen av [Docusaurus 2.0](https://docusaurus.io/).
