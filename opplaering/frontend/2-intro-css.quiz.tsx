@@ -11,19 +11,24 @@ const data: KompetanseTestData = {
     {
       sporsmal:
         "Hvilket HTML-element er riktig for å inkludere CSS direkte i en HTML-fil?",
-      svar: ["<link>", "<script>", "<style>", "<css>"],
+      svar: ["`<link>`", "`<script>`", "`<style>`", "`<css>`"],
       korrekt: 2,
     },
     {
       sporsmal:
         'Hvordan refererer du til et HTML-element med ID "logo" i CSS?',
-      svar: [".logo", "#logo", "*logo*", "logo"],
+      svar: ["`.logo`", "`#logo`", "`*logo*`", "`logo`"],
       korrekt: 1,
     },
     {
       sporsmal:
         'Hvilken CSS-selektor velger alle <p> (avsnitt) elementer med klassen "intro"?',
-      svar: ["p.intro", "intro p", ".intro p", "p .intro"],
+      svar: [
+        "`p.intro`",
+        "`intro p`",
+        "`.intro p`",
+        "`p .intro`",
+      ],
       korrekt: 0,
     },
     {
@@ -52,9 +57,9 @@ const data: KompetanseTestData = {
       sporsmal:
         "Hvilken av følgende har høyest spesifisitet i CSS?",
       svar: [
-        "En ID-selektor (#logo)",
-        "En klasse-selektor (.logo)",
-        "En element-selektor (div)",
+        "En ID-selektor (`#logo`)",
+        "En klasse-selektor (`.logo`)",
+        "En element-selektor (`div`)",
         "Alle har samme spesifisitet.",
       ],
       korrekt: 0,
@@ -63,10 +68,10 @@ const data: KompetanseTestData = {
       sporsmal:
         "Hvilken CSS-egenskap brukes til å endre avstanden mellom bokstaver?",
       svar: [
-        "letter-spacing",
-        "word-spacing",
-        "text-spacing",
-        "line-spacing",
+        "`letter-spacing`",
+        "`word-spacing`",
+        "`text-spacing`",
+        "`line-spacing`",
       ],
       korrekt: 0,
     },
@@ -74,10 +79,10 @@ const data: KompetanseTestData = {
       sporsmal:
         'Hva er riktig måte å inkludere en ekstern CSS-fil kalt "styles.css" i en HTML-side?',
       svar: [
-        '<css src="styles.css">',
-        "<stylesheet>styles.css</stylesheet>",
-        '<link rel="stylesheet" href="styles.css">',
-        '<style src="styles.css">',
+        '`<css src="styles.css">`',
+        "`<stylesheet>styles.css</stylesheet>`",
+        '`<link rel="stylesheet" href="styles.css">`',
+        '`<style src="styles.css">`',
       ],
       korrekt: 2,
     },

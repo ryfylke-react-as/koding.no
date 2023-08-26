@@ -37,9 +37,9 @@ const data: KompetanseTestData = {
     {
       sporsmal: "Hvilket av svarene er korrekt HTML?",
       svar: [
-        "#div { Hei verden! }",
-        "<div> Hei verden! </div>",
-        'div("Hei verden!")',
+        "`#div { Hei verden! }`",
+        "`<div> Hei verden! </div>`",
+        '`div("Hei verden!")`',
       ],
       korrekt: 1,
     },

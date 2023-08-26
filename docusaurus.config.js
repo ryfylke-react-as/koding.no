@@ -109,13 +109,13 @@ const config = {
           },
           {
             to: "/opplaering",
-            activeBaseRegex: "/opplaering/",
+            activeBasePath: "opplaering",
             position: "left",
             label: "Opplæring",
           },
           {
             to: "/ressurser",
-            activeBaseRegex: "/ressurser/",
+            activeBasePath: "ressurser",
             position: "left",
             label: "Ressurser",
           },
