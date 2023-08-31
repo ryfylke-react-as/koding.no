@@ -1,0 +1,52 @@
+---
+description: DevOps er et slags skjæringspunkt mellom Development (Utvikling) og Operations (Drift). Ofte betyr dette at utviklings-teamene selv har mer ansvar for driften av sitt eget system.
+---
+
+import { RelevantLinks } from "../../src/components/RelevantLinks/RelevantLinks.tsx";
+
+# DevOps
+
+Ordet DevOps er en sammensettning av Development (Utvikling på norsk) og Operations (Drift på norsk). Ofte vil det si at utviklere og drift samarbeider mer på tvers, og at utviklere har mer ansvar for drift av egne systemer. Hvordan dette ser ut i praksis vil ofte avhenge av bedriften man jobber i. 
+
+
+## Klassisk arbeidsmodell (før DevOps)
+Den klassiske måten å utvikle software på pleide å være store leveranser. Det kunne være vanlig at det var måneder eller år mellom hver slik leveranse. 
+
+
+Hver leveranse hadde en overlevering fra utvikling til drift (og evt. manuell test), hvor drift har hele ansvaret med å laste inn programvaren til serveren. (denne opplastningen er det som ofte kalles deploy). Dette arbeidet hadde ofte mange manuelle steg, og kunnskapen om hvordan det gjøres måtte repeteres siden det ble gjort så sjeldent. Disse overleveringene var fort også veldig byråkratiske med sjekklister som måtte fylles ut.
+
+
+:::info agile arbeidsmetoder
+Du vil ofte høre ordet Agile nevnt når DevOps introduseres. Dette er fordi flere av prinsippene rundt DevOps kan sees på som en videreføring av Agile. Agile arbeidsmetoder går ut på at man leverer iterativt, gjerne små leveranser av gangen. Man leverer gjerne produktet ofte med små endringer, fremfor en "big bang" stor leveranse etter mange måneder/år. Mange bruker ordet "smidig" som en norsk oversettelse for "agile".
+:::
+
+
+## DevOps prinsipper
+- **Automatisering**: Vi ønsker å automatisere alt fra test kjøringer, bygg av programvare som kan leveres, utgivelse av programvaren, deploy/opplastning osv. Automatisering er i mange tilfeller kode, og denne koden vil også gi god dokumentasjon på hvordan din kode bygges, testes, deployes osv.
+- **Raske tilbakemeldinger**: Om det er noe galt med koden, deploy/opplastning feilet, så ønsker vi å vite det raskt! Dette betyr at vi ønsker å utgi koden vår ofte, og dermed også få tilbakemelding raskt. Automatiserte løsninger hjelper oss fort å nå dette målet.
+- **Kontinuerlig leveranser og forbedringer**: Når vi får raske tilbakemeldinger, så kan vi også fortere forbedre. Dette gjelder både prosesser, samt kode-relaterte aspekter. Vi ønsker også å levere koden vår raskest mulig ut til kunden. Her kan du fort finne bedrifter som leverer mange ganger om dagen.
+
+
+## DevOps - Betyr det at jeg som utvikler må kunne mye om drift?
+Ofte vil du, som utvikler, ikke trenge å være en drifts-ekspert. Dette er fordi DevOps ofte fører med seg teknologier of lignende for å gjøre livet enklere for utviklere. Operations biten vil ofte vedlikeholde disse verktøyene og lage verktøy på toppen for å gjøre plattformen enklere å håndtere for utviklere. Å ha plattform-team for å utvikle og vedlikeholde plattformen er ikke uvanlig.
+
+
+Et nøkkelord her er automatisering. Utviklere skriver både automatiserte løsninger selv, og får hjelp fra f.eks plattform team. 
+
+
+## Ressurser
+
+<RelevantLinks
+  documentation={[
+    {
+      title: "What is DevOps? (GitLab)",
+      url: "https://about.gitlab.com/topics/devops/",
+    },
+  ]}
+  videos={[
+    {
+      title: "What is DevOps? REALLY understand it",
+      url: "https://www.youtube.com/watch?v=0yWAtQ6wYNM",
+    },
+  ]}
+/>
