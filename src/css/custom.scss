@@ -82,6 +82,12 @@ footer {
   transform: translateX(0px);
 }
 
+@media screen and (max-width: 996px) {
+  .navbar__items {
+    justify-content: space-between;
+  }
+}
+
 [data-theme="dark"] .navbar__item:hover {
   background: rgb(255 255 255 / 0.1);
 }
