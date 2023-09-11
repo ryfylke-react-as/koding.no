@@ -1,0 +1,87 @@
+---
+sidebar_position: 1
+title: Introduksjon
+---
+
+import { RelevantLinks } from "@site/src/components/RelevantLinks/RelevantLinks.tsx";
+import { Test } from "./1-intro.quiz.tsx";
+
+# Backend
+
+## Introduksjon
+
+> Hvordan modellerer, lagrer og behandler vi data? 
+
+I Backend utvikling jobber vi med applikasjons-logikk som behandler og lagrer data. Dette fører til ulike problemstillinger som hvordan denne dataen skal modelleres, hvordan den behandles, samt hvordan vi gjør dette på måter som er enklest mulig å vedlikeholde.
+
+
+<RelevantLinks
+  articles={[
+    {
+      title: "Koding.no - Backend utvikler",
+      url: "/ressurser/artikler/fagområder/backend-utvikler",
+    },
+  ]}
+/>
+
+
+## Server, klient & HTTP
+Som backend utvikler, utvikler du programvare som kjører på servere. Programmene du skriver vil, i de aller fleste tilfeller, ikke leve i et vakum. I de fleste tilfeller vil du ha en frontend/klient som ønsker å hente data fra backend programmet ditt. Dette vil som oftest skje over HTTP, men kan også gjøres gjennom andre protokoller. 
+
+
+
+<RelevantLinks
+  articles={[
+    {
+      title: "Koding.no - Server, klient & HTTP",
+      url: "/ressurser/artikler/web/server-og-klient",
+    },
+  ]}
+/>
+
+
+## Databaser
+Du vil ofte ønske å lagre data tilhørende et backend system, noe som gjøres gjennom databaser. Det er mange typer databaser som kan brukes. Hva slags database du ender opp med vil avhenge av problemet du løser, eller evt. hva arbeidsgiver har bestemt.
+
+<RelevantLinks
+  articles={[
+    {
+      title: "Types of Databases",
+      url: "https://www.mongodb.com/databases/types",
+    },
+  ]}
+/>
+
+
+## Validering
+De aller fleste backend systemer vil før eller siden motta data fra en frontend/klient, eller et annet backend system. I disse tilfellene ønsker vi å validere at vi har mottatt gyldige data. Hva som kategoriseres som gyldig vil variere fra system til system. Et eksempel på validering gjort av backend i et offentlig person-register vil være å sjekke at fødselsnummer er 11 siffer, og at kontroll-siffer (siste 2) er korrekt (regnet ut fra de første 9).
+
+
+
+## Relevante bibliotek, rammeverk og programmeringsspråk
+Det er mange ulike programmeringsspråk du kan bruke som backend utvikler. Under finner du noen eksempler på mye brukte teknologier i bransjen. 
+
+- Node.js med Express
+- C# med ASP.NET Core
+- Go med innebygget http bibliotek eller Beego
+- Java/Kotlin med Spring Framework eller Quarkus
+
+
+
+## DevOps
+Flere og flere utviklere vil møte begrepet DevOps før eller siden. DevOps er en slags interseksjon mellom utvikling (Development) og drift (Operations).
+
+<RelevantLinks
+  articles={[
+    {
+      title: "Koding.no - DevOps",
+      url: "/ressurser/artikler/devops",
+    },
+  ]}
+/>
+
+
+## Kompetansetest
+Nå har vi dekket endel konsepter, så det kan være lurt å ta en pause for å se hva du har fått med deg så langt.
+
+<Test />
