@@ -1,0 +1,66 @@
+# Sikkerhet og Kryptografi
+
+Internett meldinger blir sendt mellom flere andre parter en bare avsender og mottaker. **Det er mange andre parter som kan lese meldingen underveis**. Hvordan kan vi sikre at meldingen ikke kan bli forstått av andre enn avsender og mottaker?
+
+## En simplifisert metafor
+
+**Bob** har lyst å sende en boks i posten til **Alice**. Bob vil at ingen andre enn Alice skal kunne åpne boksen. Hvordan kan Bob sikre at boksen ikke blir åpnet av noen andre enn Alice?
+
+1. **Bob** setter på en hengelås på boksen, og låser den med en nøkkel (`Nøkkel A`) som kun han har.
+2. **Bob** sender boksen til **Alice**.
+   ```mermaid
+       graph LR
+           A((Bob)) -- "Boks (nøkkel 'A')" --> B((Alice))
+   ```
+3. **Alice** mottar boksen, også setter en ny hengelås på boksen, og låser den med en nøkkel som kun hun har (`Nøkkel B`).
+4. **Alice** sender boksen _tilbake_ til **Bob**.
+   ```mermaid
+       graph LR
+           A((Alice)) -- "Boks (nøkkel 'A' & nøkkel 'B')" --> B((Bob))
+   ```
+5. **Bob** mottar boksen, og låser opp hengelåsen med sin nøkkel.
+6. **Bob** sender boksen _tilbake_ til **Alice**.
+   ```mermaid
+       graph LR
+           A((Bob)) -- "Boks (nøkkel 'B')" --> B((Alice))
+   ```
+7. **Alice** mottar boksen, og låser opp hengelåsen med sin nøkkel.
+
+Til slutt sitter Alice igjen med en boks som har vært låst på alle turene frem og tilbake, uten at **Alice** eller **Bob** har måtte dele sin private nøkkel.
+
+> Denne metaforen er en simplifisert versjon av [Diffie-Hellman](https://www.youtube.com/watch?v=NmM9HA2MQGI).
+
+:::caution
+Denne metoden av _key exchange_ er ikke sikker mot "[man in the middle attacks](https://en.wikipedia.org/wiki/Man-in-the-middle_attack)" - en tredje aktør kan sitte i midten av samtalen og late som den er en av partene.
+Derfor er det viktig å alltid sikre seg om at mottaker er den du tror det er.
+
+Metaforen fungerer derimot fint for å illustrere enkelt hvordan man i teorien kan maskere informasjon sendt offentlig over internett slik kun skal være tilgjengelig for 2 parter.
+:::
+
+## Hvor lagres sensitiv informasjon?
+
+På internett så skiller man generelt sett mellom det man kaller en [server og en klient](http://localhost:3000/ressurser/artikler/web/server-og-klient).
+Kort fortalt så er _klienten_ datamaskinen (eller mobilen, etc) som brukeren bruker for å interagere med applikasjonen, og _serveren_ datamaskinen som
+tar imot forespørsler fra klienten og prater med databasen.
+
+Det er viktig å forstå at klienten alltid er sårbar mot angrep. **Det er ikke mulig å sikre seg mot at en bruker kan endre på koden som kjører på deres egen datamaskin**.
+Det er derfor viktig at sensitiv informasjon ikke lagres på klienten, men heller på serveren.
+
+## Passord hashing
+
+Man kan aldri være helt sikre på at databasen hvor passord er lagret ikke blir brytt inn i av en skummel aktør. Derfor er det viktig at passordene som lagres der, ikke lagres i det man kaller "plain text" (altså, at passordet er lagret som det er skrevet inn).
+
+For å løse dette problemet bruker vi noe som heter _password hashing_.
+
+Hashing er en funksjon som tar inn passordet i plain text, og returnerer en ny tekst som er unikt for det passordet. Det er ikke mulig å gå fra teksten tilbake til passordet, men hvis man gir funksjonen samme passord så vil den alltid returnere samme tekst.
+
+| Plain text | SHA2 Hash                                                        |
+| ---------- | ---------------------------------------------------------------- |
+| 123456     | e150a1ec81e8e93e1eae2c3a77e66ec6dbd6a3b460f89c1d08aecf422ee401a0 |
+| password   | 6b3a55e0261b0304143f805a24924d0c1c44524821305f31d9277843b8a10f4e |
+
+**På grunn av dette, så trenger aldri nettsiden å egentlig vite hva passordet ditt er**. Når du skriver inn passordet ditt, så hasher nettsiden det, og sammenligner hashen med hashen som er lagret i databasen. Hvis de er like, så vet nettsiden at du har skrevet inn riktig passord.
+
+import { Test } from "./2-sikkerhet-kryptografi.quiz.tsx";
+
+<Test />
