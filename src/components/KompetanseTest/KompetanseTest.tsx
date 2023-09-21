@@ -68,6 +68,12 @@ export const KompetanseTest = (props: Props) => {
         sporsmal.svar.indexOf(answers[key]) !== sporsmal.korrekt
       ) {
         errors++;
+        // For debugging av feil svar
+        /* console.log(
+          "error:",
+          answers[key],
+          sporsmal.svar[sporsmal.korrekt]
+        ) */
       }
       i++;
     }
