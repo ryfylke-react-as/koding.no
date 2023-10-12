@@ -1,8 +1,8 @@
 # Sikkerhet og Kryptografi
 
-Internett meldinger blir sendt mellom flere andre parter en bare avsender og mottaker. **Det er mange andre parter som kan lese meldingen underveis**. Hvordan kan vi sikre at meldingen ikke kan bli forstått av andre enn avsender og mottaker?
+Det aller meste av kommunikasjon over internett består av meldinger som blir sendt mellom flere andre parter enn bare avsender og mottaker. **Det er mange andre parter som i teorien kan lese meldingen underveis**. Hvordan kan vi sikre at meldingen ikke kan bli lest og forstått av andre enn avsender og mottaker?
 
-## En simplifisert metafor
+## En forenklet metafor
 
 **Bob** har lyst å sende en boks i posten til **Alice**. Bob vil at ingen andre enn Alice skal kunne åpne boksen. Hvordan kan Bob sikre at boksen ikke blir åpnet av noen andre enn Alice?
 
@@ -12,7 +12,7 @@ Internett meldinger blir sendt mellom flere andre parter en bare avsender og mot
        graph LR
            A((Bob)) -- "Boks (nøkkel 'A')" --> B((Alice))
    ```
-3. **Alice** mottar boksen, også setter en ny hengelås på boksen, og låser den med en nøkkel som kun hun har (`Nøkkel B`).
+3. **Alice** mottar boksen, og så setter hun en ny hengelås på boksen, og låser den med en nøkkel som kun hun har (`Nøkkel B`).
 4. **Alice** sender boksen _tilbake_ til **Bob**.
    ```mermaid
        graph LR
@@ -28,19 +28,19 @@ Internett meldinger blir sendt mellom flere andre parter en bare avsender og mot
 
 Til slutt sitter Alice igjen med en boks som har vært låst på alle turene frem og tilbake, uten at **Alice** eller **Bob** har måtte dele sin private nøkkel.
 
-> Denne metaforen er en simplifisert versjon av [Diffie-Hellman](https://www.youtube.com/watch?v=NmM9HA2MQGI).
+> Denne metaforen er en forenklet versjon av [Diffie-Hellman](https://www.youtube.com/watch?v=NmM9HA2MQGI).
 
 :::caution
-Denne metoden av _key exchange_ er ikke sikker mot "[man in the middle attacks](https://en.wikipedia.org/wiki/Man-in-the-middle_attack)" - en tredje aktør kan sitte i midten av samtalen og late som den er en av partene.
+Denne metoden av _key exchange_ er ikke sikker mot "[man in the middle attacks](https://en.wikipedia.org/wiki/Man-in-the-middle_attack)" - en tredje aktør kan sitte i midten av samtalen (eller i midten av en utveksling av bokser låst med hengelås) og late som den er en av partene.
 Derfor er det viktig å alltid sikre seg om at mottaker er den du tror det er.
 
-Metaforen fungerer derimot fint for å illustrere enkelt hvordan man i teorien kan maskere informasjon sendt offentlig over internett slik kun skal være tilgjengelig for 2 parter.
+Metaforen fungerer derimot fint for å illustrere enkelt hvordan man i teorien kan maskere informasjon sendt over internett slik at den kun skal være tilgjengelig for 2 parter.
 :::
 
 ## Hvor lagres sensitiv informasjon?
 
-På internett så skiller man generelt sett mellom det man kaller en [server og en klient](http://localhost:3000/ressurser/artikler/web/server-og-klient).
-Kort fortalt så er _klienten_ datamaskinen (eller mobilen, etc) som brukeren bruker for å interagere med applikasjonen, og _serveren_ datamaskinen som
+På internett skiller man generelt sett mellom det man kaller en [server og en klient](https://www.koding.no/ressurser/artikler/web/server-og-klient).
+Kort fortalt så er _klienten_ datamaskinen (eller mobilen, etc) som brukeren benytter for å interagere med applikasjonen, og _serveren_ datamaskinen som
 tar imot forespørsler fra klienten og prater med databasen.
 
 Det er viktig å forstå at klienten alltid er sårbar mot angrep. **Det er ikke mulig å sikre seg mot at en bruker kan endre på koden som kjører på deres egen datamaskin**.
@@ -48,9 +48,9 @@ Det er derfor viktig at sensitiv informasjon ikke lagres på klienten, men helle
 
 ## Passord hashing
 
-Man kan aldri være helt sikre på at databasen hvor passord er lagret ikke blir brytt inn i av en skummel aktør. Derfor er det viktig at passordene som lagres der, ikke lagres i det man kaller "plain text" (altså, at passordet er lagret som det er skrevet inn).
+Man kan aldri være helt sikre på at databasen hvor passord er lagret ikke blir utsatt for innbrudd av en skummel aktør. Derfor er det viktig at passordene som lagres der, ikke lagres i det man kaller "plain text" (altså, at passordet er lagret akkurat slik som det er skrevet inn).
 
-For å løse dette problemet bruker vi noe som heter _password hashing_.
+For å løse dette problemet brukes noe som heter _password hashing_.
 
 Hashing er en funksjon som tar inn passordet i plain text, og returnerer en ny tekst som er unikt for det passordet. Det er ikke mulig å gå fra teksten tilbake til passordet, men hvis man gir funksjonen samme passord så vil den alltid returnere samme tekst.
 
