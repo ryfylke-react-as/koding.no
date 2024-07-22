@@ -3,6 +3,7 @@ description: Et byggesystem håndterer bygging av koden din, avhengigheter den m
 ---
 
 import { RelevantLinks } from "../../src/components/RelevantLinks/RelevantLinks.tsx";
+import { Tooltip } from "../../src/components/Tooltip/Tooltip.tsx";
 
 # Byggesystem
 Et byggesystem håndterer bygging/kompilering av koden din, avhengigheter den måtte ha, og andre lignende oppgaver.
@@ -20,7 +21,7 @@ flowchart LR
 
 
 ### Hvorfor bruke et byggesystem?
-Du har kanskje laget ganske enkle applikasjoner hittil? Du vil nok legge merke til at kommandoene for å kompilere blir stadig mer komplekse når du har flere filer. Det er flere grunner til å bruke et byggesystem:
+Du har kanskje laget ganske enkle applikasjoner hittil? Du vil nok legge merke til at kommandoene for å <Tooltip hint="Å kompilere kode betyr overforenklet å oversette koden fra tekst vi kan lese, til instrukser maskinen kan utføre.">kompilere</Tooltip> blir stadig mer komplekse når du har flere filer. Det er flere grunner til å bruke et byggesystem:
 - Prosjektet har mange kodefiler som skal bygges/kompileres.
 - Prosjektet avhenger av eksterne avhengigheter som f.eks web server logikk eller sikkerhets-algoritmer. Disse avhengighetene kan fort bli litt tuklete å håndtere manuelt.
 - Håndtering av versjonsnummer for prosjektet
