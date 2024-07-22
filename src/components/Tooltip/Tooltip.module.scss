@@ -1,0 +1,35 @@
+.tooltip {
+    display: inline-block;
+    margin: 0;
+    position: relative;
+    border-bottom: 1px dotted gray;
+}
+
+.hint {
+    display: inline-block;
+    visibility: hidden;
+    z-index: 1;
+    position: absolute;
+    bottom: 120%;
+    right: -15%;
+    border: 2px dashed black;
+    border-radius: 5px;
+    background: white;
+    min-width: 15vw;
+    max-width: 40vw;
+    padding: 10px 10px 10px 10px;
+}
+
+.tooltip .hint::after {
+    content: " ";
+    position: absolute;
+    top: 100%;
+    right: 5%;
+    border-width: 10px;
+    border-style: dashed;
+    border-color: black transparent transparent transparent;
+}
+
+.tooltip:hover .hint {
+    visibility: visible;
+}
