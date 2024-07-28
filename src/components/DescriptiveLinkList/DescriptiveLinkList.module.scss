@@ -25,8 +25,10 @@
           height: 1em;
         }
       }
-      transition: background 200ms ease-out;
-      transform-origin: top left;
+      & {
+          transition: background 200ms ease-out;
+          transform-origin: top left;
+      }
       &:hover {
         text-decoration: none;
         background: var(--ifm-color-primary-contrast-background);
