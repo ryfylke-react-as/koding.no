@@ -1,6 +1,5 @@
 .tooltip {
     display: inline-block;
-    margin: 0;
     position: relative;
     border-bottom: 1px dotted gray;
 }
@@ -17,7 +16,6 @@
     background: white;
     min-width: 15vw;
     max-width: 40vw;
-    padding: 10px 10px 10px 10px;
 }
 
 .tooltip .hint::after {
