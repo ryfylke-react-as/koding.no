@@ -5,6 +5,7 @@ title: Introduksjon
 
 import { RelevantLinks } from "@site/src/components/RelevantLinks/RelevantLinks.tsx";
 import { Test } from "./1-intro.quiz.tsx";
+import { Tooltip } from "../../src/components/Tooltip/Tooltip.tsx";
 
 # Backend
 
@@ -26,7 +27,7 @@ I Backend utvikling jobber vi med applikasjons-logikk som behandler og lagrer da
 
 
 ## Server, klient & HTTP
-Som backend utvikler, utvikler du programvare som kjører på servere. Programmene du skriver vil, i de aller fleste tilfeller, ikke leve i et vakum. I de fleste tilfeller vil du ha en frontend/klient som ønsker å hente data fra backend programmet ditt. Dette vil som oftest skje over HTTP, men kan også gjøres gjennom andre protokoller. 
+Som backend utvikler, utvikler du programvare som kjører på servere. Programmene du skriver vil, i de aller fleste tilfeller, ikke leve i et vakum. I de fleste tilfeller vil du ha en frontend/klient som ønsker å hente data fra backend programmet ditt. Dette vil som oftest skje over <Tooltip hint="HTTP = HyperText Transfer Protocol. Dette er en protokoll for overføring av data/tekst, inkludert nettsider som denne.">HTTP</Tooltip>, men kan også gjøres gjennom andre protokoller. 
 
 
 
@@ -66,6 +67,8 @@ Det er mange ulike programmeringsspråk du kan bruke som backend utvikler. Under
 - Go med innebygget http bibliotek eller Beego
 - Java/Kotlin med Spring Framework eller Quarkus
 
+
+Dersom du ønsker å bli <Tooltip hint="Utvikler som jobber både med frontend og backend kode.">full stack utvikler</Tooltip> på sikt, så anbefales det å starte med teknologier som Node.js. Da får du en viss konsistens med Javascript som språk både på frontend og backend siden.
 
 
 ## DevOps
