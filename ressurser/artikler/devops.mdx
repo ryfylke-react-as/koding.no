@@ -3,6 +3,7 @@ description: DevOps er et slags skjæringspunkt mellom Development (Utvikling) o
 ---
 
 import { RelevantLinks } from "../../src/components/RelevantLinks/RelevantLinks.tsx";
+import { Tooltip } from "../../src/components/Tooltip/Tooltip.tsx";
 
 # DevOps
 
@@ -22,7 +23,7 @@ Du vil ofte høre ordet Agile nevnt når DevOps introduseres. Dette er fordi fle
 
 
 ## DevOps prinsipper
-- **Automatisering**: Vi ønsker å automatisere alt fra test kjøringer, bygg av programvare som kan leveres, utgivelse av programvaren, deploy/opplastning osv. Automatisering er i mange tilfeller kode, og denne koden vil også gi god dokumentasjon på hvordan din kode bygges, testes, deployes osv.
+- **Automatisering**: Vi ønsker å automatisere alt fra <Tooltip hint="Tester er ikke alltid manuelle, men kan være automatiserte tester. Disse skriver vi ofte selv med kode, og de kommer i flere forskjellige former. Noen tester kode på funksjons-nivå (unit tester), mens andre kjører på hele eller deler av kodebasen (integrasjons-tester, end-to-end tester osv.).">test kjøringer</Tooltip>, bygg av programvare som kan leveres, utgivelse av programvaren, deploy/opplastning osv. Automatisering er i mange tilfeller kode, og denne koden vil også gi god dokumentasjon på hvordan din kode bygges, testes, deployes osv.
 - **Raske tilbakemeldinger**: Om det er noe galt med koden, deploy/opplastning feilet, så ønsker vi å vite det raskt! Dette betyr at vi ønsker å utgi koden vår ofte, og dermed også få tilbakemelding raskt. Automatiserte løsninger hjelper oss fort å nå dette målet.
 - **Kontinuerlig leveranser og forbedringer**: Når vi får raske tilbakemeldinger, så kan vi også fortere forbedre. Dette gjelder både prosesser, samt kode-relaterte aspekter. Vi ønsker også å levere koden vår raskest mulig ut til kunden. Her kan du fort finne bedrifter som leverer mange ganger om dagen.
 
