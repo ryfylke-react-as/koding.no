@@ -80,7 +80,7 @@ Legger til filer i git-repositoryet ditt. Du kan legge til enkeltfiler, eller he
 
 ### `git commit`
 
-Lager en ny versjon av filene du har lagt til med `git add`. Du må skrive en beskjed som beskriver hva du har gjort siden sist.
+Lager en ny versjon av filene du har lagt til med `git add`. Du må skrive en beskjed som beskriver hva du har gjort siden sist, dette kan du gjøre i samme kommando ved å bruke `-m` opsjonen (feks: `git commit -m "Oppdaterte README"`).
 
 ### `git push`
 
@@ -96,15 +96,27 @@ Lager en ny branch. Du kan også bruke `git checkout -b <branch-navn>` for å la
 
 ### `git checkout`
 
-Bytter branch. Du kan også bruke `git checkout -b <branch-navn>` for å lage en ny branch og bytte til den.
+Bytter branch. Du kan også bruke `git checkout -b <branch-navn>` for å lage en ny branch og bytte til den. Checkout kan også bli brukt til å blant annet se på en tidligere commit i samme branch. 
 
 ### `git merge`
 
-Slår sammen en branch inn i en annen. Du må være på den branchen du vil slå sammen til.
+Slår sammen en branch inn i en annen. Du må være på den branchen du vil slå sammen til. `git rebase` er også et alternativ som kan være [lurt å sjekke ut](https://www.atlassian.com/git/tutorials/merging-vs-rebasing).
 
 ### `git status`
 
 Viser statusen til git-repositoryet ditt. Her kan du se hvilke filer som er endret, hvilke filer som er lagt til, og hvilke filer som er slettet.
+
+## Visuelle verktøy
+
+Det er fult mulig å utnytte git uten å skrive noen kommandoer. Du kan bruke verktøy som for eksempel:
+
+* [Github sin desktop-app](https://github.com/apps/desktop).
+* [VSCode sin source control fane](https://code.visualstudio.com/docs/sourcecontrol/overview).
+* [Fork](https://git-fork.com/)
+* [Tower](https://www.git-tower.com/mac)
+
+
+Til tross for at det er mulig å bruke git uten å skrive noen kommandoer, anbefales det sterkt å ha en forståelse over hva de ulike kommandoene tidligere nevnt.
 
 ## Ressurser
 
